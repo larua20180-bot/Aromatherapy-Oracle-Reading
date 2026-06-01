@@ -1291,6 +1291,12 @@ async function getSummaryReading(oils, question) {
 // ===== 分享：開新視窗顯示乾淨結果頁 =====
 function shareResult() {
   var question = userQuestion ? '「' + userQuestion + '」' : '';
+ 
+  // 把卡片強制設為可見（移除動畫初始透明狀態）
+  document.querySelectorAll('#readingCards .reading-card, #readingCards .summary-card').forEach(function(el) {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
   var cardsHTML = document.getElementById('readingCards').innerHTML;
  
   var html = '<!DOCTYPE html><html lang="zh-TW"><head>'
@@ -1298,16 +1304,16 @@ function shareResult() {
     + '<title>我的香氣訊息</title>'
     + '<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">'
     + '<style>'
-    + ':root{--cream:#F7F5FA;--warm-white:#FDFCFE;--sand:#E8E2F0;--taupe:#B8A8CC;--brown:#8B6FAA;--deep-brown:#5B3F7A;--text:#3A2D4A;--text-light:#7A6590;--crystal-blue:#A8C4D8;--egg-green:#9EC4B0;}'
+    + ':root{--cream:#F7F5FA;--warm-white:#FDFCFE;--sand:#E8E2F0;--taupe:#B8A8CC;--brown:#8B6FAA;--deep-brown:#5B3F7A;--text:#3A2D4A;--text-light:#7A6590;}'
     + '*{margin:0;padding:0;box-sizing:border-box;}'
     + 'body{background:var(--cream);font-family:"Noto Serif TC",serif;padding:40px 24px;color:var(--text);}'
-    + '.wrap{max-width:400px;margin:0 auto;}'
+    + '.wrap{max-width:420px;margin:0 auto;}'
     + '.top{text-align:center;margin-bottom:32px;}'
     + '.logo{font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:0.3em;color:var(--taupe);margin-bottom:8px;}'
     + '.title{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:300;color:var(--deep-brown);margin-bottom:6px;}'
     + '.q{font-size:15px;color:var(--taupe);font-style:italic;}'
-    + '.hint{text-align:center;font-size:14px;color:var(--taupe);margin-bottom:20px;letter-spacing:0.1em;}'
-    + '.reading-card{background:var(--warm-white);border:1px solid var(--sand);padding:20px 18px;margin-bottom:12px;}'
+    + '.hint{text-align:center;font-size:14px;color:var(--taupe);margin-bottom:20px;letter-spacing:0.1em;padding:12px;border:1px solid var(--sand);}'
+    + '.reading-card{background:var(--warm-white);border:1px solid var(--sand);padding:20px 18px;margin-bottom:12px;opacity:1!important;transform:none!important;transition:none!important;}'
     + '.card-header{display:flex;align-items:center;gap:12px;margin-bottom:10px;}'
     + '.card-number{font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--sand);line-height:1;min-width:20px;}'
     + '.card-oil-name{font-size:17px;color:var(--deep-brown);}'
@@ -1316,20 +1322,21 @@ function shareResult() {
     + '.card-energy-line{font-size:14px;color:var(--text-light);line-height:1.8;margin-bottom:12px;font-style:italic;}'
     + '.card-divider{width:100%;height:1px;background:var(--sand);margin-bottom:12px;}'
     + '.card-reading{font-size:15px;line-height:2.1;color:var(--text-light);}'
-    + '.summary-card{background:var(--warm-white);border:1px solid var(--taupe);padding:24px 18px;margin-bottom:12px;}'
+    + '.summary-card{background:var(--warm-white);border:1px solid var(--taupe);padding:24px 18px;margin-bottom:12px;opacity:1!important;transform:none!important;transition:none!important;}'
     + '.summary-label{font-size:12px;letter-spacing:0.3em;color:var(--brown);margin-bottom:12px;}'
     + '.summary-text{font-size:15px;line-height:2.2;color:var(--text-light);}'
-    + '.footer{text-align:center;padding:24px 0 8px;font-size:13px;letter-spacing:0.2em;color:var(--taupe);}'
+    + '.card-loading{display:none;}'
+    + '.footer{text-align:center;padding:24px 0 8px;font-size:13px;letter-spacing:0.1em;color:var(--taupe);font-family:"Cormorant Garamond",serif;font-style:italic;}'
     + '</style></head><body>'
     + '<div class="wrap">'
     + '<p class="hint">長按圖片可儲存 · 或截圖畫面</p>'
     + '<div class="top">'
-    + '<div class="logo">✦ 香氣抓周</div>'
+    + '<div class="logo">🌿 香氣抓周</div>'
     + '<div class="title">我的香氣訊息</div>'
     + (question ? '<div class="q">' + question + '</div>' : '')
     + '</div>'
     + cardsHTML
-    + '<div class="footer">香氣抓周 · 精油占卜 · 自我覺察</div>'
+    + '<div class="footer">Designed &amp; Crafted by Jia Zhen Wu &middot; &copy; 2026 Aromatherapy Oracle Reading</div>'
     + '</div></body></html>';
  
   var encoded = 'data:text/html;charset=utf-8,' + encodeURIComponent(html);
@@ -1502,3 +1509,4 @@ autoDetectLang();
 </script>
 </body>
 </html>
+ 
