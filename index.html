@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>香氣抓周 · 精油占卜</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F5FA;
+    --warm-white: #FDFCFE;
+    --sand: #E8E2F0;
+    --taupe: #B8A8CC;
+    --brown: #8B6FAA;
+    --deep-brown: #5B3F7A;
+    --sage: #9BB8A8;
+    --gold: #B89870;
+    --text: #3A2D4A;
+    --text-light: #7A6590;
+    --crystal-blue: #A8C4D8;
+    --egg-green: #9EC4B0;
+  }
+ 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Noto Serif TC', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+ 
+  /* 紋理背景 */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+ 
+  /* ===== 頁面管理 ===== */
+  .page { display: none; min-height: 100vh; position: relative; z-index: 1; }
+  .page.active { display: flex; flex-direction: column; }
+ 
+  /* ===== 首頁 ===== */
+  #page-intro {
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    text-align: center;
+  }
+ 
+  .intro-ornament {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 16px;
+    animation: float 4s ease-in-out infinite;
+  }
+ 
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+ 
+  .intro-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--deep-brown);
+    margin-bottom: 8px;
+  }
+ 
+  .intro-subtitle {
+    font-size: 15px;
+    letter-spacing: 0.3em;
+    color: var(--taupe);
+    margin-bottom: 48px;
+  }
+ 
+  .intro-divider {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--taupe), transparent);
+    margin: 0 auto 48px;
+  }
+ 
+  .intro-desc {
+    max-width: 320px;
+    font-size: 16px;
+    line-height: 2.2;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+ 
+  .intro-note {
+    max-width: 300px;
+    font-size: 15px;
+    line-height: 2;
+    color: var(--taupe);
+    margin-bottom: 56px;
+    padding: 20px;
+    border: 1px solid var(--sand);
+    border-radius: 2px;
+  }
+ 
+  .intro-note strong {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--brown);
+    margin-bottom: 8px;
+  }
+ 
+  /* ===== 按鈕 ===== */
+  .btn-primary {
+    display: inline-block;
+    padding: 18px 52px;
+    background: var(--deep-brown);
+    color: var(--warm-white);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    letter-spacing: 0.25em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+ 
+  .btn-primary:hover::before { transform: scaleX(1); }
+  .btn-primary span { position: relative; z-index: 1; }
+ 
+  .btn-secondary {
+    display: inline-block;
+    padding: 16px 44px;
+    background: transparent;
+    color: var(--brown);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    border: 1px solid var(--taupe);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+  }
+ 
+  .btn-secondary:hover {
+    background: var(--sand);
+    border-color: var(--brown);
+  }
+ 
+  /* ===== 儀式引導頁 ===== */
+  #page-ritual {
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    text-align: center;
+  }
+ 
+  .ritual-step {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeUp 0.6s ease forwards;
+  }
+ 
+  .ritual-step.active { display: flex; }
+ 
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+ 
+  .ritual-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    color: var(--sand);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+ 
+  .ritual-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--deep-brown);
+    margin-bottom: 20px;
+  }
+ 
+  .ritual-desc {
+    max-width: 300px;
+    font-size: 16px;
+    line-height: 2.2;
+    color: var(--text-light);
+    margin-bottom: 40px;
+  }
+ 
+  .breath-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid var(--taupe);
+    margin: 0 auto 16px;
+    animation: breathe 4s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--taupe);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+  }
+ 
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.3); opacity: 1; }
+  }
+ 
+  .question-input-wrap {
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 32px;
+  }
+ 
+  .question-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--taupe);
+    padding: 16px 4px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    color: var(--text);
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+ 
+  .question-input:focus { border-bottom-color: var(--brown); }
+  .question-input::placeholder { color: var(--taupe); font-size: 13px; }
+ 
+  .question-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--taupe);
+    margin-bottom: 8px;
+    display: block;
+  }
+ 
+  /* ===== 選瓶頁 ===== */
+  #page-select {
+    padding: 48px 24px 32px;
+    align-items: center;
+  }
+ 
+  .select-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+ 
+  .select-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--deep-brown);
+    margin-bottom: 8px;
+  }
+ 
+  .select-desc {
+    font-size: 12px;
+    color: var(--taupe);
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+  }
+ 
+  .select-counter {
+    font-size: 13px;
+    color: var(--brown);
+    margin-top: 12px;
+  }
+ 
+  /* 散落瓶子區 */
+  .bottles-field {
+    width: 100%;
+    max-width: 380px;
+    height: 620px;
+    position: relative;
+    margin: 0 auto 32px;
+  }
+ 
+  .bottle-item {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    user-select: none;
+  }
+ 
+  .bottle-item:hover { transform: scale(1.15) rotate(0deg) !important; }
+  .bottle-item.selected .bottle-svg { filter: drop-shadow(0 0 10px rgba(201,169,110,0.7)); }
+  .bottle-item.selected .bottle-cap { fill: var(--gold); }
+  .bottle-item.selected .bottle-body { fill: #D4C4A0; stroke: var(--gold); }
+ 
+  .bottle-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: var(--deep-brown);
+    color: var(--warm-white);
+    border-radius: 50%;
+    font-size: 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+  }
+ 
+  .bottle-item.selected .bottle-badge { display: flex; }
+ 
+  /* ===== 解讀頁 ===== */
+  #page-reading {
+    padding: 48px 24px;
+    align-items: center;
+  }
+ 
+  .reading-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+ 
+  .reading-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--deep-brown);
+    margin-bottom: 8px;
+  }
+ 
+  .reading-question-display {
+    font-size: 12px;
+    color: var(--taupe);
+    font-style: italic;
+    letter-spacing: 0.05em;
+  }
+ 
+  .reading-cards {
+    width: 100%;
+    max-width: 380px;
+  }
+ 
+  .reading-card {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    padding: 24px 20px;
+    margin-bottom: 16px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+ 
+  .reading-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+ 
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+ 
+  .card-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--sand);
+    line-height: 1;
+    min-width: 24px;
+  }
+ 
+  .card-oil-name {
+    font-size: 18px;
+    color: var(--deep-brown);
+    letter-spacing: 0.05em;
+  }
+ 
+  .card-oil-latin {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--taupe);
+    font-style: italic;
+  }
+ 
+  .card-category-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--brown);
+    background: var(--sand);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+ 
+  .card-energy-line {
+    font-size: 14px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+ 
+  .card-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--sand);
+    margin-bottom: 16px;
+  }
+ 
+  .card-reading {
+    font-size: 16px;
+    line-height: 2.3;
+    color: var(--text-light);
+  }
+ 
+  .card-loading {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 8px 0;
+  }
+ 
+  .loading-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--taupe);
+    border-radius: 50%;
+    animation: dotPulse 1.4s ease-in-out infinite;
+  }
+ 
+  .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+ 
+  @keyframes dotPulse {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40% { transform: scale(1); opacity: 1; }
+  }
+ 
+  .summary-card {
+    background: var(--warm-white);
+    border: 1px solid var(--taupe);
+    padding: 28px 24px;
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+ 
+  .summary-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+ 
+  .summary-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+ 
+  .summary-text {
+    font-size: 16px;
+    line-height: 2.3;
+    color: var(--text-light);
+  }
+ 
+  .reading-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 380px;
+    margin-top: 8px;
+  }
+ 
+/* ===== 導覽列 ===== */
+  .page-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: linear-gradient(to bottom, var(--cream) 80%, transparent);
+  }
+ 
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    color: var(--brown);
+    cursor: pointer;
+  }
+ 
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+ 
+  .nav-menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+ 
+  .nav-menu-btn span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--brown);
+    transition: all 0.3s;
+  }
+ 
+  .nav-lang {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--taupe);
+    cursor: pointer;
+    padding: 4px 8px;
+    border: 1px solid var(--sand);
+    border-radius: 12px;
+    background: none;
+    font-family: 'Noto Serif TC', serif;
+    transition: all 0.2s;
+  }
+ 
+  .nav-lang:hover { color: var(--brown); border-color: var(--taupe); }
+ 
+  .nav-back {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--taupe);
+    cursor: pointer;
+    display: none;
+  }
+ 
+  .nav-back:hover { color: var(--brown); }
+ 
+  /* ===== 側邊選單 ===== */
+  .side-menu {
+    position: fixed;
+    top: 0; right: -280px;
+    width: 260px;
+    height: 100vh;
+    background: var(--warm-white);
+    z-index: 300;
+    padding: 60px 32px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: right 0.4s ease;
+    box-shadow: -4px 0 20px rgba(58,45,74,0.08);
+  }
+ 
+  .side-menu.open { right: 0; }
+ 
+  .side-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(58,45,74,0.2);
+    z-index: 299;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+ 
+  .side-overlay.open { display: block; opacity: 1; }
+ 
+  .side-menu-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none; border: none;
+    font-size: 20px; color: var(--taupe);
+    cursor: pointer;
+  }
+ 
+  .side-menu-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--taupe);
+    margin-bottom: 16px;
+  }
+ 
+  .side-menu-item {
+    font-size: 15px;
+    color: var(--text);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--sand);
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+ 
+  .side-menu-item:hover { color: var(--brown); }
+ 
+  .side-lang-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+  }
+ 
+  .side-lang-btn {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    border: 1px solid var(--sand);
+    background: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-family: 'Noto Serif TC', serif;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+ 
+  .side-lang-btn.active, .side-lang-btn:hover {
+    background: var(--deep-brown);
+    color: var(--warm-white);
+    border-color: var(--deep-brown);
+  }
+ 
+  /* 截圖目標 */
+  #share-target {
+    background: var(--warm-white);
+  }
+ 
+  /* 進度條 */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.5s ease;
+    z-index: 200;
+  }
+ 
+  /* ===== 頁尾 ===== */
+  .site-footer {
+    text-align: center;
+    padding: 40px 24px 32px;
+    border-top: 1px solid var(--sand);
+    margin-top: 40px;
+  }
+ 
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--taupe);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+ 
+  .footer-contact {
+    font-size: 12px;
+    color: var(--taupe);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+ 
+  .footer-contact a {
+    color: var(--taupe);
+    text-decoration: none;
+  }
+ 
+  .footer-contact a:hover { color: var(--brown); }
+ 
+  .footer-coffee {
+    font-size: 12px;
+    color: var(--taupe);
+  }
+ 
+  .footer-coffee a {
+    color: var(--brown);
+    text-decoration: none;
+  }
+ 
+  /* ===== 關於我頁 ===== */
+  #page-about {
+    padding: 90px 24px 40px;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+ 
+  .about-section {
+    margin-bottom: 40px;
+  }
+ 
+  .about-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+ 
+  .about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--deep-brown);
+    margin-bottom: 24px;
+    letter-spacing: 0.1em;
+  }
+ 
+  .about-text {
+    font-size: 15px;
+    line-height: 2.2;
+    color: var(--text-light);
+    margin-bottom: 12px;
+  }
+ 
+  .about-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--taupe);
+    margin: 24px 0;
+  }
+ 
+  /* ===== 歷史紀錄頁 ===== */
+  #page-history {
+    padding: 90px 24px 40px;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+ 
+  .history-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--deep-brown);
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+  }
+ 
+  .history-note {
+    font-size: 12px;
+    color: var(--taupe);
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+ 
+  .history-empty {
+    text-align: center;
+    padding: 60px 0;
+    font-size: 15px;
+    color: var(--taupe);
+    line-height: 2;
+  }
+ 
+  .history-item {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    padding: 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+ 
+  .history-item:hover { border-color: var(--taupe); }
+ 
+  .history-item-date {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--taupe);
+    margin-bottom: 6px;
+  }
+ 
+  .history-item-question {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+ 
+  .history-item-oils {
+    font-size: 12px;
+    color: var(--text-light);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+  }
+ 
+  .history-clear-btn {
+    font-size: 12px;
+    color: var(--taupe);
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    padding: 8px 0;
+    display: block;
+    margin: 16px auto 0;
+  }
+ 
+  .history-clear-btn:hover { color: var(--brown); }
+</style>
+</head>
+<body>
+ 
+<div class="progress-bar" id="progressBar" style="width: 0%"></div>
+ 
+<div class="side-overlay" id="sideOverlay" onclick="closeMenu()"></div>
+ 
+<div class="side-menu" id="sideMenu">
+  <button class="side-menu-close" onclick="closeMenu()">✕</button>
+  <div class="side-menu-title" id="nav-menu-label">MENU</div>
+  <div class="side-menu-item" onclick="showPage('intro');closeMenu();" id="nav-home">首頁</div>
+  <div class="side-menu-item" onclick="showPage('history');closeMenu();" id="nav-history">歷史紀錄</div>
+  <div class="side-menu-item" onclick="showPage('about');closeMenu();" id="nav-about">關於我</div>
+  <div class="side-lang-group">
+    <button class="side-lang-btn active" onclick="setLang('zh')" id="lang-zh">繁中</button>
+    <button class="side-lang-btn" onclick="setLang('en')" id="lang-en">EN</button>
+    <button class="side-lang-btn" onclick="setLang('ja')" id="lang-ja">日本語</button>
+  </div>
+</div>
+ 
+<nav class="page-nav">
+  <div class="nav-logo" onclick="showPage('intro')" id="nav-logo-text">香氣抓周</div>
+  <div class="nav-right">
+    <div class="nav-back" id="navBack" onclick="goBack()">← 返回</div>
+    <button class="nav-menu-btn" onclick="openMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+ 
+<!-- 首頁 -->
+<div class="page active" id="page-intro">
+  <div class="intro-ornament">🌿</div>
+  <h1 class="intro-title" id="intro-title-text">香氣抓周</h1>
+  <p class="intro-subtitle" id="intro-subtitle-text">精油占卜 · 自我覺察</p>
+  <div class="intro-divider"></div>
+  <p class="intro-desc" id="intro-desc-text">
+    讓植物的絮語成為一面溫柔的鏡子，<br>照見內心深處的自己。<br><br>
+    傾聽身體的悄悄話，<br>找回當下最舒服的平衡。
+  </p>
+  <div class="intro-note">
+    <strong id="intro-note-title">✦ 使用前請注意</strong>
+    <span id="intro-note-body">選一個不會被打擾的時刻。<br>不執著於重複問同一個問題。<br>帶著開放的心，讓直覺帶路。</span>
+  </div>
+  <button class="btn-primary" onclick="startRitual()"><span id="btn-start-text">開始抓周</span></button>
+  <div class="site-footer">
+    <div class="footer-brand">Designed &amp; Crafted by Jia Zhen Wu &middot; &copy; 2026 Aromatherapy Oracle Reading</div>
+    <div class="footer-contact"><a href="mailto:larua20180@gmail.com">larua20180@gmail.com</a></div>
+    <div class="footer-coffee"><a href="https://buymeacoffee.com" target="_blank">☕ Buy Me a Coffee</a></div>
+  </div>
+</div>
+ 
+<!-- 歷史紀錄 -->
+<div class="page" id="page-history">
+  <h2 class="history-title" id="history-page-title">歷史紀錄</h2>
+  <p class="history-note" id="history-page-note">紀錄只存於你的個人瀏覽器，更換裝置或清除資料後將消失。</p>
+  <div id="historyList"></div>
+  <button class="history-clear-btn" onclick="clearHistory()" id="btn-clear-history">清除所有紀錄</button>
+</div>
+ 
+<!-- 關於我 -->
+<div class="page" id="page-about">
+  <div class="about-section">
+    <div class="about-section-title">ABOUT</div>
+    <h2 class="about-title" id="about-main-title">什麼是精油抓周？</h2>
+    <p class="about-text" id="about-p1">精油抓周（又稱香氛占卜）是一種結合嗅覺與潛意識的自我覺察方式。藉由你對特定植物香氣的直覺反應，來反映你當下的身心狀態與情緒盲點。它不是傳統算命，而是一面溫柔的鏡子。</p>
+  </div>
+  <div class="about-divider"></div>
+  <div class="about-section">
+    <div class="about-section-title" id="about-s2">抽精油前須知</div>
+    <p class="about-text" id="about-p2">選一個安靜、不會被打擾的時刻。深呼吸三次，讓思緒慢下來。心中帶著一個想探索的問題，或單純想了解自己當下的狀態，都可以。</p>
+  </div>
+  <div class="about-divider"></div>
+  <div class="about-section">
+    <div class="about-section-title" id="about-s3">如何提問</div>
+    <p class="about-text" id="about-p3">一次聚焦一個問題，避免一次想知道太多。開放式問題比是非題更有層次——與其問「我該不該離職？」，不如問「如果我留下來，接下來會如何發展？」把問題寫得具體：時間範圍、相關的人、情境細節，都能讓解讀更準確。</p>
+  </div>
+  <div class="about-divider"></div>
+  <div class="about-section">
+    <div class="about-section-title" id="about-s4">解讀態度</div>
+    <p class="about-text" id="about-p4">解讀結果反映的是你此刻的內在狀態，不是絕對的預言。同一個問題請隔一段時間再抽，短時間內反覆只會徒增雜訊。帶著開放的心接收訊息，讓它成為你與自己對話的起點。</p>
+  </div>
+  <div class="about-divider"></div>
+  <div class="about-section">
+    <div class="about-section-title" id="about-s5">使用須知</div>
+    <p class="about-text" id="about-p5">本工具提供的解讀僅供自我覺察與心靈探索參考，不構成任何醫療、心理或法律建議。若你正面臨重要決策或身心困擾，請尋求專業人士的協助。</p>
+  </div>
+  <div class="site-footer">
+    <div class="footer-brand">Designed &amp; Crafted by Jia Zhen Wu &middot; &copy; 2026 Aromatherapy Oracle Reading</div>
+    <div class="footer-contact"><a href="mailto:larua20180@gmail.com">larua20180@gmail.com</a></div>
+    <div class="footer-coffee"><a href="https://buymeacoffee.com" target="_blank">☕ Buy Me a Coffee</a></div>
+  </div>
+</div>
+ 
+<!-- 儀式引導 -->
+<div class="page" id="page-ritual">
+  <!-- Step 1: 呼吸 -->
+  <div class="ritual-step active" id="ritual-1">
+    <div class="ritual-number">一</div>
+    <h2 class="ritual-title">靜下來</h2>
+    <p class="ritual-desc">跟著這個圓的節奏，深呼吸三次。吸氣時它變大，吐氣時它縮小。</p>
+    <div class="breath-circle">呼吸</div>
+    <p style="font-size:11px;color:var(--taupe);letter-spacing:0.15em;margin-bottom:40px;">慢慢來，不用趕</p>
+    <button class="btn-primary" onclick="nextRitual()"><span>我準備好了</span></button>
+  </div>
+ 
+  <!-- Step 2: 設定問題 -->
+  <div class="ritual-step" id="ritual-2">
+    <div class="ritual-number">二</div>
+    <h2 class="ritual-title">心中想著一個問題</h2>
+    <p class="ritual-desc">可以是最近在心上放了很久的事，或是此刻想要看清楚的狀態。</p>
+    <div class="question-input-wrap">
+      <span class="question-label">把問題寫下來（可選）</span>
+      <input class="question-input" id="questionInput" type="text" placeholder="例：我現在最需要看見什麼？" maxlength="50">
+    </div>
+    <p style="font-size:11px;color:var(--taupe);letter-spacing:0.1em;line-height:1.8;margin-bottom:40px;text-align:center;">不寫也沒關係，<br>把問題放在心裡就好</p>
+    <button class="btn-primary" onclick="goToSelect()"><span>進入抓周</span></button>
+  </div>
+</div>
+ 
+<!-- 選瓶 -->
+<div class="page" id="page-select" style="padding-top:80px;">
+  <div class="select-header">
+    <h2 class="select-title">用直覺選五支</h2>
+    <p class="select-desc">不要想太多，跟著感覺走<br>被吸引的、或是排斥的，都可以選</p>
+    <p class="select-counter" id="selectCounter">已選 0 / 5</p>
+  </div>
+ 
+  <div class="bottles-field" id="bottlesField"></div>
+ 
+  <button class="btn-primary" id="btnConfirm" onclick="startReading()" style="display:none;"><span>看解讀</span></button>
+</div>
+ 
+<!-- 解讀 -->
+<div class="page" id="page-reading" style="padding-top:80px; padding-bottom:60px;">
+  <div id="share-target" style="width:100%;max-width:380px;margin:0 auto;padding:0 24px;">
+    <div class="reading-header">
+      <h2 class="reading-title">你的香氣訊息</h2>
+      <p class="reading-question-display" id="readingQuestion"></p>
+    </div>
+    <div class="reading-cards" id="readingCards"></div>
+  </div>
+  <div class="reading-actions" id="readingActions" style="display:none;">
+    <button class="btn-primary" onclick="shareResult()"><span>截圖分享</span></button>
+    <button class="btn-secondary" onclick="startOver()">重新抓周</button>
+  </div>
+</div>
+ 
+<script>
+// ===== 精油資料庫 =====
+const categoryMap = {
+  '花香類': { icon: '🌸', energy: '象徵情感需求與愛，你渴望被接納、被溫柔對待', color: 'var(--brown)' },
+  '柑橘類': { icon: '🍊', energy: '象徵喜悅與流動，生活需要一點光，讓童心回來', color: '#C4956A' },
+  '木質類': { icon: '🌲', energy: '象徵穩定與根基，你需要接地氣，在混亂中找到重心', color: 'var(--egg-green)' },
+  '草本類': { icon: '🌿', energy: '象徵清明與行動，是時候整理思緒，勇敢表達自我', color: '#7FAF95' },
+  '樹脂類': { icon: '✦', energy: '象徵修復與深沉，你需要耐心扎根，療癒過去的傷', color: 'var(--crystal-blue)' },
+};
+ 
+const oils = [
+  { id: 1, name: '肉桂', latin: 'Cinnamomum zeylanicum', keyword: '歸屬感', category: '草本類', spirits: ['帶來溫暖與安全感', '喚醒內在歸屬渴望', '療癒根源創傷', '強化自我認同'] },
+  { id: 2, name: '沒藥', latin: 'Commiphora myrrha', keyword: '重生', category: '樹脂類', spirits: ['促進能量轉化', '淨化舊能量', '協助放下執著', '連結內在智慧', '啟動重生能量'] },
+  { id: 3, name: '德國洋甘菊', latin: 'Matricaria chamomilla', keyword: '愛的議題', category: '花香類', spirits: ['療癒情感創傷', '放下情緒限制', '連結溫柔力量', '突破舊有模式'] },
+  { id: 4, name: '百里香', latin: 'Thymus vulgaris', keyword: '意志力', category: '草本類', spirits: ['強化意志力', '相信直覺', '突破恐懼限制', '啟動行動能量'] },
+  { id: 5, name: '乳香', latin: 'Boswellia sacra', keyword: '靈性連結', category: '樹脂類', spirits: ['淨化靈性通道', '提升意識層次', '增強防護能量', '深化冥想體驗', '連結宇宙意識', '啟動靈性智慧'] },
+  { id: 6, name: '玫瑰', latin: 'Rosa damascena', keyword: '心輪療癒', category: '花香類', spirits: ['打開心輪能量', '連結無條件的愛', '療癒情感創傷', '啟動神聖女性能量', '提升愛的頻率', '深層情感淨化'] },
+  { id: 7, name: '薰衣草', latin: 'Lavandula angustifolia', keyword: '內心平靜', category: '花香類', spirits: ['平衡情緒能量', '深度放鬆神經', '療癒焦慮恐懼', '促進內在和諧'] },
+  { id: 8, name: '依蘭', latin: 'Cananga odorata', keyword: '感官智慧', category: '花香類', spirits: ['平衡陰陽能量', '釋放情感壓抑', '喚醒靈性渴望', '深化冥想體驗', '連結感官智慧', '啟動基底能量'] },
+  { id: 9, name: '佛手柑', latin: 'Citrus bergamia', keyword: '心靈光明', category: '柑橘類', spirits: ['轉化負面情緒', '增強心靈光明', '提升靈性頻率', '促進能量釋放', '協助情緒療癒', '增強直覺感知'] },
+  { id: 10, name: '廣藿香', latin: 'Pogostemon cablin', keyword: '根植大地', category: '草本類', spirits: ['深度接地能量', '連結物質世界', '穩定根部能量', '增強感官意識'] },
+  { id: 11, name: '茉莉', latin: 'Jasminum grandiflorum', keyword: '月亮能量', category: '花香類', spirits: ['激活性能量', '釋放深層恐懼', '連結月亮能量', '強化直覺力量', '啟動創造力', '平衡陰陽能量'] },
+  { id: 12, name: '雪松', latin: 'Cedrus atlantica', keyword: '根部力量', category: '木質類', spirits: ['強化根部能量', '提供保護能量', '增強意志力量', '連結地氣能量', '穩定情緒波動', '加強決策能力'] },
+  { id: 13, name: '天竺葵', latin: 'Pelargonium graveolens', keyword: '情緒平衡', category: '草本類', spirits: ['調和情緒波動', '平衡荷爾蒙', '連結地球能量', '強化個人邊界', '淨化負面情緒', '促進能量循環'] },
+  { id: 14, name: '橙花', latin: 'Citrus aurantium', keyword: '轉化與新生', category: '柑橘類', spirits: ['療癒深層創傷', '轉化焦慮恐懼', '開啟新生能量', '連結高頻振動'] },
+  { id: 15, name: '岩蘭草', latin: 'Vetiveria zizanoides', keyword: '深層療癒', category: '草本類', spirits: ['深度接地療癒', '連結大地母親', '穩定根部能量', '療癒古老創傷'] },
+  { id: 16, name: '檀香', latin: 'Santalum album', keyword: '高我意識', category: '木質類', spirits: ['提升靈性意識', '深化冥想狀態', '連結古老智慧', '啟動頂輪能量', '增強定心能力', '連結高我意識'] },
+  { id: 17, name: '甜橙', latin: 'Citrus sinensis', keyword: '喜悅能量', category: '柑橘類', spirits: ['啟動創造力', '增強正向能量', '連結內在喜悅', '提升生命能量', '強化表達能力', '促進能量流動'] },
+  { id: 18, name: '檸檬', latin: 'Citrus limon', keyword: '智慧清明', category: '柑橘類', spirits: ['淨化思維模式', '增強心智清晰', '提升意識能量', '強化決策能力', '促進能量淨化', '啟動智慧之光'] },
+];
+ 
+// 靈性解讀文字（示範模式用）
+const demoReadings = {
+  '肉桂': '肉桂溫暖的氣息，帶著一種深沉的安全感。它出現在你的選擇裡，映照出你內心對歸屬的渴望——那份想要被真正接住的感受。也許過去的某些經歷讓你習慣了把自己包裹起來，但這個香氣在輕輕提醒你：你值得擁有一個真正安全的地方。從允許自己感受這份溫暖開始。',
+  '沒藥': '沒藥帶著古老轉化的力量，它出現，是因為你正站在一個能量更新的交界點。某些舊的模式、舊的執著，已經到了可以輕輕放下的時候。這不是失去，而是為新的可能性清出空間。內在的智慧一直都在，讓沒藥的能量幫你連結那份深層的知曉。',
+  '德國洋甘菊': '洋甘菊帶著藍色的療癒能量，直指你與愛之間的課題。你渴望深刻的連結，卻同時帶著某種對不確定的恐懼。它溫柔地說：那些行不通的舊習慣、那些束縛著你的限制，都可以慢慢鬆開。放下，不是放棄，而是給自己的心更多的呼吸空間。',
+  '百里香': '百里香帶著強烈的意志力量，此刻出現，是在呼喚你更相信自己的直覺。你的感知比你以為的更準確，只是你習慣用理性覆蓋它。試著在下一個重要時刻，先停下來聽聽身體的聲音——那個第一感覺，往往是你最深的智慧在說話。',
+  '乳香': '乳香淨化靈性通道的能量此刻與你同在，它帶著宇宙意識的連結，指向你正在經歷的內在提升。你的靈性感知正在被開啟，那些說不清楚的直覺、夢境或感受，都是真實的訊號。讓乳香的能量清明你的通道，你會更清楚地聽見內心最深處的指引。',
+  '玫瑰': '玫瑰開啟了你的心輪，帶著無條件之愛的頻率。它映照出你此刻最需要的，是允許自己被愛——包括被自己愛。那些情感的創傷，那些覺得自己不夠好的時刻，玫瑰在說：神聖女性的能量在你身上從未消失，它只是在等待你回頭看見它。',
+  '薰衣草': '薰衣草帶著最溫柔的平衡能量，映照出你對休息的深切需要。你的神經系統正在承受比你意識到的更多，而你卻常常忽略這個訊號繼續撐著。它輕聲說：放慢，不是脆弱。給自己一個真正的停頓，讓內在回到和諧，你才能繼續帶著力量前行。',
+  '依蘭': '依蘭帶著平衡陰陽的深層智慧，它的出現映照出你內在某些被壓抑的情感能量正在尋找出口。那些靈性的渴望、對深度體驗的嚮往，都是真實的。允許自己感受，允許自己喜悅，讓依蘭的能量喚醒你與感官智慧之間那條還沒有被完整連結的線。',
+  '佛手柑': '佛手柑帶著轉化的光明，直接作用在你的情緒能量上。那些負面的自我評價、那些卡在心裡的灰暗感受，都可以在這個頻率中被慢慢轉化。你的直覺感知正在增強，讓佛手柑的能量提升你的靈性頻率，你會開始看見更多光明的可能。',
+  '廣藿香': '廣藿香深沉的大地氣息，帶你回到最根本的連結。你的思緒可能常常飄離當下，而身體一直在等待你回來。讓這個香氣幫你重新接地，把能量從頭腦拉回到腳下，回到物質世界的踏實感——那裡有你需要的穩定與力量。',
+  '茉莉': '茉莉的月亮能量帶著深層的陰性智慧，它出現，是在呼喚你與自己的直覺力量重新連結。那些來自夢境、感受、身體的訊息，都是月亮在跟你說話。允許創造力流動，允許自己的陰性面被看見，你會發現內在有一個比你以為的更豐富的世界。',
+  '雪松': '雪松高大而穩定的根部能量，給你帶來一種內在的支撐。外在也許有很多搖晃，但雪松說：你比自己以為的更有決策能力，更有保護自己的力量。讓這個香氣幫你連結大地的穩定，那份意志力一直在你體內，等待被你重新認出。',
+  '天竺葵': '天竺葵帶著情緒平衡與個人邊界的能量。你最近的情緒波動，反映出某些能量邊界需要被重新建立。這不是要你關閉感受，而是讓能量有清楚的流向——什麼是你的，什麼不是。讓天竺葵幫你淨化那些不屬於你的情緒負荷，回到自己的中心。',
+  '橙花': '橙花是轉化與新生最純粹的象徵。它的出現意味著你正處於一個蛻變的門檻，某些深層的創傷正在被療癒，那些焦慮和恐懼正在轉化成新的能量。這個過程也許不總是舒適，但橙花確定地告訴你：你走在對的方向，新的你正在誕生。',
+  '岩蘭草': '岩蘭草深入土壤的根系，連結著大地母親最古老的療癒能量。它的出現指向某些深層的、也許已經帶了很久的舊傷，正在等待被真正地看見和釋放。這不是要你挖開傷口，而是一個溫柔的邀請：讓大地的能量托住你，在這份穩定中，深層的療癒自然發生。',
+  '檀香': '檀香連結著高我意識的古老智慧，它帶你進入一個更深的內在空間。你的靈性意識正在擴展，那些冥想、靜心或靈性探索的渴望，都是真實的呼喚。讓檀香的頂輪能量清明你與宇宙意識之間的通道，你的高我一直在，等待你願意傾聽。',
+  '甜橙': '甜橙帶著最純粹的喜悅能量，它在問你：你有多久沒有讓自己真正快樂了？不是為了什麼目的，只是純粹的喜悅。你的創造力和表達能量正在等待被釋放。讓甜橙的光明提升你的生命能量，允許自己連結那個最本真的內在喜悅。',
+  '檸檬': '檸檬帶著清明的智慧之光，直接作用在你的思維模式上。也許有些習慣性的思路讓你打轉，有些信念需要被重新檢視。讓這個清澈的能量幫你淨化那些模糊的念頭，增強心智的清晰度，你會發現決策和方向會變得比你以為的更清楚。',
+};
+ 
+const demoSummary = '你選擇的這五支香氣，共同描繪出一個細膩而真實的內在圖像。從能量的角度看，你的心輪和根部能量正同時在向你說話，那份對愛與連結的深切渴望，與對安全穩定的需求，在你身上交織著。<br><br>這不是矛盾，而是你此刻最真實的狀態。某些舊有的模式正在鬆動，某些新的可能性正在敲門。五支香氣一起告訴你：你已經準備好了，只是還不完全相信自己。<br><br>讓這些香氣的能量陪伴你，在接下來的日子裡，試著每天給自己一個小小的溫柔時刻。你比自己以為的更完整，也更值得被愛，包括被你自己。';
+ 
+ 
+let selectedBottles = [];
+let userQuestion = '';
+let currentPage = 'intro';
+ 
+// ===== 頁面切換 =====
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.getElementById('page-' + id).classList.add('active');
+  currentPage = id;
+  document.getElementById('navBack').style.display = (id === 'intro') ? 'none' : 'block';
+  window.scrollTo(0, 0);
+ 
+  var progress = { intro: 0, ritual: 25, select: 50, reading: 100, history: 0, about: 0 };
+  document.getElementById('progressBar').style.width = (progress[id] || 0) + '%';
+ 
+  if (id === 'history') { renderHistoryList(); }
+}
+ 
+function goBack() {
+  const map = { ritual: 'intro', select: 'ritual', reading: 'select' };
+  if (map[currentPage]) showPage(map[currentPage]);
+}
+ 
+// ===== 首頁 → 儀式 =====
+function startRitual() {
+  showPage('ritual');
+  document.querySelectorAll('.ritual-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('ritual-1').classList.add('active');
+}
+ 
+let ritualStep = 1;
+function nextRitual() {
+  ritualStep++;
+  document.querySelectorAll('.ritual-step').forEach(s => s.classList.remove('active'));
+  const next = document.getElementById('ritual-' + ritualStep);
+  if (next) { next.classList.add('active'); }
+}
+ 
+// ===== 儀式 → 選瓶 =====
+function goToSelect() {
+  userQuestion = document.getElementById('questionInput').value.trim();
+  showPage('select');
+  renderBottles();
+}
+ 
+function renderBottles() {
+  const field = document.getElementById('bottlesField');
+  field.innerHTML = '';
+  selectedBottles = [];
+ 
+  const shuffled = [...oils].sort(() => Math.random() - 0.5);
+ 
+  // 用網格基礎 + 隨機偏移，確保不重疊又有散落感
+  const cols = 5;
+  const rows = Math.ceil(shuffled.length / cols);
+  const cellW = 100 / cols;
+  const cellH = 100 / rows;
+ 
+  shuffled.forEach((oil, i) => {
+    const el = document.createElement('div');
+    el.className = 'bottle-item';
+    el.dataset.id = oil.id;
+    el.dataset.name = oil.name;
+ 
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    const angle = (Math.random() - 0.5) * 40;
+    // 在格子內隨機偏移，保留邊距
+    const x = col * cellW + cellW * 0.1 + Math.random() * cellW * 0.6;
+    const y = row * cellH + cellH * 0.1 + Math.random() * cellH * 0.6;
+ 
+    el.style.cssText = `left:${x}%;top:${y}%;transform:rotate(${angle}deg);`;
+ 
+    el.innerHTML = `
+      <div class="bottle-badge" id="badge-${oil.id}"></div>
+      <svg class="bottle-svg" width="48" height="76" viewBox="0 0 32 52">
+        <rect class="bottle-cap" x="11" y="2" width="10" height="8" rx="2" fill="#8B7355"/>
+        <rect x="13" y="9" width="6" height="4" fill="#A08060"/>
+        <rect class="bottle-body" x="6" y="13" width="20" height="32" rx="3" fill="#C4B49A" stroke="#A09070" stroke-width="0.5" opacity="0.85"/>
+        <rect x="9" y="18" width="2" height="18" rx="1" fill="white" opacity="0.25"/>
+        <rect x="8" y="42" width="16" height="2" rx="1" fill="#A09070" opacity="0.4"/>
+      </svg>
+    `;
+ 
+    el.addEventListener('click', () => toggleBottle(el, oil));
+    field.appendChild(el);
+  });
+}
+ 
+function toggleBottle(el, oil) {
+  const id = oil.id;
+  if (el.classList.contains('selected')) {
+    el.classList.remove('selected');
+    selectedBottles = selectedBottles.filter(b => b.id !== id);
+  } else {
+    if (selectedBottles.length >= 5) return;
+    selectedBottles.push({ ...oil, order: selectedBottles.length + 1 });
+    el.classList.add('selected');
+    el.querySelector('.bottle-badge').textContent = selectedBottles.length;
+  }
+ 
+  document.getElementById('selectCounter').textContent = `已選 ${selectedBottles.length} / 5`;
+  document.getElementById('btnConfirm').style.display = selectedBottles.length === 5 ? 'inline-block' : 'none';
+}
+ 
+// ===== 進入解讀 =====
+async function startReading() {
+  showPage('reading');
+  saveHistory(userQuestion, selectedBottles);
+  var qEl = document.getElementById('readingQuestion');
+  qEl.textContent = userQuestion ? `「${userQuestion}」` : '';
+ 
+  const container = document.getElementById('readingCards');
+  container.innerHTML = '';
+ 
+  // 逐一建立卡片並呼叫 AI
+  for (let i = 0; i < selectedBottles.length; i++) {
+    const oil = selectedBottles[i];
+    await renderOilCard(container, oil, i);
+  }
+ 
+  // 總結
+  await renderSummary(container);
+  document.getElementById('readingActions').style.display = 'flex';
+}
+ 
+async function renderOilCard(container, oil, index) {
+  return new Promise(async (resolve) => {
+    const cat = categoryMap[oil.category] || {};
+    const card = document.createElement('div');
+    card.className = 'reading-card';
+    card.innerHTML = `
+      <div class="card-header">
+        <div class="card-number">${index + 1}</div>
+        <div>
+          <div class="card-oil-name">${oil.name}</div>
+          <div class="card-oil-latin">${oil.latin}</div>
+        </div>
+      </div>
+      <div class="card-category-tag" style="color:${cat.color || 'var(--brown)'}">${cat.icon || '✦'} ${oil.category} · ${oil.keyword}</div>
+      <div class="card-energy-line">${cat.energy || ''}</div>
+      <div class="card-divider"></div>
+      <div class="card-reading">
+        <div class="card-loading">
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+          <div class="loading-dot"></div>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+ 
+    setTimeout(() => card.classList.add('visible'), 50);
+ 
+    const reading = await getOilReading(oil, index + 1, userQuestion, selectedBottles);
+    card.querySelector('.card-reading').innerHTML = reading;
+    resolve();
+  });
+}
+ 
+async function renderSummary(container) {
+  const card = document.createElement('div');
+  card.className = 'summary-card';
+  card.innerHTML = `
+    <div class="summary-label">✦ 整體訊息</div>
+    <div class="summary-text">
+      <div class="card-loading">
+        <div class="loading-dot" style="background:var(--taupe)"></div>
+        <div class="loading-dot" style="background:var(--taupe)"></div>
+        <div class="loading-dot" style="background:var(--taupe)"></div>
+      </div>
+    </div>
+  `;
+  container.appendChild(card);
+  setTimeout(() => card.classList.add('visible'), 100);
+ 
+  const summary = await getSummaryReading(selectedBottles, userQuestion);
+  card.querySelector('.summary-text').innerHTML = summary;
+}
+ 
+// ===== Claude API =====
+ 
+ 
+ 
+ 
+async function getOilReading(oil, position, question, allOils) {
+  var oilList = allOils.map(function(o, i) { return (i+1) + '. ' + o.name + '(' + o.latin + ')'; }).join('\n');
+  var qText = question ? '用戶的問題是：「' + question + '」' : '用戶沒有特定問題，想了解當下的身心狀態。';
+  var spiritsText = oil.spirits ? '\n這支精油的靈性意義包含：' + oil.spirits.join('、') : '';
+  var prompt = '你是一位溫柔且有洞察力的精油占卜師，使用香氛占卜為人解讀。\n\n'
+    + '用戶選了以下五支精油（按選擇順序）：\n' + oilList + '\n\n'
+    + qText + '\n\n'
+    + '現在請解讀第 ' + position + ' 支：' + oil.name + '（' + oil.latin + '）' + spiritsText + '\n\n'
+    + '請融合以上靈性意義，用溫柔、有深度的語氣解讀它反映了用戶當下的什麼狀態或訊息。'
+    + '約100-130字，不要用條列，用流動的散文語氣。不要提到「這支精油」，直接說內容。不要加標題。';
+ 
+  try {
+    var res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    if (!res.ok) throw new Error('API error');
+    var data = await res.json();
+    var text = data.content && data.content[0] && data.content[0].text;
+    if (!text) throw new Error('no content');
+    return text.replace(/\n/g, '<br>');
+  } catch(e) {
+    return demoReadings[oil.name] || '這支香氣帶著溫柔的訊息，靜靜地映照出你此刻的內在狀態。';
+  }
+}
+ 
+async function getSummaryReading(oils, question) {
+  var categories = [];
+  oils.forEach(function(o) { if (categories.indexOf(o.category) === -1) categories.push(o.category); });
+  var catEnergies = categories.map(function(c) { return categoryMap[c] ? categoryMap[c].energy : ''; }).filter(Boolean).join('；');
+  var oilList = oils.map(function(o, i) { return (i+1) + '. ' + o.name + '(' + o.category + ')'; }).join('\n');
+  var qText = question ? '用戶的問題是：「' + question + '」' : '用戶想了解當下的身心狀態。';
+  var prompt = '你是一位溫柔且有洞察力的精油占卜師。\n\n'
+    + '用戶選了以下五支精油：\n' + oilList + '\n\n'
+    + '這次抽到的類別能量包含：' + catEnergies + '\n\n'
+    + qText + '\n\n'
+    + '請根據這五支精油的整體組合，給出一段溫柔而有力的整體總結訊息。'
+    + '在結尾自然融入一句此刻的心靈能量作為提醒，直接融入文字裡。'
+    + '約150-180字，散文語氣，有溫度。不要加標題。';
+ 
+  try {
+    var res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    if (!res.ok) throw new Error('API error');
+    var data = await res.json();
+    var text = data.content && data.content[0] && data.content[0].text;
+    if (!text) throw new Error('no content');
+    return text.replace(/\n/g, '<br>');
+  } catch(e) {
+    return demoSummary;
+  }
+}
+ 
+// ===== 分享：開新視窗顯示乾淨結果頁 =====
+function shareResult() {
+  var question = userQuestion ? '「' + userQuestion + '」' : '';
+  var cardsHTML = document.getElementById('readingCards').innerHTML;
+ 
+  var html = '<!DOCTYPE html><html lang="zh-TW"><head>'
+    + '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">'
+    + '<title>我的香氣訊息</title>'
+    + '<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">'
+    + '<style>'
+    + ':root{--cream:#F7F5FA;--warm-white:#FDFCFE;--sand:#E8E2F0;--taupe:#B8A8CC;--brown:#8B6FAA;--deep-brown:#5B3F7A;--text:#3A2D4A;--text-light:#7A6590;--crystal-blue:#A8C4D8;--egg-green:#9EC4B0;}'
+    + '*{margin:0;padding:0;box-sizing:border-box;}'
+    + 'body{background:var(--cream);font-family:"Noto Serif TC",serif;padding:40px 24px;color:var(--text);}'
+    + '.wrap{max-width:400px;margin:0 auto;}'
+    + '.top{text-align:center;margin-bottom:32px;}'
+    + '.logo{font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:0.3em;color:var(--taupe);margin-bottom:8px;}'
+    + '.title{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:300;color:var(--deep-brown);margin-bottom:6px;}'
+    + '.q{font-size:15px;color:var(--taupe);font-style:italic;}'
+    + '.hint{text-align:center;font-size:14px;color:var(--taupe);margin-bottom:20px;letter-spacing:0.1em;}'
+    + '.reading-card{background:var(--warm-white);border:1px solid var(--sand);padding:20px 18px;margin-bottom:12px;}'
+    + '.card-header{display:flex;align-items:center;gap:12px;margin-bottom:10px;}'
+    + '.card-number{font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--sand);line-height:1;min-width:20px;}'
+    + '.card-oil-name{font-size:17px;color:var(--deep-brown);}'
+    + '.card-oil-latin{font-family:"Cormorant Garamond",serif;font-size:13px;color:var(--taupe);font-style:italic;}'
+    + '.card-category-tag{display:inline-flex;align-items:center;gap:4px;font-size:13px;letter-spacing:0.12em;color:var(--brown);background:var(--sand);padding:4px 12px;border-radius:20px;margin-bottom:8px;}'
+    + '.card-energy-line{font-size:14px;color:var(--text-light);line-height:1.8;margin-bottom:12px;font-style:italic;}'
+    + '.card-divider{width:100%;height:1px;background:var(--sand);margin-bottom:12px;}'
+    + '.card-reading{font-size:15px;line-height:2.1;color:var(--text-light);}'
+    + '.summary-card{background:var(--warm-white);border:1px solid var(--taupe);padding:24px 18px;margin-bottom:12px;}'
+    + '.summary-label{font-size:12px;letter-spacing:0.3em;color:var(--brown);margin-bottom:12px;}'
+    + '.summary-text{font-size:15px;line-height:2.2;color:var(--text-light);}'
+    + '.footer{text-align:center;padding:24px 0 8px;font-size:13px;letter-spacing:0.2em;color:var(--taupe);}'
+    + '</style></head><body>'
+    + '<div class="wrap">'
+    + '<p class="hint">長按圖片可儲存 · 或截圖畫面</p>'
+    + '<div class="top">'
+    + '<div class="logo">✦ 香氣抓周</div>'
+    + '<div class="title">我的香氣訊息</div>'
+    + (question ? '<div class="q">' + question + '</div>' : '')
+    + '</div>'
+    + cardsHTML
+    + '<div class="footer">香氣抓周 · 精油占卜 · 自我覺察</div>'
+    + '</div></body></html>';
+ 
+  var encoded = 'data:text/html;charset=utf-8,' + encodeURIComponent(html);
+  window.open(encoded, '_blank');
+}
+ 
+function startOver() {
+  showPage('intro');
+  document.getElementById('questionInput').value = '';
+  selectedBottles = [];
+  ritualStep = 1;
+}
+ 
+// ===== 選單 =====
+function openMenu() {
+  document.getElementById('sideMenu').classList.add('open');
+  document.getElementById('sideOverlay').classList.add('open');
+}
+ 
+function closeMenu() {
+  document.getElementById('sideMenu').classList.remove('open');
+  document.getElementById('sideOverlay').classList.remove('open');
+}
+ 
+// ===== 多語言 =====
+var currentLang = 'zh';
+ 
+var i18n = {
+  zh: {
+    navLogo: '香氣抓周',
+    navHome: '首頁', navHistory: '歷史紀錄', navAbout: '關於我',
+    introTitle: '香氣抓周', introSubtitle: '精油占卜 · 自我覺察',
+    introDesc: '讓植物的絮語成為一面溫柔的鏡子，<br>照見內心深處的自己。<br><br>傾聽身體的悄悄話，<br>找回當下最舒服的平衡。',
+    introNoteTitle: '✦ 使用前請注意',
+    introNoteBody: '選一個不會被打擾的時刻。<br>不執著於重複問同一個問題。<br>帶著開放的心，讓直覺帶路。',
+    btnStart: '開始抓周',
+    historyTitle: '歷史紀錄',
+    historyNote: '紀錄只存於你的個人瀏覽器，更換裝置或清除資料後將消失。',
+    historyEmpty: '還沒有紀錄，\n完成第一次抓周後會出現在這裡。',
+    btnClearHistory: '清除所有紀錄',
+    aboutMainTitle: '什麼是精油抓周？',
+    aboutP1: '精油抓周（又稱香氛占卜）是一種結合嗅覺與潛意識的自我覺察方式。藉由你對特定植物香氣的直覺反應，來反映你當下的身心狀態與情緒盲點。它不是傳統算命，而是一面溫柔的鏡子。',
+    aboutS2: '抽精油前須知', aboutP2: '選一個安靜、不會被打擾的時刻。深呼吸三次，讓思緒慢下來。心中帶著一個想探索的問題，或單純想了解自己當下的狀態，都可以。',
+    aboutS3: '如何提問', aboutP3: '一次聚焦一個問題，避免一次想知道太多。開放式問題比是非題更有層次——與其問「我該不該離職？」，不如問「如果我留下來，接下來會如何發展？」',
+    aboutS4: '解讀態度', aboutP4: '解讀結果反映的是你此刻的內在狀態，不是絕對的預言。帶著開放的心接收訊息，讓它成為你與自己對話的起點。',
+    aboutS5: '使用須知', aboutP5: '本工具提供的解讀僅供自我覺察與心靈探索參考，不構成任何醫療、心理或法律建議。',
+  },
+  en: {
+    navLogo: 'Aroma Oracle',
+    navHome: 'Home', navHistory: 'History', navAbout: 'About',
+    introTitle: 'Aroma Oracle', introSubtitle: 'Essential Oil Reading · Self-Awareness',
+    introDesc: 'Let the whispers of plants become a gentle mirror,<br>reflecting your innermost self.<br><br>Listen to what your body quietly says,<br>and find your most comfortable balance right now.',
+    introNoteTitle: '✦ Before You Begin',
+    introNoteBody: 'Choose a moment free from distractions.<br>Do not repeat the same question obsessively.<br>Open your heart and let intuition guide you.',
+    btnStart: 'Begin Reading',
+    historyTitle: 'Reading History',
+    historyNote: 'Records are stored in your browser only. They will be lost if you change devices or clear your data.',
+    historyEmpty: 'No readings yet.\nComplete your first reading to see it here.',
+    btnClearHistory: 'Clear All History',
+    aboutMainTitle: 'What is Aroma Oracle?',
+    aboutP1: 'Aroma Oracle is a self-awareness practice that combines scent and the subconscious. Through your intuitive responses to plant fragrances, it reflects your current state of body and mind. It is not fortune-telling — it is a gentle mirror.',
+    aboutS2: 'Before You Draw', aboutP2: 'Find a quiet, undisturbed moment. Take three deep breaths to slow your thoughts. Hold a question in mind, or simply intend to understand your current state.',
+    aboutS3: 'How to Ask', aboutP3: 'Focus on one question at a time. Open questions yield richer insight — instead of "Should I quit?" try "If I stay, how might things unfold?"',
+    aboutS4: 'Reading Philosophy', aboutP4: 'Readings reflect your inner state in this moment — not absolute predictions. Receive the messages with openness; let them begin a conversation with yourself.',
+    aboutS5: 'Disclaimer', aboutP5: 'This tool is for self-reflection and spiritual exploration only. It does not constitute medical, psychological, or legal advice.',
+  },
+  ja: {
+    navLogo: '香りのお告げ',
+    navHome: 'ホーム', navHistory: '履歴', navAbout: '私について',
+    introTitle: '香りのお告げ', introSubtitle: 'アロマ占い · 自己覚知',
+    introDesc: '植物のささやきが、やさしい鏡となり、<br>心の奥深くを照らしてくれます。<br><br>身体の静かな声に耳を傾け、<br>今この瞬間の心地よい均衡を取り戻しましょう。',
+    introNoteTitle: '✦ ご利用の前に',
+    introNoteBody: '静かで邪魔されない時間を選んでください。<br>同じ質問を繰り返さないようにしましょう。<br>心を開いて、直感に従ってください。',
+    btnStart: '占いを始める',
+    historyTitle: '占い履歴',
+    historyNote: '記録はブラウザにのみ保存されます。デバイスを変更したりデータを消去すると失われます。',
+    historyEmpty: 'まだ記録がありません。\n最初の占いを完了するとここに表示されます。',
+    btnClearHistory: '全履歴を削除',
+    aboutMainTitle: '香りのお告げとは？',
+    aboutP1: 'アロマ占いは、嗅覚と潜在意識を組み合わせた自己覚知の実践です。植物の香りへの直感的な反応を通して、現在の心身の状態と感情のブラインドスポットを映し出します。',
+    aboutS2: '始める前に', aboutP2: '静かで邪魔されない瞬間を選んでください。深呼吸を三回して、思考を落ち着かせましょう。',
+    aboutS3: '質問の仕方', aboutP3: '一度に一つの質問に集中してください。オープンな質問の方が深い洞察が得られます。',
+    aboutS4: '読み解きの姿勢', aboutP4: 'リーディングはこの瞬間のあなたの内的状態を反映しています。開かれた心でメッセージを受け取り、自己との対話のきっかけにしてください。',
+    aboutS5: '免責事項', aboutP5: 'このツールは自己探求と精神的な探索のみを目的としており、医療、心理、または法律的なアドバイスではありません。',
+  }
+};
+ 
+function setLang(lang) {
+  currentLang = lang;
+  var t = i18n[lang];
+ 
+  // ボタン活性化
+  document.querySelectorAll('.side-lang-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('lang-' + lang).classList.add('active');
+ 
+  // テキスト更新
+  document.getElementById('nav-logo-text').textContent = t.navLogo;
+  document.getElementById('nav-home').textContent = t.navHome;
+  document.getElementById('nav-history').textContent = t.navHistory;
+  document.getElementById('nav-about').textContent = t.navAbout;
+  document.getElementById('intro-title-text').textContent = t.introTitle;
+  document.getElementById('intro-subtitle-text').textContent = t.introSubtitle;
+  document.getElementById('intro-desc-text').innerHTML = t.introDesc;
+  document.getElementById('intro-note-title').innerHTML = t.introNoteTitle;
+  document.getElementById('intro-note-body').innerHTML = t.introNoteBody;
+  document.getElementById('btn-start-text').textContent = t.btnStart;
+  document.getElementById('history-page-title').textContent = t.historyTitle;
+  document.getElementById('history-page-note').textContent = t.historyNote;
+  document.getElementById('btn-clear-history').textContent = t.btnClearHistory;
+  document.getElementById('about-main-title').textContent = t.aboutMainTitle;
+  document.getElementById('about-p1').textContent = t.aboutP1;
+  document.getElementById('about-s2').textContent = t.aboutS2;
+  document.getElementById('about-p2').textContent = t.aboutP2;
+  document.getElementById('about-s3').textContent = t.aboutS3;
+  document.getElementById('about-p3').textContent = t.aboutP3;
+  document.getElementById('about-s4').textContent = t.aboutS4;
+  document.getElementById('about-p4').textContent = t.aboutP4;
+  document.getElementById('about-s5').textContent = t.aboutS5;
+  document.getElementById('about-p5').textContent = t.aboutP5;
+ 
+  renderHistoryList();
+}
+ 
+function autoDetectLang() {
+  var nav = navigator.language || navigator.userLanguage || 'zh';
+  if (nav.startsWith('ja')) { setLang('ja'); }
+  else if (nav.startsWith('zh')) { setLang('zh'); }
+  else { setLang('en'); }
+}
+ 
+// ===== 歷史紀錄 =====
+function saveHistory(question, oils) {
+  var records = JSON.parse(localStorage.getItem('aromaHistory') || '[]');
+  records.unshift({
+    date: new Date().toLocaleDateString('zh-TW', {year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'}),
+    question: question || '',
+    oils: oils.map(function(o) { return o.name; })
+  });
+  if (records.length > 30) records = records.slice(0, 30);
+  localStorage.setItem('aromaHistory', JSON.stringify(records));
+}
+ 
+function renderHistoryList() {
+  var container = document.getElementById('historyList');
+  if (!container) return;
+  var records = JSON.parse(localStorage.getItem('aromaHistory') || '[]');
+  var t = i18n[currentLang];
+  if (records.length === 0) {
+    container.innerHTML = '<div class="history-empty">' + t.historyEmpty.replace('\n', '<br>') + '</div>';
+    return;
+  }
+  container.innerHTML = records.map(function(r, i) {
+    return '<div class="history-item">'
+      + '<div class="history-item-date">' + r.date + '</div>'
+      + '<div class="history-item-question">' + (r.question || (currentLang === 'ja' ? '質問なし' : currentLang === 'en' ? 'No question' : '未填寫問題')) + '</div>'
+      + '<div class="history-item-oils">' + r.oils.join(' · ') + '</div>'
+      + '</div>';
+  }).join('');
+}
+ 
+function clearHistory() {
+  if (confirm(currentLang === 'ja' ? '全履歴を削除しますか？' : currentLang === 'en' ? 'Clear all history?' : '確定清除所有紀錄？')) {
+    localStorage.removeItem('aromaHistory');
+    renderHistoryList();
+  }
+}
+ 
+// 初始化
+autoDetectLang();
+</script>
+</body>
+</html>
