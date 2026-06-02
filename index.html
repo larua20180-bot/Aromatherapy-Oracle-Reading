@@ -6,8 +6,8 @@
 <title>香氣抓周 · 精油占卜與自我覺察 · Aromatherapy Oracle Reading</title>
 
 <!-- ===== SEO ===== -->
-<meta name="description" content="透過直覺選擇植物精油，讓香氣成為一面溫柔的鏡子，照見你當下的身心狀態與情緒盲點。不是算命，而是一場與自己靈魂的深度對話。每一滴精油，都有它想對你說的話。">
-<meta name="keywords" content="精油占卜,香氣抓周,香氛占卜,自我覺察,身心靈,精油解讀,aromatherapy oracle,精油療癒">
+<meta name="description" content="香氣抓周是一款身心靈療癒輔助工具，結合精油能量與直覺覺察，幫助你探索內在情緒狀態。透過香氛占卜的儀式感，進行自我療癒與情緒覺察。每一滴精油，都是與靈魂的對話。">
+<meta name="keywords" content="精油占卜,香氣抓周,香氛占卜,身心靈工具,自我覺察,自我療癒,情緒覺察,內在探索,靈性工具,能量占卜,精油療癒,香氛療癒,心靈占卜,療癒工具,aromatherapy oracle">
 <meta name="author" content="Jia Zhen Wu">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://larua20180-bot.github.io/Aromatherapy-Oracle-Reading/">
@@ -19,7 +19,7 @@
 <!-- ===== Open Graph（LINE / FB / IG 分享預覽）===== -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="香氣抓周 · 精油占卜與自我覺察 · Aromatherapy Oracle Reading">
-<meta property="og:description" content="透過直覺選擇植物精油，讓香氣成為一面溫柔的鏡子，照見你當下的身心狀態與情緒盲點。不是算命，而是一場與自己靈魂的深度對話。">
+<meta property="og:description" content="香氣抓周是一款身心靈療癒輔助工具，結合精油能量與直覺覺察，幫助你探索內在情緒狀態。透過香氛占卜的儀式感，進行自我療癒與情緒覺察。">
 <meta property="og:url" content="https://larua20180-bot.github.io/Aromatherapy-Oracle-Reading/">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:site_name" content="香氣抓周 Aromatherapy Oracle">
@@ -27,7 +27,7 @@
 <!-- ===== Twitter Card（Twitter / X 分享預覽）===== -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="香氣抓周 · 精油占卜與自我覺察 · Aromatherapy Oracle Reading">
-<meta name="twitter:description" content="透過直覺選擇植物精油，讓香氣成為一面溫柔的鏡子，照見你當下的身心狀態與情緒盲點。不是算命，而是一場與自己靈魂的深度對話。">
+<meta name="twitter:description" content="香氣抓周是一款身心靈療癒輔助工具，結合精油能量與直覺覺察，幫助你探索內在情緒狀態。透過香氛占卜的儀式感，進行自我療癒與情緒覺察。">
 <meta name="twitter:image" content="https://larua20180-bot.github.io/Aromatherapy-Oracle-Reading/og-image.png">
 <meta property="og:image" content="https://larua20180-bot.github.io/Aromatherapy-Oracle-Reading/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -959,19 +959,76 @@
     font-style: italic;
   }
 
-  .history-clear-btn {
-    font-size: 12px;
-    color: var(--taupe);
-    background: none;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 0.1em;
-    padding: 8px 0;
-    display: block;
-    margin: 16px auto 0;
+  .about-creator {
+    background: var(--warm-white);
+    border-left: 2px solid var(--taupe);
+    padding: 24px 20px;
+    margin: 8px 0 24px;
   }
 
-  .history-clear-btn:hover { color: var(--brown); }
+  .about-creator-text {
+    font-size: 15px;
+    line-height: 2.4;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  .about-creator-sig {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--taupe);
+    letter-spacing: 0.05em;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+    align-items: center;
+  }
+
+  .social-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: border-color 0.2s, opacity 0.2s;
+    opacity: 0.6;
+  }
+
+  .social-icon:hover { border-color: var(--taupe); opacity: 1; }
+
+  .social-icon svg { width: 14px; height: 14px; fill: var(--text-light); }
+
+  /* 解讀頁輕引導 */
+  .reading-soft-link {
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    padding: 16px 24px;
+    margin: 0 auto 8px;
+  }
+
+  .reading-soft-link p {
+    font-size: 13px;
+    color: var(--taupe);
+    line-height: 2;
+    font-style: italic;
+  }
+
+  .reading-soft-link a {
+    color: var(--brown);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+  }
+
+  .reading-soft-link a:hover { opacity: 1; }
 </style>
 </head>
 <body>
@@ -1041,6 +1098,34 @@
     <p class="about-text" id="about-p1">精油抓周（又稱香氛占卜）是一種結合嗅覺與潛意識的自我覺察方式。藉由你對特定植物香氣的直覺反應，來反映你當下的身心狀態與情緒盲點。它不是傳統算命，而是一面溫柔的鏡子。</p>
   </div>
   <div class="about-divider"></div>
+
+  <!-- 創作者故事 -->
+  <div class="about-section">
+    <div class="about-section-title">CREATOR</div>
+    <div class="about-creator">
+      <p class="about-creator-text">
+        我做這個工具，其實也是在療癒自己。<br><br>
+        最近生命的課題兜兜轉轉，最後還是回到了那個我一直在迴避的地方——真實的自己。我心裡住著一個脆弱不安的孩子，他到現在還在悲傷。我不知道該怎麼擁抱他，怎麼跟他說「我在，我會陪著你」。因為過去十幾年，我好像從來沒有真正好好愛過自己。<br><br>
+        香氣抓周對我來說，是一個溫柔的開始。一個讓自己停下來、往內看的儀式。<br><br>
+        我希望這個工具也能幫到你——在某個你需要喘息的時刻，給你一點安靜的空間。但如果你感覺快撐不住了，請一定要尋求專業的人幫忙。你不需要一個人扛。
+      </p>
+      <div class="about-creator-sig">
+        — Jia Zhen Wu
+        <div class="social-icons">
+          <!-- FB icon -->
+          <a class="social-icon" href="https://www.facebook.com/ShisaidStory/" target="_blank" title="世說霧語 Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <!-- IG icon -->
+          <a class="social-icon" href="https://www.instagram.com/shisaidstory" target="_blank" title="世說霧語 Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-divider"></div>
+
   <div class="about-section">
     <div class="about-section-title" id="about-s2">抽精油前須知</div>
     <p class="about-text" id="about-p2">選一個安靜、不會被打擾的時刻。深呼吸三次，讓思緒慢下來。心中帶著一個想探索的問題，或單純想了解自己當下的狀態，都可以。</p>
@@ -1072,37 +1157,35 @@
   <!-- Step 1: 呼吸 -->
   <div class="ritual-step active" id="ritual-1">
     <div class="ritual-number">一</div>
-    <h2 class="ritual-title">靜下來</h2>
-    <p class="ritual-desc">跟著這個圓的節奏，深呼吸三次。吸氣時它變大，吐氣時它縮小。</p>
+    <h2 class="ritual-title" id="ritual1-title">靜下來</h2>
+    <p class="ritual-desc" id="ritual1-desc">跟著這個圓的節奏，深呼吸三次。吸氣時它變大，吐氣時它縮小。</p>
     <div class="breath-circle">呼吸</div>
-    <p style="font-size:11px;color:var(--taupe);letter-spacing:0.15em;margin-bottom:40px;">慢慢來，不用趕</p>
-    <button class="btn-primary" onclick="nextRitual()"><span>我準備好了</span></button>
+    <p id="ritual1-sub" style="font-size:13px;color:var(--taupe);letter-spacing:0.15em;margin-bottom:40px;">慢慢來，不用趕</p>
+    <button class="btn-primary" onclick="nextRitual()"><span id="ritual1-btn">我準備好了</span></button>
   </div>
 
   <!-- Step 2: 設定問題 -->
   <div class="ritual-step" id="ritual-2">
     <div class="ritual-number">二</div>
-    <h2 class="ritual-title">心中想著一個問題</h2>
-    <p class="ritual-desc">可以是最近在心上放了很久的事，或是此刻想要看清楚的狀態。</p>
+    <h2 class="ritual-title" id="ritual2-title">心中想著一個問題</h2>
+    <p class="ritual-desc" id="ritual2-desc">可以是最近在心上放了很久的事，或是此刻想要看清楚的狀態。</p>
     <div class="question-input-wrap">
-      <span class="question-label">把問題寫下來（可選）</span>
+      <span class="question-label" id="ritual2-label">把問題寫下來（可選）</span>
       <input class="question-input" id="questionInput" type="text" placeholder="例：我現在最需要看見什麼？" maxlength="50">
     </div>
-    <p style="font-size:11px;color:var(--taupe);letter-spacing:0.1em;line-height:1.8;margin-bottom:40px;text-align:center;">不寫也沒關係，<br>把問題放在心裡就好</p>
-    <button class="btn-primary" onclick="goToSelect()"><span>進入抓周</span></button>
+    <p id="ritual2-sub" style="font-size:13px;color:var(--taupe);letter-spacing:0.1em;line-height:1.8;margin-bottom:40px;text-align:center;">不寫也沒關係，<br>把問題放在心裡就好</p>
+    <button class="btn-primary" onclick="goToSelect()"><span id="ritual2-btn">進入抓周</span></button>
   </div>
 </div>
 
 <!-- 選瓶 -->
 <div class="page" id="page-select" style="padding-top:80px;">
   <div class="select-header">
-    <h2 class="select-title">用直覺選五支</h2>
-    <p class="select-desc">不要想太多，跟著感覺走<br>被吸引的、或是排斥的，都可以選</p>
+    <h2 class="select-title" id="select-title">用直覺選五支</h2>
+    <p class="select-desc" id="select-desc">不要想太多，跟著感覺走<br>被吸引的、或是排斥的，都可以選</p>
     <p class="select-counter" id="selectCounter">已選 0 / 5</p>
   </div>
-
   <div class="bottles-field" id="bottlesField"></div>
-
   <button class="btn-primary" id="btnConfirm" onclick="startReading()" style="display:none;"><span>看解讀</span></button>
 </div>
 
@@ -1110,19 +1193,25 @@
 <div class="page" id="page-reading" style="padding-top:80px; padding-bottom:60px;">
   <div id="share-target" style="width:100%;max-width:380px;margin:0 auto;padding:0 24px;">
     <div class="reading-header">
-      <h2 class="reading-title">你的香氣訊息</h2>
+      <h2 class="reading-title" id="reading-title-text">你的香氣訊息</h2>
       <p class="reading-question-display" id="readingQuestion"></p>
     </div>
     <div class="reading-cards" id="readingCards"></div>
   </div>
 
+  <!-- 世說霧語輕引導 -->
+  <div class="reading-soft-link" id="softLinkBlock" style="display:none;">
+    <p id="softLinkText">如果這次的香氣觸動了你什麼，也許可以把它寫下來。</p>
+    <a href="https://www.facebook.com/ShisaidStory/" target="_blank" id="softLinkLabel">→ 世說霧語</a>
+  </div>
+
   <!-- 截圖專用總結區塊 -->
   <div id="shareBlock" style="display:none;width:100%;max-width:380px;margin:0 auto;padding:0 24px;">
-    <p class="share-hint">✦ 截圖以下畫面即可儲存你的結果</p>
+    <p class="share-hint" id="shareHintText">✦ 截圖以下畫面即可儲存你的結果</p>
     <div class="share-block" id="shareBlockInner">
       <div class="share-block-top">
         <div class="share-block-logo">🌿 香氣抓周 · Aromatherapy Oracle</div>
-        <div class="share-block-title">我的香氣訊息</div>
+        <div class="share-block-title" id="shareBlockTitle">我的香氣訊息</div>
         <div class="share-block-q" id="shareBlockQ"></div>
       </div>
       <div class="share-oils-list" id="shareOilsList"></div>
@@ -1315,6 +1404,7 @@ async function startReading() {
 
   await renderSummary(container);
   await renderTips(container);
+  document.getElementById('softLinkBlock').style.display = 'block';
   document.getElementById('readingActions').style.display = 'flex';
 }
 
@@ -1424,7 +1514,8 @@ async function getOilReading(oil, position, question, allOils) {
   var oilList = allOils.map(function(o, i) { return (i+1) + '. ' + o.name + '(' + o.latin + ')'; }).join('\n');
   var qText = question ? '用戶的問題是：「' + question + '」' : '用戶沒有特定問題，想了解當下的身心狀態。';
   var spiritsText = oil.spirits ? '\n這支精油的靈性意義包含：' + oil.spirits.join('、') : '';
-  var prompt = '你是一位溫柔且有洞察力的精油占卜師，使用香氛占卜為人解讀。\n\n'
+  var langInstruct = i18n[currentLang] ? i18n[currentLang].aiLang : '請用繁體中文回答。';
+  var prompt = langInstruct + '\n你是一位溫柔且有洞察力的精油占卜師，使用香氛占卜為人解讀。\n\n'
     + '用戶選了以下五支精油（按選擇順序）：\n' + oilList + '\n\n'
     + qText + '\n\n'
     + '現在請解讀第 ' + position + ' 支：' + oil.name + '（' + oil.latin + '）' + spiritsText + '\n\n'
@@ -1457,7 +1548,8 @@ async function getSummaryReading(oils, question) {
   var catEnergies = categories.map(function(c) { return categoryMap[c] ? categoryMap[c].energy : ''; }).filter(Boolean).join('；');
   var oilList = oils.map(function(o, i) { return (i+1) + '. ' + o.name + '(' + o.category + ')'; }).join('\n');
   var qText = question ? '用戶的問題是：「' + question + '」' : '用戶想了解當下的身心狀態。';
-  var prompt = '你是一位溫柔且有洞察力的精油占卜師。\n\n'
+  var langInstruct = i18n[currentLang] ? i18n[currentLang].aiLang : '請用繁體中文回答。';
+  var prompt = langInstruct + '\n你是一位溫柔且有洞察力的精油占卜師。\n\n'
     + '用戶選了以下五支精油：\n' + oilList + '\n\n'
     + '這次抽到的類別能量包含：' + catEnergies + '\n\n'
     + qText + '\n\n'
@@ -1563,61 +1655,85 @@ var currentLang = 'zh';
 
 var i18n = {
   zh: {
-    navLogo: '香氣抓周',
-    navHome: '首頁', navHistory: '歷史紀錄', navAbout: '關於我',
+    navLogo: '香氣抓周', navHome: '首頁', navHistory: '歷史紀錄', navAbout: '關於我',
     introTitle: '香氣抓周', introSubtitle: '精油占卜 · 自我覺察',
     introDesc: '讓植物的絮語成為一面溫柔的鏡子，<br>照見內心深處的自己。<br><br>傾聽身體的悄悄話，<br>找回當下最舒服的平衡。',
     introNoteTitle: '✦ 使用前請注意',
     introNoteBody: '選一個不會被打擾的時刻。<br>不執著於重複問同一個問題。<br>帶著開放的心，讓直覺帶路。',
     btnStart: '開始抓周',
-    historyTitle: '歷史紀錄',
-    historyNote: '紀錄只存於你的個人瀏覽器，更換裝置或清除資料後將消失。',
-    historyEmpty: '還沒有紀錄，\n完成第一次抓周後會出現在這裡。',
-    btnClearHistory: '清除所有紀錄',
+    ritual1Title: '靜下來', ritual1Desc: '跟著這個圓的節奏，深呼吸三次。吸氣時它變大，吐氣時它縮小。', ritual1Sub: '慢慢來，不用趕', ritual1Btn: '我準備好了',
+    ritual2Title: '心中想著一個問題', ritual2Desc: '可以是最近在心上放了很久的事，或是此刻想要看清楚的狀態。', ritual2Label: '把問題寫下來（可選）', ritual2Placeholder: '例：我現在最需要看見什麼？', ritual2Sub: '不寫也沒關係，<br>把問題放在心裡就好', ritual2Btn: '進入抓周',
+    selectTitle: '用直覺選五支', selectDesc: '不要想太多，跟著感覺走<br>被吸引的、或是排斥的，都可以選',
+    selectCounter: '已選 {n} / 5', btnConfirm: '看解讀',
+    readingTitle: '你的香氣訊息',
+    summaryLabel: '✦ 整體訊息', tipsLabel: '🌱 療癒小貼士',
+    shareHint: '✦ 截圖以下畫面即可儲存你的結果',
+    shareBlockTitle: '我的香氣訊息',
+    btnShare: '截圖分享', btnRestart: '重新抓周',
+    softLinkText: '如果這次的香氣觸動了你什麼，也許可以把它寫下來。', softLinkLabel: '→ 世說霧語',
+    historyTitle: '歷史紀錄', historyNote: '紀錄只存於你的個人瀏覽器，更換裝置或清除資料後將消失。',
+    historyEmpty: '還沒有紀錄，\n完成第一次抓周後會出現在這裡。', btnClearHistory: '清除所有紀錄',
     aboutMainTitle: '什麼是精油抓周？',
     aboutP1: '精油抓周（又稱香氛占卜）是一種結合嗅覺與潛意識的自我覺察方式。藉由你對特定植物香氣的直覺反應，來反映你當下的身心狀態與情緒盲點。它不是傳統算命，而是一面溫柔的鏡子。',
     aboutS2: '抽精油前須知', aboutP2: '選一個安靜、不會被打擾的時刻。深呼吸三次，讓思緒慢下來。心中帶著一個想探索的問題，或單純想了解自己當下的狀態，都可以。',
     aboutS3: '如何提問', aboutP3: '一次聚焦一個問題，避免一次想知道太多。開放式問題比是非題更有層次——與其問「我該不該離職？」，不如問「如果我留下來，接下來會如何發展？」',
     aboutS4: '解讀態度', aboutP4: '解讀結果反映的是你此刻的內在狀態，不是絕對的預言。帶著開放的心接收訊息，讓它成為你與自己對話的起點。',
     aboutS5: '使用須知', aboutP5: '本工具提供的解讀僅供自我覺察與心靈探索參考，不構成任何醫療、心理或法律建議。',
+    aiLang: '請用繁體中文回答。',
   },
   en: {
-    navLogo: 'Aroma Oracle',
-    navHome: 'Home', navHistory: 'History', navAbout: 'About',
+    navLogo: 'Aroma Oracle', navHome: 'Home', navHistory: 'History', navAbout: 'About',
     introTitle: 'Aroma Oracle', introSubtitle: 'Essential Oil Reading · Self-Awareness',
     introDesc: 'Let the whispers of plants become a gentle mirror,<br>reflecting your innermost self.<br><br>Listen to what your body quietly says,<br>and find your most comfortable balance right now.',
     introNoteTitle: '✦ Before You Begin',
     introNoteBody: 'Choose a moment free from distractions.<br>Do not repeat the same question obsessively.<br>Open your heart and let intuition guide you.',
     btnStart: 'Begin Reading',
-    historyTitle: 'Reading History',
-    historyNote: 'Records are stored in your browser only. They will be lost if you change devices or clear your data.',
-    historyEmpty: 'No readings yet.\nComplete your first reading to see it here.',
-    btnClearHistory: 'Clear All History',
+    ritual1Title: 'Settle In', ritual1Desc: 'Follow the rhythm of this circle. Breathe in as it expands, breathe out as it shrinks. Three slow breaths.', ritual1Sub: 'Take your time', ritual1Btn: 'I am ready',
+    ritual2Title: 'Hold a Question in Mind', ritual2Desc: 'It can be something you have been carrying lately, or simply an intention to understand your current state.', ritual2Label: 'Write your question (optional)', ritual2Placeholder: 'e.g. What do I most need to see right now?', ritual2Sub: 'No need to write it down.<br>Holding it in your heart is enough.', ritual2Btn: 'Enter the Reading',
+    selectTitle: 'Choose Five by Intuition', selectDesc: 'Do not overthink. Follow your instinct.<br>Attracted or repelled — both are valid.',
+    selectCounter: 'Selected {n} / 5', btnConfirm: 'See Reading',
+    readingTitle: 'Your Aroma Message',
+    summaryLabel: '✦ Overall Message', tipsLabel: '🌱 Healing Tip',
+    shareHint: '✦ Screenshot the section below to save your result',
+    shareBlockTitle: 'My Aroma Message',
+    btnShare: 'Share Result', btnRestart: 'Start Over',
+    softLinkText: 'If this reading touched something in you, perhaps try writing it down.', softLinkLabel: '→ Shisaid Story',
+    historyTitle: 'Reading History', historyNote: 'Records are stored in your browser only. They will be lost if you change devices or clear your data.',
+    historyEmpty: 'No readings yet.\nComplete your first reading to see it here.', btnClearHistory: 'Clear All History',
     aboutMainTitle: 'What is Aroma Oracle?',
     aboutP1: 'Aroma Oracle is a self-awareness practice that combines scent and the subconscious. Through your intuitive responses to plant fragrances, it reflects your current state of body and mind. It is not fortune-telling — it is a gentle mirror.',
     aboutS2: 'Before You Draw', aboutP2: 'Find a quiet, undisturbed moment. Take three deep breaths to slow your thoughts. Hold a question in mind, or simply intend to understand your current state.',
     aboutS3: 'How to Ask', aboutP3: 'Focus on one question at a time. Open questions yield richer insight — instead of "Should I quit?" try "If I stay, how might things unfold?"',
     aboutS4: 'Reading Philosophy', aboutP4: 'Readings reflect your inner state in this moment — not absolute predictions. Receive the messages with openness; let them begin a conversation with yourself.',
     aboutS5: 'Disclaimer', aboutP5: 'This tool is for self-reflection and spiritual exploration only. It does not constitute medical, psychological, or legal advice.',
+    aiLang: 'Please respond in English.',
   },
   ja: {
-    navLogo: '香りのお告げ',
-    navHome: 'ホーム', navHistory: '履歴', navAbout: '私について',
+    navLogo: '香りのお告げ', navHome: 'ホーム', navHistory: '履歴', navAbout: '私について',
     introTitle: '香りのお告げ', introSubtitle: 'アロマ占い · 自己覚知',
     introDesc: '植物のささやきが、やさしい鏡となり、<br>心の奥深くを照らしてくれます。<br><br>身体の静かな声に耳を傾け、<br>今この瞬間の心地よい均衡を取り戻しましょう。',
     introNoteTitle: '✦ ご利用の前に',
     introNoteBody: '静かで邪魔されない時間を選んでください。<br>同じ質問を繰り返さないようにしましょう。<br>心を開いて、直感に従ってください。',
     btnStart: '占いを始める',
-    historyTitle: '占い履歴',
-    historyNote: '記録はブラウザにのみ保存されます。デバイスを変更したりデータを消去すると失われます。',
-    historyEmpty: 'まだ記録がありません。\n最初の占いを完了するとここに表示されます。',
-    btnClearHistory: '全履歴を削除',
+    ritual1Title: '落ち着いて', ritual1Desc: 'この円のリズムに合わせて、深呼吸を三回してください。', ritual1Sub: 'ゆっくりで大丈夫です', ritual1Btn: '準備できました',
+    ritual2Title: '心の中で問いを持つ', ritual2Desc: '最近ずっと気になっていることや、今の自分の状態を知りたいことでも構いません。', ritual2Label: '質問を書き留める（任意）', ritual2Placeholder: '例：今の私が最も見るべきものは何ですか？', ritual2Sub: '書かなくても大丈夫。<br>心の中に持っているだけで十分です。', ritual2Btn: 'リーディングへ',
+    selectTitle: '直感で五つ選んでください', selectDesc: '深く考えずに、感覚に従って。<br>惹かれるものも、反発するものも選べます。',
+    selectCounter: '{n} / 5 選択済み', btnConfirm: 'リーディングを見る',
+    readingTitle: 'あなたの香りのメッセージ',
+    summaryLabel: '✦ 総合メッセージ', tipsLabel: '🌱 癒しのヒント',
+    shareHint: '✦ 下のエリアをスクリーンショットして保存できます',
+    shareBlockTitle: '私の香りのメッセージ',
+    btnShare: '結果をシェア', btnRestart: '最初からやり直す',
+    softLinkText: 'このリーディングで何かが触れたなら、書き留めてみませんか。', softLinkLabel: '→ Shisaid Story',
+    historyTitle: '占い履歴', historyNote: '記録はブラウザにのみ保存されます。デバイスを変更したりデータを消去すると失われます。',
+    historyEmpty: 'まだ記録がありません。\n最初の占いを完了するとここに表示されます。', btnClearHistory: '全履歴を削除',
     aboutMainTitle: '香りのお告げとは？',
-    aboutP1: 'アロマ占いは、嗅覚と潜在意識を組み合わせた自己覚知の実践です。植物の香りへの直感的な反応を通して、現在の心身の状態と感情のブラインドスポットを映し出します。',
+    aboutP1: 'アロマ占いは、嗅覚と潜在意識を組み合わせた自己覚知の実践です。植物の香りへの直感的な反応を通して、現在の心身の状態を映し出します。',
     aboutS2: '始める前に', aboutP2: '静かで邪魔されない瞬間を選んでください。深呼吸を三回して、思考を落ち着かせましょう。',
     aboutS3: '質問の仕方', aboutP3: '一度に一つの質問に集中してください。オープンな質問の方が深い洞察が得られます。',
-    aboutS4: '読み解きの姿勢', aboutP4: 'リーディングはこの瞬間のあなたの内的状態を反映しています。開かれた心でメッセージを受け取り、自己との対話のきっかけにしてください。',
+    aboutS4: '読み解きの姿勢', aboutP4: 'リーディングはこの瞬間のあなたの内的状態を反映しています。開かれた心でメッセージを受け取りましょう。',
     aboutS5: '免責事項', aboutP5: 'このツールは自己探求と精神的な探索のみを目的としており、医療、心理、または法律的なアドバイスではありません。',
+    aiLang: '日本語で回答してください。',
   }
 };
 
@@ -1625,14 +1741,67 @@ function setLang(lang) {
   currentLang = lang;
   var t = i18n[lang];
 
-  // ボタン活性化
   document.querySelectorAll('.side-lang-btn').forEach(function(b) { b.classList.remove('active'); });
   document.getElementById('lang-' + lang).classList.add('active');
 
-  // テキスト更新
+  // 導覽
   document.getElementById('nav-logo-text').textContent = t.navLogo;
   document.getElementById('nav-home').textContent = t.navHome;
   document.getElementById('nav-history').textContent = t.navHistory;
+  document.getElementById('nav-about').textContent = t.navAbout;
+
+  // 首頁
+  document.getElementById('intro-title-text').textContent = t.introTitle;
+  document.getElementById('intro-subtitle-text').textContent = t.introSubtitle;
+  document.getElementById('intro-desc-text').innerHTML = t.introDesc;
+  document.getElementById('intro-note-title').innerHTML = t.introNoteTitle;
+  document.getElementById('intro-note-body').innerHTML = t.introNoteBody;
+  document.getElementById('btn-start-text').textContent = t.btnStart;
+
+  // 儀式頁
+  var r1title = document.getElementById('ritual1-title'); if(r1title) r1title.textContent = t.ritual1Title;
+  var r1desc  = document.getElementById('ritual1-desc');  if(r1desc)  r1desc.textContent  = t.ritual1Desc;
+  var r1sub   = document.getElementById('ritual1-sub');   if(r1sub)   r1sub.textContent   = t.ritual1Sub;
+  var r1btn   = document.getElementById('ritual1-btn');   if(r1btn)   r1btn.textContent   = t.ritual1Btn;
+  var r2title = document.getElementById('ritual2-title'); if(r2title) r2title.textContent = t.ritual2Title;
+  var r2desc  = document.getElementById('ritual2-desc');  if(r2desc)  r2desc.textContent  = t.ritual2Desc;
+  var r2label = document.getElementById('ritual2-label'); if(r2label) r2label.textContent = t.ritual2Label;
+  var r2input = document.getElementById('questionInput'); if(r2input) r2input.placeholder = t.ritual2Placeholder;
+  var r2sub   = document.getElementById('ritual2-sub');   if(r2sub)   r2sub.innerHTML     = t.ritual2Sub;
+  var r2btn   = document.getElementById('ritual2-btn');   if(r2btn)   r2btn.textContent   = t.ritual2Btn;
+
+  // 選瓶頁
+  var stitle = document.getElementById('select-title'); if(stitle) stitle.textContent = t.selectTitle;
+  var sdesc  = document.getElementById('select-desc');  if(sdesc)  sdesc.innerHTML   = t.selectDesc;
+  var scount = document.getElementById('selectCounter'); if(scount) scount.textContent = t.selectCounter.replace('{n}', selectedBottles.length);
+  var sconfirm = document.getElementById('btnConfirm'); if(sconfirm) sconfirm.querySelector('span') && (sconfirm.querySelector('span').textContent = t.btnConfirm);
+
+  // 解讀頁
+  var rtitle = document.getElementById('reading-title-text'); if(rtitle) rtitle.textContent = t.readingTitle;
+  var shareblocktitle = document.getElementById('shareBlockTitle'); if(shareblocktitle) shareblocktitle.textContent = t.shareBlockTitle;
+  var sharehint = document.getElementById('shareHintText'); if(sharehint) sharehint.textContent = t.shareHint;
+  var softtext = document.getElementById('softLinkText'); if(softtext) softtext.textContent = t.softLinkText;
+  var softlink = document.getElementById('softLinkLabel'); if(softlink) softlink.textContent = t.softLinkLabel;
+
+  // 歷史紀錄
+  document.getElementById('history-page-title').textContent = t.historyTitle;
+  document.getElementById('history-page-note').textContent = t.historyNote;
+  document.getElementById('btn-clear-history').textContent = t.btnClearHistory;
+
+  // 關於我
+  document.getElementById('about-main-title').textContent = t.aboutMainTitle;
+  document.getElementById('about-p1').textContent = t.aboutP1;
+  document.getElementById('about-s2').textContent = t.aboutS2;
+  document.getElementById('about-p2').textContent = t.aboutP2;
+  document.getElementById('about-s3').textContent = t.aboutS3;
+  document.getElementById('about-p3').textContent = t.aboutP3;
+  document.getElementById('about-s4').textContent = t.aboutS4;
+  document.getElementById('about-p4').textContent = t.aboutP4;
+  document.getElementById('about-s5').textContent = t.aboutS5;
+  document.getElementById('about-p5').textContent = t.aboutP5;
+
+  renderHistoryList();
+}
   document.getElementById('nav-about').textContent = t.navAbout;
   document.getElementById('intro-title-text').textContent = t.introTitle;
   document.getElementById('intro-subtitle-text').textContent = t.introSubtitle;
