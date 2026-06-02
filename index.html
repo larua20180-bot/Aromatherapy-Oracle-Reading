@@ -20,9 +20,9 @@
     --crystal-blue: #A8C4D8;
     --egg-green: #9EC4B0;
   }
- 
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
   body {
     background: var(--cream);
     color: var(--text);
@@ -30,7 +30,7 @@
     min-height: 100vh;
     overflow-x: hidden;
   }
- 
+
   /* 紋理背景 */
   body::before {
     content: '';
@@ -40,11 +40,11 @@
     pointer-events: none;
     z-index: 0;
   }
- 
+
   /* ===== 頁面管理 ===== */
   .page { display: none; min-height: 100vh; position: relative; z-index: 1; }
   .page.active { display: flex; flex-direction: column; }
- 
+
   /* ===== 首頁 ===== */
   #page-intro {
     align-items: center;
@@ -52,7 +52,7 @@
     padding: 60px 24px;
     text-align: center;
   }
- 
+
   .intro-ornament {
     font-family: 'Cormorant Garamond', serif;
     font-size: 48px;
@@ -61,12 +61,12 @@
     margin-bottom: 16px;
     animation: float 4s ease-in-out infinite;
   }
- 
+
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
   }
- 
+
   .intro-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 36px;
@@ -75,21 +75,21 @@
     color: var(--deep-brown);
     margin-bottom: 8px;
   }
- 
+
   .intro-subtitle {
     font-size: 15px;
     letter-spacing: 0.3em;
     color: var(--taupe);
     margin-bottom: 48px;
   }
- 
+
   .intro-divider {
     width: 1px;
     height: 60px;
     background: linear-gradient(to bottom, transparent, var(--taupe), transparent);
     margin: 0 auto 48px;
   }
- 
+
   .intro-desc {
     max-width: 320px;
     font-size: 16px;
@@ -97,7 +97,7 @@
     color: var(--text-light);
     margin-bottom: 16px;
   }
- 
+
   .intro-note {
     max-width: 300px;
     font-size: 15px;
@@ -108,7 +108,7 @@
     border: 1px solid var(--sand);
     border-radius: 2px;
   }
- 
+
   .intro-note strong {
     display: block;
     font-size: 13px;
@@ -116,7 +116,7 @@
     color: var(--brown);
     margin-bottom: 8px;
   }
- 
+
   /* ===== 按鈕 ===== */
   .btn-primary {
     display: inline-block;
@@ -132,7 +132,7 @@
     position: relative;
     overflow: hidden;
   }
- 
+
   .btn-primary::before {
     content: '';
     position: absolute;
@@ -142,10 +142,10 @@
     transform-origin: left;
     transition: transform 0.4s ease;
   }
- 
+
   .btn-primary:hover::before { transform: scaleX(1); }
   .btn-primary span { position: relative; z-index: 1; }
- 
+
   .btn-secondary {
     display: inline-block;
     padding: 16px 44px;
@@ -159,12 +159,12 @@
     transition: all 0.3s ease;
     margin-top: 16px;
   }
- 
+
   .btn-secondary:hover {
     background: var(--sand);
     border-color: var(--brown);
   }
- 
+
   /* ===== 儀式引導頁 ===== */
   #page-ritual {
     align-items: center;
@@ -172,21 +172,21 @@
     padding: 60px 24px;
     text-align: center;
   }
- 
+
   .ritual-step {
     display: none;
     flex-direction: column;
     align-items: center;
     animation: fadeUp 0.6s ease forwards;
   }
- 
+
   .ritual-step.active { display: flex; }
- 
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
- 
+
   .ritual-number {
     font-family: 'Cormorant Garamond', serif;
     font-size: 64px;
@@ -194,7 +194,7 @@
     line-height: 1;
     margin-bottom: 24px;
   }
- 
+
   .ritual-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
@@ -202,7 +202,7 @@
     color: var(--deep-brown);
     margin-bottom: 20px;
   }
- 
+
   .ritual-desc {
     max-width: 300px;
     font-size: 16px;
@@ -210,7 +210,7 @@
     color: var(--text-light);
     margin-bottom: 40px;
   }
- 
+
   .breath-circle {
     width: 100px;
     height: 100px;
@@ -225,18 +225,18 @@
     font-size: 11px;
     letter-spacing: 0.15em;
   }
- 
+
   @keyframes breathe {
     0%, 100% { transform: scale(1); opacity: 0.5; }
     50% { transform: scale(1.3); opacity: 1; }
   }
- 
+
   .question-input-wrap {
     width: 100%;
     max-width: 340px;
     margin-bottom: 32px;
   }
- 
+
   .question-input {
     width: 100%;
     background: transparent;
@@ -250,10 +250,10 @@
     outline: none;
     transition: border-color 0.3s;
   }
- 
+
   .question-input:focus { border-bottom-color: var(--brown); }
   .question-input::placeholder { color: var(--taupe); font-size: 13px; }
- 
+
   .question-label {
     font-size: 11px;
     letter-spacing: 0.2em;
@@ -261,18 +261,18 @@
     margin-bottom: 8px;
     display: block;
   }
- 
+
   /* ===== 選瓶頁 ===== */
   #page-select {
     padding: 48px 24px 32px;
     align-items: center;
   }
- 
+
   .select-header {
     text-align: center;
     margin-bottom: 40px;
   }
- 
+
   .select-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 26px;
@@ -280,20 +280,20 @@
     color: var(--deep-brown);
     margin-bottom: 8px;
   }
- 
+
   .select-desc {
     font-size: 12px;
     color: var(--taupe);
     letter-spacing: 0.1em;
     line-height: 1.8;
   }
- 
+
   .select-counter {
     font-size: 13px;
     color: var(--brown);
     margin-top: 12px;
   }
- 
+
   /* 散落瓶子區 */
   .bottles-field {
     width: 100%;
@@ -302,19 +302,19 @@
     position: relative;
     margin: 0 auto 32px;
   }
- 
+
   .bottle-item {
     position: absolute;
     cursor: pointer;
     transition: transform 0.2s ease;
     user-select: none;
   }
- 
+
   .bottle-item:hover { transform: scale(1.15) rotate(0deg) !important; }
   .bottle-item.selected .bottle-svg { filter: drop-shadow(0 0 10px rgba(201,169,110,0.7)); }
   .bottle-item.selected .bottle-cap { fill: var(--gold); }
   .bottle-item.selected .bottle-body { fill: #D4C4A0; stroke: var(--gold); }
- 
+
   .bottle-badge {
     position: absolute;
     top: -8px;
@@ -330,20 +330,20 @@
     justify-content: center;
     font-family: 'Cormorant Garamond', serif;
   }
- 
+
   .bottle-item.selected .bottle-badge { display: flex; }
- 
+
   /* ===== 解讀頁 ===== */
   #page-reading {
     padding: 48px 24px;
     align-items: center;
   }
- 
+
   .reading-header {
     text-align: center;
     margin-bottom: 40px;
   }
- 
+
   .reading-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
@@ -351,19 +351,19 @@
     color: var(--deep-brown);
     margin-bottom: 8px;
   }
- 
+
   .reading-question-display {
     font-size: 12px;
     color: var(--taupe);
     font-style: italic;
     letter-spacing: 0.05em;
   }
- 
+
   .reading-cards {
     width: 100%;
     max-width: 380px;
   }
- 
+
   .reading-card {
     background: var(--warm-white);
     border: 1px solid var(--sand);
@@ -374,19 +374,19 @@
     transform: translateY(16px);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
- 
+
   .reading-card.visible {
     opacity: 1;
     transform: translateY(0);
   }
- 
+
   .card-header {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 16px;
   }
- 
+
   .card-number {
     font-family: 'Cormorant Garamond', serif;
     font-size: 32px;
@@ -394,20 +394,20 @@
     line-height: 1;
     min-width: 24px;
   }
- 
+
   .card-oil-name {
     font-size: 18px;
     color: var(--deep-brown);
     letter-spacing: 0.05em;
   }
- 
+
   .card-oil-latin {
     font-family: 'Cormorant Garamond', serif;
     font-size: 14px;
     color: var(--taupe);
     font-style: italic;
   }
- 
+
   .card-category-tag {
     display: inline-flex;
     align-items: center;
@@ -420,7 +420,7 @@
     border-radius: 20px;
     margin-bottom: 12px;
   }
- 
+
   .card-energy-line {
     font-size: 14px;
     color: var(--text-light);
@@ -429,27 +429,27 @@
     margin-bottom: 14px;
     font-style: italic;
   }
- 
+
   .card-divider {
     width: 100%;
     height: 1px;
     background: var(--sand);
     margin-bottom: 16px;
   }
- 
+
   .card-reading {
     font-size: 16px;
     line-height: 2.3;
     color: var(--text-light);
   }
- 
+
   .card-loading {
     display: flex;
     gap: 4px;
     align-items: center;
     padding: 8px 0;
   }
- 
+
   .loading-dot {
     width: 6px;
     height: 6px;
@@ -457,15 +457,15 @@
     border-radius: 50%;
     animation: dotPulse 1.4s ease-in-out infinite;
   }
- 
+
   .loading-dot:nth-child(2) { animation-delay: 0.2s; }
   .loading-dot:nth-child(3) { animation-delay: 0.4s; }
- 
+
   @keyframes dotPulse {
     0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
     40% { transform: scale(1); opacity: 1; }
   }
- 
+
   .summary-card {
     background: var(--warm-white);
     border: 1px solid var(--taupe);
@@ -475,25 +475,25 @@
     transform: translateY(16px);
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
- 
+
   .summary-card.visible {
     opacity: 1;
     transform: translateY(0);
   }
- 
+
   .summary-label {
     font-size: 10px;
     letter-spacing: 0.3em;
     color: var(--gold);
     margin-bottom: 16px;
   }
- 
+
   .summary-text {
     font-size: 16px;
     line-height: 2.3;
     color: var(--text-light);
   }
- 
+
   .reading-actions {
     display: flex;
     flex-direction: column;
@@ -503,7 +503,7 @@
     max-width: 380px;
     margin-top: 8px;
   }
- 
+
 /* ===== 導覽列 ===== */
   .page-nav {
     position: fixed;
@@ -515,7 +515,7 @@
     z-index: 100;
     background: linear-gradient(to bottom, var(--cream) 80%, transparent);
   }
- 
+
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
@@ -523,13 +523,13 @@
     color: var(--brown);
     cursor: pointer;
   }
- 
+
   .nav-right {
     display: flex;
     align-items: center;
     gap: 6px;
   }
- 
+
   .nav-menu-btn {
     background: none;
     border: none;
@@ -539,7 +539,7 @@
     flex-direction: column;
     gap: 5px;
   }
- 
+
   .nav-menu-btn span {
     display: block;
     width: 22px;
@@ -547,7 +547,7 @@
     background: var(--brown);
     transition: all 0.3s;
   }
- 
+
   .nav-lang {
     font-size: 12px;
     letter-spacing: 0.1em;
@@ -560,9 +560,9 @@
     font-family: 'Noto Serif TC', serif;
     transition: all 0.2s;
   }
- 
+
   .nav-lang:hover { color: var(--brown); border-color: var(--taupe); }
- 
+
   .nav-back {
     font-size: 13px;
     letter-spacing: 0.1em;
@@ -570,9 +570,9 @@
     cursor: pointer;
     display: none;
   }
- 
+
   .nav-back:hover { color: var(--brown); }
- 
+
   /* ===== 側邊選單 ===== */
   .side-menu {
     position: fixed;
@@ -588,9 +588,9 @@
     transition: right 0.4s ease;
     box-shadow: -4px 0 20px rgba(58,45,74,0.08);
   }
- 
+
   .side-menu.open { right: 0; }
- 
+
   .side-overlay {
     position: fixed;
     inset: 0;
@@ -600,9 +600,9 @@
     opacity: 0;
     transition: opacity 0.3s;
   }
- 
+
   .side-overlay.open { display: block; opacity: 1; }
- 
+
   .side-menu-close {
     position: absolute;
     top: 20px; right: 20px;
@@ -610,7 +610,7 @@
     font-size: 20px; color: var(--taupe);
     cursor: pointer;
   }
- 
+
   .side-menu-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 11px;
@@ -618,7 +618,7 @@
     color: var(--taupe);
     margin-bottom: 16px;
   }
- 
+
   .side-menu-item {
     font-size: 15px;
     color: var(--text);
@@ -628,15 +628,15 @@
     letter-spacing: 0.05em;
     transition: color 0.2s;
   }
- 
+
   .side-menu-item:hover { color: var(--brown); }
- 
+
   .side-lang-group {
     display: flex;
     gap: 8px;
     margin-top: 24px;
   }
- 
+
   .side-lang-btn {
     flex: 1;
     padding: 8px;
@@ -651,18 +651,129 @@
     transition: all 0.2s;
     border-radius: 2px;
   }
- 
+
   .side-lang-btn.active, .side-lang-btn:hover {
     background: var(--deep-brown);
     color: var(--warm-white);
     border-color: var(--deep-brown);
   }
- 
-  /* 截圖目標 */
-  #share-target {
+
+  .tips-card {
     background: var(--warm-white);
+    border: 1px solid var(--egg-green);
+    padding: 24px 20px;
+    margin-bottom: 16px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
   }
- 
+
+  .tips-card.visible { opacity: 1; transform: translateY(0); }
+
+  .tips-label {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--egg-green);
+    margin-bottom: 14px;
+  }
+
+  .tips-text {
+    font-size: 15px;
+    line-height: 2.2;
+    color: var(--text-light);
+  }
+
+  .tips-action {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--sand);
+    font-size: 13px;
+    color: var(--brown);
+    letter-spacing: 0.05em;
+    font-style: italic;
+  }
+
+  /* 截圖專用區塊 */
+  .share-block {
+    width: 100%;
+    max-width: 380px;
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    padding: 28px 20px;
+    margin-bottom: 16px;
+    scroll-margin-top: 80px;
+  }
+
+  .share-block-top {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .share-block-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--taupe);
+    margin-bottom: 6px;
+  }
+
+  .share-block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--deep-brown);
+  }
+
+  .share-block-q {
+    font-size: 13px;
+    color: var(--taupe);
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  .share-summary-text {
+    font-size: 14px;
+    line-height: 2.2;
+    color: var(--text-light);
+    margin-bottom: 16px;
+  }
+
+  .share-oils-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .share-oil-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid var(--sand);
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+
+  .share-block-footer {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--taupe);
+    letter-spacing: 0.1em;
+    padding-top: 14px;
+    border-top: 1px solid var(--sand);
+  }
+
+  .share-hint {
+    text-align: center;
+    font-size: 12px;
+    color: var(--taupe);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
   /* 進度條 */
   .progress-bar {
     position: fixed;
@@ -672,7 +783,7 @@
     transition: width 0.5s ease;
     z-index: 200;
   }
- 
+
   /* ===== 頁尾 ===== */
   .site-footer {
     text-align: center;
@@ -680,7 +791,7 @@
     border-top: 1px solid var(--sand);
     margin-top: 40px;
   }
- 
+
   .footer-brand {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -689,31 +800,31 @@
     letter-spacing: 0.05em;
     margin-bottom: 8px;
   }
- 
+
   .footer-contact {
     font-size: 12px;
     color: var(--taupe);
     letter-spacing: 0.05em;
     margin-bottom: 6px;
   }
- 
+
   .footer-contact a {
     color: var(--taupe);
     text-decoration: none;
   }
- 
+
   .footer-contact a:hover { color: var(--brown); }
- 
+
   .footer-coffee {
     font-size: 12px;
     color: var(--taupe);
   }
- 
+
   .footer-coffee a {
     color: var(--brown);
     text-decoration: none;
   }
- 
+
   /* ===== 關於我頁 ===== */
   #page-about {
     padding: 90px 24px 40px;
@@ -721,11 +832,11 @@
     margin: 0 auto;
     width: 100%;
   }
- 
+
   .about-section {
     margin-bottom: 40px;
   }
- 
+
   .about-section-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 13px;
@@ -733,7 +844,7 @@
     color: var(--gold);
     margin-bottom: 16px;
   }
- 
+
   .about-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
@@ -742,21 +853,21 @@
     margin-bottom: 24px;
     letter-spacing: 0.1em;
   }
- 
+
   .about-text {
     font-size: 15px;
     line-height: 2.2;
     color: var(--text-light);
     margin-bottom: 12px;
   }
- 
+
   .about-divider {
     width: 40px;
     height: 1px;
     background: var(--taupe);
     margin: 24px 0;
   }
- 
+
   /* ===== 歷史紀錄頁 ===== */
   #page-history {
     padding: 90px 24px 40px;
@@ -764,7 +875,7 @@
     margin: 0 auto;
     width: 100%;
   }
- 
+
   .history-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
@@ -773,14 +884,14 @@
     margin-bottom: 8px;
     letter-spacing: 0.1em;
   }
- 
+
   .history-note {
     font-size: 12px;
     color: var(--taupe);
     margin-bottom: 32px;
     line-height: 1.8;
   }
- 
+
   .history-empty {
     text-align: center;
     padding: 60px 0;
@@ -788,7 +899,7 @@
     color: var(--taupe);
     line-height: 2;
   }
- 
+
   .history-item {
     background: var(--warm-white);
     border: 1px solid var(--sand);
@@ -797,29 +908,29 @@
     cursor: pointer;
     transition: border-color 0.2s;
   }
- 
+
   .history-item:hover { border-color: var(--taupe); }
- 
+
   .history-item-date {
     font-size: 11px;
     letter-spacing: 0.1em;
     color: var(--taupe);
     margin-bottom: 6px;
   }
- 
+
   .history-item-question {
     font-size: 15px;
     color: var(--text);
     margin-bottom: 8px;
   }
- 
+
   .history-item-oils {
     font-size: 12px;
     color: var(--text-light);
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
   }
- 
+
   .history-clear-btn {
     font-size: 12px;
     color: var(--taupe);
@@ -831,16 +942,16 @@
     display: block;
     margin: 16px auto 0;
   }
- 
+
   .history-clear-btn:hover { color: var(--brown); }
 </style>
 </head>
 <body>
- 
+
 <div class="progress-bar" id="progressBar" style="width: 0%"></div>
- 
+
 <div class="side-overlay" id="sideOverlay" onclick="closeMenu()"></div>
- 
+
 <div class="side-menu" id="sideMenu">
   <button class="side-menu-close" onclick="closeMenu()">✕</button>
   <div class="side-menu-title" id="nav-menu-label">MENU</div>
@@ -853,7 +964,7 @@
     <button class="side-lang-btn" onclick="setLang('ja')" id="lang-ja">日本語</button>
   </div>
 </div>
- 
+
 <nav class="page-nav">
   <div class="nav-logo" onclick="showPage('intro')" id="nav-logo-text">香氣抓周</div>
   <div class="nav-right">
@@ -863,7 +974,7 @@
     </button>
   </div>
 </nav>
- 
+
 <!-- 首頁 -->
 <div class="page active" id="page-intro">
   <div class="intro-ornament">🌿</div>
@@ -885,7 +996,7 @@
     <div class="footer-coffee"><a href="https://buymeacoffee.com" target="_blank">☕ Buy Me a Coffee</a></div>
   </div>
 </div>
- 
+
 <!-- 歷史紀錄 -->
 <div class="page" id="page-history">
   <h2 class="history-title" id="history-page-title">歷史紀錄</h2>
@@ -893,7 +1004,7 @@
   <div id="historyList"></div>
   <button class="history-clear-btn" onclick="clearHistory()" id="btn-clear-history">清除所有紀錄</button>
 </div>
- 
+
 <!-- 關於我 -->
 <div class="page" id="page-about">
   <div class="about-section">
@@ -927,7 +1038,7 @@
     <div class="footer-coffee"><a href="https://buymeacoffee.com" target="_blank">☕ Buy Me a Coffee</a></div>
   </div>
 </div>
- 
+
 <!-- 儀式引導 -->
 <div class="page" id="page-ritual">
   <!-- Step 1: 呼吸 -->
@@ -939,7 +1050,7 @@
     <p style="font-size:11px;color:var(--taupe);letter-spacing:0.15em;margin-bottom:40px;">慢慢來，不用趕</p>
     <button class="btn-primary" onclick="nextRitual()"><span>我準備好了</span></button>
   </div>
- 
+
   <!-- Step 2: 設定問題 -->
   <div class="ritual-step" id="ritual-2">
     <div class="ritual-number">二</div>
@@ -953,7 +1064,7 @@
     <button class="btn-primary" onclick="goToSelect()"><span>進入抓周</span></button>
   </div>
 </div>
- 
+
 <!-- 選瓶 -->
 <div class="page" id="page-select" style="padding-top:80px;">
   <div class="select-header">
@@ -961,12 +1072,12 @@
     <p class="select-desc">不要想太多，跟著感覺走<br>被吸引的、或是排斥的，都可以選</p>
     <p class="select-counter" id="selectCounter">已選 0 / 5</p>
   </div>
- 
+
   <div class="bottles-field" id="bottlesField"></div>
- 
+
   <button class="btn-primary" id="btnConfirm" onclick="startReading()" style="display:none;"><span>看解讀</span></button>
 </div>
- 
+
 <!-- 解讀 -->
 <div class="page" id="page-reading" style="padding-top:80px; padding-bottom:60px;">
   <div id="share-target" style="width:100%;max-width:380px;margin:0 auto;padding:0 24px;">
@@ -976,12 +1087,28 @@
     </div>
     <div class="reading-cards" id="readingCards"></div>
   </div>
+
+  <!-- 截圖專用總結區塊 -->
+  <div id="shareBlock" style="display:none;width:100%;max-width:380px;margin:0 auto;padding:0 24px;">
+    <p class="share-hint">✦ 截圖以下畫面即可儲存你的結果</p>
+    <div class="share-block" id="shareBlockInner">
+      <div class="share-block-top">
+        <div class="share-block-logo">🌿 香氣抓周 · Aromatherapy Oracle</div>
+        <div class="share-block-title">我的香氣訊息</div>
+        <div class="share-block-q" id="shareBlockQ"></div>
+      </div>
+      <div class="share-oils-list" id="shareOilsList"></div>
+      <div class="share-summary-text" id="shareBlockSummary"></div>
+      <div class="share-block-footer">Designed by Jia Zhen Wu · © 2026</div>
+    </div>
+  </div>
+
   <div class="reading-actions" id="readingActions" style="display:none;">
-    <button class="btn-primary" onclick="shareResult()"><span>截圖分享</span></button>
+    <button class="btn-primary" onclick="showShareBlock()"><span>截圖分享</span></button>
     <button class="btn-secondary" onclick="startOver()">重新抓周</button>
   </div>
 </div>
- 
+
 <script>
 // ===== 精油資料庫 =====
 const categoryMap = {
@@ -991,7 +1118,7 @@ const categoryMap = {
   '草本類': { icon: '🌿', energy: '象徵清明與行動，是時候整理思緒，勇敢表達自我', color: '#7FAF95' },
   '樹脂類': { icon: '✦', energy: '象徵修復與深沉，你需要耐心扎根，療癒過去的傷', color: 'var(--crystal-blue)' },
 };
- 
+
 const oils = [
   { id: 1, name: '肉桂', latin: 'Cinnamomum zeylanicum', keyword: '歸屬感', category: '草本類', spirits: ['帶來溫暖與安全感', '喚醒內在歸屬渴望', '療癒根源創傷', '強化自我認同'] },
   { id: 2, name: '沒藥', latin: 'Commiphora myrrha', keyword: '重生', category: '樹脂類', spirits: ['促進能量轉化', '淨化舊能量', '協助放下執著', '連結內在智慧', '啟動重生能量'] },
@@ -1012,7 +1139,7 @@ const oils = [
   { id: 17, name: '甜橙', latin: 'Citrus sinensis', keyword: '喜悅能量', category: '柑橘類', spirits: ['啟動創造力', '增強正向能量', '連結內在喜悅', '提升生命能量', '強化表達能力', '促進能量流動'] },
   { id: 18, name: '檸檬', latin: 'Citrus limon', keyword: '智慧清明', category: '柑橘類', spirits: ['淨化思維模式', '增強心智清晰', '提升意識能量', '強化決策能力', '促進能量淨化', '啟動智慧之光'] },
 ];
- 
+
 // 靈性解讀文字（示範模式用）
 const demoReadings = {
   '肉桂': '肉桂溫暖的氣息，帶著一種深沉的安全感。它出現在你的選擇裡，映照出你內心對歸屬的渴望——那份想要被真正接住的感受。也許過去的某些經歷讓你習慣了把自己包裹起來，但這個香氣在輕輕提醒你：你值得擁有一個真正安全的地方。從允許自己感受這份溫暖開始。',
@@ -1034,14 +1161,14 @@ const demoReadings = {
   '甜橙': '甜橙帶著最純粹的喜悅能量，它在問你：你有多久沒有讓自己真正快樂了？不是為了什麼目的，只是純粹的喜悅。你的創造力和表達能量正在等待被釋放。讓甜橙的光明提升你的生命能量，允許自己連結那個最本真的內在喜悅。',
   '檸檬': '檸檬帶著清明的智慧之光，直接作用在你的思維模式上。也許有些習慣性的思路讓你打轉，有些信念需要被重新檢視。讓這個清澈的能量幫你淨化那些模糊的念頭，增強心智的清晰度，你會發現決策和方向會變得比你以為的更清楚。',
 };
- 
+
 const demoSummary = '你選擇的這五支香氣，共同描繪出一個細膩而真實的內在圖像。從能量的角度看，你的心輪和根部能量正同時在向你說話，那份對愛與連結的深切渴望，與對安全穩定的需求，在你身上交織著。<br><br>這不是矛盾，而是你此刻最真實的狀態。某些舊有的模式正在鬆動，某些新的可能性正在敲門。五支香氣一起告訴你：你已經準備好了，只是還不完全相信自己。<br><br>讓這些香氣的能量陪伴你，在接下來的日子裡，試著每天給自己一個小小的溫柔時刻。你比自己以為的更完整，也更值得被愛，包括被你自己。';
- 
- 
+
+
 let selectedBottles = [];
 let userQuestion = '';
 let currentPage = 'intro';
- 
+
 // ===== 頁面切換 =====
 function showPage(id) {
   document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
@@ -1049,25 +1176,25 @@ function showPage(id) {
   currentPage = id;
   document.getElementById('navBack').style.display = (id === 'intro') ? 'none' : 'block';
   window.scrollTo(0, 0);
- 
+
   var progress = { intro: 0, ritual: 25, select: 50, reading: 100, history: 0, about: 0 };
   document.getElementById('progressBar').style.width = (progress[id] || 0) + '%';
- 
+
   if (id === 'history') { renderHistoryList(); }
 }
- 
+
 function goBack() {
   const map = { ritual: 'intro', select: 'ritual', reading: 'select' };
   if (map[currentPage]) showPage(map[currentPage]);
 }
- 
+
 // ===== 首頁 → 儀式 =====
 function startRitual() {
   showPage('ritual');
   document.querySelectorAll('.ritual-step').forEach(s => s.classList.remove('active'));
   document.getElementById('ritual-1').classList.add('active');
 }
- 
+
 let ritualStep = 1;
 function nextRitual() {
   ritualStep++;
@@ -1075,42 +1202,42 @@ function nextRitual() {
   const next = document.getElementById('ritual-' + ritualStep);
   if (next) { next.classList.add('active'); }
 }
- 
+
 // ===== 儀式 → 選瓶 =====
 function goToSelect() {
   userQuestion = document.getElementById('questionInput').value.trim();
   showPage('select');
   renderBottles();
 }
- 
+
 function renderBottles() {
   const field = document.getElementById('bottlesField');
   field.innerHTML = '';
   selectedBottles = [];
- 
+
   const shuffled = [...oils].sort(() => Math.random() - 0.5);
- 
+
   // 用網格基礎 + 隨機偏移，確保不重疊又有散落感
   const cols = 5;
   const rows = Math.ceil(shuffled.length / cols);
   const cellW = 100 / cols;
   const cellH = 100 / rows;
- 
+
   shuffled.forEach((oil, i) => {
     const el = document.createElement('div');
     el.className = 'bottle-item';
     el.dataset.id = oil.id;
     el.dataset.name = oil.name;
- 
+
     const col = i % cols;
     const row = Math.floor(i / cols);
     const angle = (Math.random() - 0.5) * 40;
     // 在格子內隨機偏移，保留邊距
     const x = col * cellW + cellW * 0.1 + Math.random() * cellW * 0.6;
     const y = row * cellH + cellH * 0.1 + Math.random() * cellH * 0.6;
- 
+
     el.style.cssText = `left:${x}%;top:${y}%;transform:rotate(${angle}deg);`;
- 
+
     el.innerHTML = `
       <div class="bottle-badge" id="badge-${oil.id}"></div>
       <svg class="bottle-svg" width="48" height="76" viewBox="0 0 32 52">
@@ -1121,12 +1248,12 @@ function renderBottles() {
         <rect x="8" y="42" width="16" height="2" rx="1" fill="#A09070" opacity="0.4"/>
       </svg>
     `;
- 
+
     el.addEventListener('click', () => toggleBottle(el, oil));
     field.appendChild(el);
   });
 }
- 
+
 function toggleBottle(el, oil) {
   const id = oil.id;
   if (el.classList.contains('selected')) {
@@ -1138,32 +1265,74 @@ function toggleBottle(el, oil) {
     el.classList.add('selected');
     el.querySelector('.bottle-badge').textContent = selectedBottles.length;
   }
- 
+
   document.getElementById('selectCounter').textContent = `已選 ${selectedBottles.length} / 5`;
   document.getElementById('btnConfirm').style.display = selectedBottles.length === 5 ? 'inline-block' : 'none';
 }
- 
+
 // ===== 進入解讀 =====
 async function startReading() {
   showPage('reading');
   saveHistory(userQuestion, selectedBottles);
+  document.getElementById('shareBlock').style.display = 'none';
   var qEl = document.getElementById('readingQuestion');
-  qEl.textContent = userQuestion ? `「${userQuestion}」` : '';
- 
-  const container = document.getElementById('readingCards');
+  qEl.textContent = userQuestion ? '「' + userQuestion + '」' : '';
+
+  var container = document.getElementById('readingCards');
   container.innerHTML = '';
- 
-  // 逐一建立卡片並呼叫 AI
-  for (let i = 0; i < selectedBottles.length; i++) {
-    const oil = selectedBottles[i];
-    await renderOilCard(container, oil, i);
+
+  for (var i = 0; i < selectedBottles.length; i++) {
+    await renderOilCard(container, selectedBottles[i], i);
   }
- 
-  // 總結
+
   await renderSummary(container);
+  await renderTips(container);
   document.getElementById('readingActions').style.display = 'flex';
 }
- 
+
+async function renderTips(container) {
+  var categories = [];
+  selectedBottles.forEach(function(o) {
+    if (categories.indexOf(o.category) === -1) categories.push(o.category);
+  });
+
+  var tipsMap = {
+    '花香類': { tip: '今天試著對自己說一句溫柔的話。不需要完美，只是讓自己知道你在這裡、你值得被好好對待。', action: '💌 今日小行動：寫下三件你喜歡自己的事' },
+    '柑橘類': { tip: '讓身體動起來，哪怕只是走到窗邊曬五分鐘太陽。喜悅的能量需要流動，而流動從一個小小的移動開始。', action: '☀️ 今日小行動：做一件單純讓你開心的事' },
+    '木質類': { tip: '雙腳踩地，感受地板的存在。深呼吸，讓空氣一路到達肚子。你現在是安全的，你可以慢下來。', action: '🌲 今日小行動：花五分鐘坐在安靜的地方，什麼都不做' },
+    '草本類': { tip: '把腦袋裡盤旋的那件事寫下來。不需要解決它，只是讓它從心裡移到紙上，給自己一點清明的空間。', action: '📝 今日小行動：用筆寫下此刻最想說的一句話' },
+    '樹脂類': { tip: '給自己一個不被打擾的角落，哪怕只有十分鐘。修復需要安靜，而安靜是你給自己最好的禮物之一。', action: '🕯️ 今日小行動：點一支蠟燭或泡一杯茶，靜靜坐著' },
+  };
+
+  var mainCat = categories[0] || '花香類';
+  var tipsData = tipsMap[mainCat] || tipsMap['花香類'];
+
+  var card = document.createElement('div');
+  card.className = 'tips-card';
+  card.innerHTML = '<div class="tips-label">🌱 療癒小貼士</div>'
+    + '<div class="tips-text">' + tipsData.tip + '</div>'
+    + '<div class="tips-action">' + tipsData.action + '</div>';
+  container.appendChild(card);
+  setTimeout(function() { card.classList.add('visible'); }, 100);
+}
+
+// ===== 截圖專用區塊 =====
+function showShareBlock() {
+  var summaryEl = document.querySelector('#readingCards .summary-text');
+  var summaryText = summaryEl ? summaryEl.innerHTML : '';
+
+  document.getElementById('shareBlockQ').textContent = userQuestion ? '「' + userQuestion + '」' : '';
+  document.getElementById('shareBlockSummary').innerHTML = summaryText;
+
+  var oilsList = document.getElementById('shareOilsList');
+  oilsList.innerHTML = selectedBottles.map(function(o) {
+    return '<span class="share-oil-tag">' + o.name + '</span>';
+  }).join('');
+
+  document.getElementById('shareBlock').style.display = 'block';
+  document.getElementById('shareBlock').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 async function renderOilCard(container, oil, index) {
   return new Promise(async (resolve) => {
     const cat = categoryMap[oil.category] || {};
@@ -1189,15 +1358,15 @@ async function renderOilCard(container, oil, index) {
       </div>
     `;
     container.appendChild(card);
- 
+
     setTimeout(() => card.classList.add('visible'), 50);
- 
+
     const reading = await getOilReading(oil, index + 1, userQuestion, selectedBottles);
     card.querySelector('.card-reading').innerHTML = reading;
     resolve();
   });
 }
- 
+
 async function renderSummary(container) {
   const card = document.createElement('div');
   card.className = 'summary-card';
@@ -1213,16 +1382,16 @@ async function renderSummary(container) {
   `;
   container.appendChild(card);
   setTimeout(() => card.classList.add('visible'), 100);
- 
+
   const summary = await getSummaryReading(selectedBottles, userQuestion);
   card.querySelector('.summary-text').innerHTML = summary;
 }
- 
+
 // ===== Claude API =====
- 
- 
- 
- 
+
+
+
+
 async function getOilReading(oil, position, question, allOils) {
   var oilList = allOils.map(function(o, i) { return (i+1) + '. ' + o.name + '(' + o.latin + ')'; }).join('\n');
   var qText = question ? '用戶的問題是：「' + question + '」' : '用戶沒有特定問題，想了解當下的身心狀態。';
@@ -1233,7 +1402,7 @@ async function getOilReading(oil, position, question, allOils) {
     + '現在請解讀第 ' + position + ' 支：' + oil.name + '（' + oil.latin + '）' + spiritsText + '\n\n'
     + '請融合以上靈性意義，用溫柔、有深度的語氣解讀它反映了用戶當下的什麼狀態或訊息。'
     + '約100-130字，不要用條列，用流動的散文語氣。不要提到「這支精油」，直接說內容。不要加標題。';
- 
+
   try {
     var res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -1253,7 +1422,7 @@ async function getOilReading(oil, position, question, allOils) {
     return demoReadings[oil.name] || '這支香氣帶著溫柔的訊息，靜靜地映照出你此刻的內在狀態。';
   }
 }
- 
+
 async function getSummaryReading(oils, question) {
   var categories = [];
   oils.forEach(function(o) { if (categories.indexOf(o.category) === -1) categories.push(o.category); });
@@ -1267,7 +1436,7 @@ async function getSummaryReading(oils, question) {
     + '請根據這五支精油的整體組合，給出一段溫柔而有力的整體總結訊息。'
     + '在結尾自然融入一句此刻的心靈能量作為提醒，直接融入文字裡。'
     + '約150-180字，散文語氣，有溫度。不要加標題。';
- 
+
   try {
     var res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -1287,18 +1456,18 @@ async function getSummaryReading(oils, question) {
     return demoSummary;
   }
 }
- 
+
 // ===== 分享：開新視窗顯示乾淨結果頁 =====
 function shareResult() {
   var question = userQuestion ? '「' + userQuestion + '」' : '';
- 
+
   // 把卡片強制設為可見（移除動畫初始透明狀態）
   document.querySelectorAll('#readingCards .reading-card, #readingCards .summary-card').forEach(function(el) {
     el.style.opacity = '1';
     el.style.transform = 'none';
   });
   var cardsHTML = document.getElementById('readingCards').innerHTML;
- 
+
   var html = '<!DOCTYPE html><html lang="zh-TW"><head>'
     + '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">'
     + '<title>我的香氣訊息</title>'
@@ -1338,32 +1507,32 @@ function shareResult() {
     + cardsHTML
     + '<div class="footer">Designed &amp; Crafted by Jia Zhen Wu &middot; &copy; 2026 Aromatherapy Oracle Reading</div>'
     + '</div></body></html>';
- 
+
   var encoded = 'data:text/html;charset=utf-8,' + encodeURIComponent(html);
   window.open(encoded, '_blank');
 }
- 
+
 function startOver() {
   showPage('intro');
   document.getElementById('questionInput').value = '';
   selectedBottles = [];
   ritualStep = 1;
 }
- 
+
 // ===== 選單 =====
 function openMenu() {
   document.getElementById('sideMenu').classList.add('open');
   document.getElementById('sideOverlay').classList.add('open');
 }
- 
+
 function closeMenu() {
   document.getElementById('sideMenu').classList.remove('open');
   document.getElementById('sideOverlay').classList.remove('open');
 }
- 
+
 // ===== 多語言 =====
 var currentLang = 'zh';
- 
+
 var i18n = {
   zh: {
     navLogo: '香氣抓周',
@@ -1423,15 +1592,15 @@ var i18n = {
     aboutS5: '免責事項', aboutP5: 'このツールは自己探求と精神的な探索のみを目的としており、医療、心理、または法律的なアドバイスではありません。',
   }
 };
- 
+
 function setLang(lang) {
   currentLang = lang;
   var t = i18n[lang];
- 
+
   // ボタン活性化
   document.querySelectorAll('.side-lang-btn').forEach(function(b) { b.classList.remove('active'); });
   document.getElementById('lang-' + lang).classList.add('active');
- 
+
   // テキスト更新
   document.getElementById('nav-logo-text').textContent = t.navLogo;
   document.getElementById('nav-home').textContent = t.navHome;
@@ -1456,17 +1625,17 @@ function setLang(lang) {
   document.getElementById('about-p4').textContent = t.aboutP4;
   document.getElementById('about-s5').textContent = t.aboutS5;
   document.getElementById('about-p5').textContent = t.aboutP5;
- 
+
   renderHistoryList();
 }
- 
+
 function autoDetectLang() {
   var nav = navigator.language || navigator.userLanguage || 'zh';
   if (nav.startsWith('ja')) { setLang('ja'); }
   else if (nav.startsWith('zh')) { setLang('zh'); }
   else { setLang('en'); }
 }
- 
+
 // ===== 歷史紀錄 =====
 function saveHistory(question, oils) {
   var records = JSON.parse(localStorage.getItem('aromaHistory') || '[]');
@@ -1478,7 +1647,7 @@ function saveHistory(question, oils) {
   if (records.length > 30) records = records.slice(0, 30);
   localStorage.setItem('aromaHistory', JSON.stringify(records));
 }
- 
+
 function renderHistoryList() {
   var container = document.getElementById('historyList');
   if (!container) return;
@@ -1496,17 +1665,16 @@ function renderHistoryList() {
       + '</div>';
   }).join('');
 }
- 
+
 function clearHistory() {
   if (confirm(currentLang === 'ja' ? '全履歴を削除しますか？' : currentLang === 'en' ? 'Clear all history?' : '確定清除所有紀錄？')) {
     localStorage.removeItem('aromaHistory');
     renderHistoryList();
   }
 }
- 
+
 // 初始化
 autoDetectLang();
 </script>
 </body>
 </html>
- 
