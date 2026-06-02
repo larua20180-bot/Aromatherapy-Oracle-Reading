@@ -32,9 +32,13 @@
 <meta property="og:image" content="https://larua20180-bot.github.io/Aromatherapy-Oracle-Reading/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
+    --font-body: 'Noto Serif TC', serif;
+    --font-display: 'Cormorant Garamond', serif;
     --cream: #F7F5FA;
     --warm-white: #FDFCFE;
     --sand: #E8E2F0;
@@ -54,7 +58,7 @@
   body {
     background: var(--cream);
     color: var(--text);
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-body);
     min-height: 100vh;
     overflow-x: hidden;
   }
@@ -82,7 +86,7 @@
   }
 
   .intro-ornament {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 48px;
     color: var(--gold);
     opacity: 0.6;
@@ -96,7 +100,7 @@
   }
 
   .intro-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 36px;
     font-weight: 300;
     letter-spacing: 0.15em;
@@ -151,7 +155,7 @@
     padding: 18px 52px;
     background: var(--deep-brown);
     color: var(--warm-white);
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-body);
     font-size: 16px;
     letter-spacing: 0.25em;
     border: none;
@@ -179,7 +183,7 @@
     padding: 16px 44px;
     background: transparent;
     color: var(--brown);
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-body);
     font-size: 15px;
     letter-spacing: 0.2em;
     border: 1px solid var(--taupe);
@@ -216,7 +220,7 @@
   }
 
   .ritual-number {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 64px;
     color: var(--sand);
     line-height: 1;
@@ -224,7 +228,7 @@
   }
 
   .ritual-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 28px;
     font-weight: 300;
     color: var(--deep-brown);
@@ -271,7 +275,7 @@
     border: none;
     border-bottom: 1px solid var(--taupe);
     padding: 16px 4px;
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-body);
     font-size: 15px;
     color: var(--text);
     text-align: center;
@@ -302,7 +306,7 @@
   }
 
   .select-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 26px;
     font-weight: 300;
     color: var(--deep-brown);
@@ -356,7 +360,7 @@
     display: none;
     align-items: center;
     justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
   }
 
   .bottle-item.selected .bottle-badge { display: flex; }
@@ -373,7 +377,7 @@
   }
 
   .reading-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 28px;
     font-weight: 300;
     color: var(--deep-brown);
@@ -416,7 +420,7 @@
   }
 
   .card-number {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 32px;
     color: var(--sand);
     line-height: 1;
@@ -430,7 +434,7 @@
   }
 
   .card-oil-latin {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 14px;
     color: var(--taupe);
     font-style: italic;
@@ -545,7 +549,7 @@
   }
 
   .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 15px;
     letter-spacing: 0.2em;
     color: var(--brown);
@@ -585,7 +589,7 @@
     border: 1px solid var(--sand);
     border-radius: 12px;
     background: none;
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-body);
     transition: all 0.2s;
   }
 
@@ -640,7 +644,7 @@
   }
 
   .side-menu-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 11px;
     letter-spacing: 0.3em;
     color: var(--taupe);
@@ -675,7 +679,7 @@
     background: none;
     color: var(--text-light);
     cursor: pointer;
-    font-family: 'Noto Serif TC', serif;
+    font-family: var(--font-body);
     transition: all 0.2s;
     border-radius: 2px;
   }
@@ -740,7 +744,7 @@
   }
 
   .share-block-logo {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 11px;
     letter-spacing: 0.3em;
     color: var(--taupe);
@@ -748,7 +752,7 @@
   }
 
   .share-block-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 22px;
     font-weight: 300;
     color: var(--deep-brown);
@@ -785,7 +789,7 @@
 
   .share-block-footer {
     text-align: center;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-style: italic;
     font-size: 11px;
     color: var(--taupe);
@@ -821,7 +825,7 @@
   }
 
   .footer-brand {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-style: italic;
     font-size: 13px;
     color: var(--taupe);
@@ -866,7 +870,7 @@
   }
 
   .about-section-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 13px;
     letter-spacing: 0.3em;
     color: var(--gold);
@@ -874,7 +878,7 @@
   }
 
   .about-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 28px;
     font-weight: 300;
     color: var(--deep-brown);
@@ -905,7 +909,7 @@
   }
 
   .history-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-size: 28px;
     font-weight: 300;
     color: var(--deep-brown);
@@ -955,7 +959,7 @@
   .history-item-oils {
     font-size: 12px;
     color: var(--text-light);
-    font-family: 'Cormorant Garamond', serif;
+    font-family: var(--font-display);
     font-style: italic;
   }
 
@@ -1093,17 +1097,62 @@
 <!-- 關於我 -->
 <div class="page" id="page-about">
   <div class="about-section">
-    <div class="about-section-title">ABOUT</div>
+    <div class="about-section-title" id="about-label">ABOUT</div>
     <h2 class="about-title" id="about-main-title">什麼是精油抓周？</h2>
     <p class="about-text" id="about-p1">精油抓周（又稱香氛占卜）是一種結合嗅覺與潛意識的自我覺察方式。藉由你對特定植物香氣的直覺反應，來反映你當下的身心狀態與情緒盲點。它不是傳統算命，而是一面溫柔的鏡子。</p>
   </div>
   <div class="about-divider"></div>
 
-  <!-- 創作者故事 -->
   <div class="about-section">
-    <div class="about-section-title">CREATOR</div>
+    <div class="about-section-title" id="about-s2">抽精油前</div>
+    <p class="about-text" id="about-p2">
+      ✦ &nbsp;選一個不會被打擾的時刻，遠離吵雜<br><br>
+      ✦ &nbsp;深呼吸三次，讓思緒慢下來<br><br>
+      ✦ &nbsp;在心中清楚地把問題默想一遍<br><br>
+      ✦ &nbsp;帶著開放的心，讓直覺帶路
+    </p>
+  </div>
+  <div class="about-divider"></div>
+
+  <div class="about-section">
+    <div class="about-section-title" id="about-s3">如何提問</div>
+    <p class="about-text" id="about-p3">
+      ✦ &nbsp;一次聚焦一個問題，避免一次想知道太多<br><br>
+      ✦ &nbsp;開放式問題比是非題更有層次<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;與其問「我該不該離職？」<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不如問「如果我留下來，接下來會如何發展？」<br><br>
+      ✦ &nbsp;把問題寫得具體：時間範圍、相關的人、情境細節<br><br>
+      ✦ &nbsp;同一個問題請隔一段時間再抽，短時間內反覆只會徒增雜訊
+    </p>
+  </div>
+  <div class="about-divider"></div>
+
+  <div class="about-section">
+    <div class="about-section-title" id="about-s4">解讀態度</div>
+    <p class="about-text" id="about-p4">
+      ✦ &nbsp;解讀反映的是你此刻的內在狀態，不是絕對的預言<br><br>
+      ✦ &nbsp;沒有絕對的「壞結果」，每個訊息都要看脈絡<br><br>
+      ✦ &nbsp;帶著開放的心接收訊息，讓它成為你與自己對話的起點<br><br>
+      ✦ &nbsp;最後的決定權，永遠在你自己手上
+    </p>
+  </div>
+  <div class="about-divider"></div>
+
+  <div class="about-section">
+    <div class="about-section-title" id="about-s5">使用須知</div>
+    <p class="about-text" id="about-p5">
+      ✦ &nbsp;本站僅供占卜參考與內在反思，不取代醫療、法律、心理諮商等專業建議<br><br>
+      ✦ &nbsp;解讀結果為一種觀察視角，請自行評估後再做決定<br><br>
+      ✦ &nbsp;若你正面臨身心困擾，請一定要尋求專業人士的協助
+    </p>
+  </div>
+  <div class="about-divider"></div>
+
+  <!-- 創作者故事（移到最後）-->
+  <div class="about-section">
+    <div class="about-section-title" id="creator-label">CREATOR</div>
     <div class="about-creator">
-      <p class="about-creator-text">
+      <p class="about-creator-text" id="creator-text">
         我做這個工具，其實也是在療癒自己。<br><br>
         最近生命的課題兜兜轉轉，最後還是回到了那個我一直在迴避的地方——真實的自己。我心裡住著一個脆弱不安的孩子，他到現在還在悲傷。我不知道該怎麼擁抱他，怎麼跟他說「我在，我會陪著你」。因為過去十幾年，我好像從來沒有真正好好愛過自己。<br><br>
         香氣抓周對我來說，是一個溫柔的開始。一個讓自己停下來、往內看的儀式。<br><br>
@@ -1112,11 +1161,9 @@
       <div class="about-creator-sig">
         — Jia Zhen Wu
         <div class="social-icons">
-          <!-- FB icon -->
           <a class="social-icon" href="https://www.facebook.com/ShisaidStory/" target="_blank" title="世說霧語 Facebook">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
-          <!-- IG icon -->
           <a class="social-icon" href="https://www.instagram.com/shisaidstory" target="_blank" title="世說霧語 Instagram">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </a>
@@ -1124,27 +1171,7 @@
       </div>
     </div>
   </div>
-  <div class="about-divider"></div>
 
-  <div class="about-section">
-    <div class="about-section-title" id="about-s2">抽精油前須知</div>
-    <p class="about-text" id="about-p2">選一個安靜、不會被打擾的時刻。深呼吸三次，讓思緒慢下來。心中帶著一個想探索的問題，或單純想了解自己當下的狀態，都可以。</p>
-  </div>
-  <div class="about-divider"></div>
-  <div class="about-section">
-    <div class="about-section-title" id="about-s3">如何提問</div>
-    <p class="about-text" id="about-p3">一次聚焦一個問題，避免一次想知道太多。開放式問題比是非題更有層次——與其問「我該不該離職？」，不如問「如果我留下來，接下來會如何發展？」把問題寫得具體：時間範圍、相關的人、情境細節，都能讓解讀更準確。</p>
-  </div>
-  <div class="about-divider"></div>
-  <div class="about-section">
-    <div class="about-section-title" id="about-s4">解讀態度</div>
-    <p class="about-text" id="about-p4">解讀結果反映的是你此刻的內在狀態，不是絕對的預言。同一個問題請隔一段時間再抽，短時間內反覆只會徒增雜訊。帶著開放的心接收訊息，讓它成為你與自己對話的起點。</p>
-  </div>
-  <div class="about-divider"></div>
-  <div class="about-section">
-    <div class="about-section-title" id="about-s5">使用須知</div>
-    <p class="about-text" id="about-p5">本工具提供的解讀僅供自我覺察與心靈探索參考，不構成任何醫療、心理或法律建議。若你正面臨重要決策或身心困擾，請尋求專業人士的協助。</p>
-  </div>
   <div class="site-footer">
     <div class="footer-brand">Designed &amp; Crafted by Jia Zhen Wu &middot; &copy; 2026 Aromatherapy Oracle Reading</div>
     <div class="footer-contact"><a href="mailto:larua20180@gmail.com">larua20180@gmail.com</a></div>
@@ -1159,7 +1186,7 @@
     <div class="ritual-number">一</div>
     <h2 class="ritual-title" id="ritual1-title">靜下來</h2>
     <p class="ritual-desc" id="ritual1-desc">跟著這個圓的節奏，深呼吸三次。吸氣時它變大，吐氣時它縮小。</p>
-    <div class="breath-circle">呼吸</div>
+    <div class="breath-circle" id="breathText">呼吸</div>
     <p id="ritual1-sub" style="font-size:13px;color:var(--taupe);letter-spacing:0.15em;margin-bottom:40px;">慢慢來，不用趕</p>
     <button class="btn-primary" onclick="nextRitual()"><span id="ritual1-btn">我準備好了</span></button>
   </div>
@@ -1210,7 +1237,7 @@
     <p class="share-hint" id="shareHintText">✦ 截圖以下畫面即可儲存你的結果</p>
     <div class="share-block" id="shareBlockInner">
       <div class="share-block-top">
-        <div class="share-block-logo">🌿 香氣抓周 · Aromatherapy Oracle</div>
+        <div class="share-block-logo" id="shareBlockLogo">🌿 香氣抓周 · Aromatherapy Oracle</div>
         <div class="share-block-title" id="shareBlockTitle">我的香氣訊息</div>
         <div class="share-block-q" id="shareBlockQ"></div>
       </div>
@@ -1221,8 +1248,8 @@
   </div>
 
   <div class="reading-actions" id="readingActions" style="display:none;">
-    <button class="btn-primary" onclick="showShareBlock()"><span>截圖分享</span></button>
-    <button class="btn-secondary" onclick="startOver()">重新抓周</button>
+    <button class="btn-primary" onclick="showShareBlock()"><span id="btn-share-text">截圖分享</span></button>
+    <button class="btn-secondary" onclick="startOver()" id="btn-restart-text">重新抓周</button>
   </div>
 </div>
 
@@ -1301,12 +1328,13 @@ function showPage(id) {
 }
 
 function goBack() {
-  const map = { ritual: 'intro', select: 'ritual', reading: 'select' };
+  const map = { ritual: 'intro', select: 'ritual', reading: 'select', history: 'intro', about: 'intro' };
   if (map[currentPage]) showPage(map[currentPage]);
 }
 
 // ===== 首頁 → 儀式 =====
 function startRitual() {
+  ritualStep = 1; // 重要：每次重新開始都要回到儀式第 1 步
   showPage('ritual');
   document.querySelectorAll('.ritual-step').forEach(s => s.classList.remove('active'));
   document.getElementById('ritual-1').classList.add('active');
@@ -1383,7 +1411,7 @@ function toggleBottle(el, oil) {
     el.querySelector('.bottle-badge').textContent = selectedBottles.length;
   }
 
-  document.getElementById('selectCounter').textContent = `已選 ${selectedBottles.length} / 5`;
+  document.getElementById('selectCounter').textContent = getText('selectCounter').replace('{n}', selectedBottles.length);
   document.getElementById('btnConfirm').style.display = selectedBottles.length === 5 ? 'inline-block' : 'none';
 }
 
@@ -1414,20 +1442,13 @@ async function renderTips(container) {
     if (categories.indexOf(o.category) === -1) categories.push(o.category);
   });
 
-  var tipsMap = {
-    '花香類': { tip: '今天試著對自己說一句溫柔的話。不需要完美，只是讓自己知道你在這裡、你值得被好好對待。', action: '💌 今日小行動：寫下三件你喜歡自己的事' },
-    '柑橘類': { tip: '讓身體動起來，哪怕只是走到窗邊曬五分鐘太陽。喜悅的能量需要流動，而流動從一個小小的移動開始。', action: '☀️ 今日小行動：做一件單純讓你開心的事' },
-    '木質類': { tip: '雙腳踩地，感受地板的存在。深呼吸，讓空氣一路到達肚子。你現在是安全的，你可以慢下來。', action: '🌲 今日小行動：花五分鐘坐在安靜的地方，什麼都不做' },
-    '草本類': { tip: '把腦袋裡盤旋的那件事寫下來。不需要解決它，只是讓它從心裡移到紙上，給自己一點清明的空間。', action: '📝 今日小行動：用筆寫下此刻最想說的一句話' },
-    '樹脂類': { tip: '給自己一個不被打擾的角落，哪怕只有十分鐘。修復需要安靜，而安靜是你給自己最好的禮物之一。', action: '🕯️ 今日小行動：點一支蠟燭或泡一杯茶，靜靜坐著' },
-  };
-
   var mainCat = categories[0] || '花香類';
+  var tipsMap = i18n[currentLang].tips || i18n.zh.tips;
   var tipsData = tipsMap[mainCat] || tipsMap['花香類'];
 
   var card = document.createElement('div');
   card.className = 'tips-card';
-  card.innerHTML = '<div class="tips-label">🌱 療癒小貼士</div>'
+  card.innerHTML = '<div class="tips-label">' + getText('tipsLabel') + '</div>'
     + '<div class="tips-text">' + tipsData.tip + '</div>'
     + '<div class="tips-action">' + tipsData.action + '</div>';
   container.appendChild(card);
@@ -1444,7 +1465,7 @@ function showShareBlock() {
 
   var oilsList = document.getElementById('shareOilsList');
   oilsList.innerHTML = selectedBottles.map(function(o) {
-    return '<span class="share-oil-tag">' + o.name + '</span>';
+    return '<span class="share-oil-tag">' + getOilName(o) + '</span>';
   }).join('');
 
   document.getElementById('shareBlock').style.display = 'block';
@@ -1452,56 +1473,50 @@ function showShareBlock() {
 }
 
 async function renderOilCard(container, oil, index) {
-  return new Promise(async (resolve) => {
-    const cat = categoryMap[oil.category] || {};
-    const card = document.createElement('div');
+  return new Promise(async function(resolve) {
+    var cat = categoryMap[oil.category] || {};
+    var catText = getCategoryText(oil.category);
+    var card = document.createElement('div');
     card.className = 'reading-card';
-    card.innerHTML = `
-      <div class="card-header">
-        <div class="card-number">${index + 1}</div>
-        <div>
-          <div class="card-oil-name">${oil.name}</div>
-          <div class="card-oil-latin">${oil.latin}</div>
-        </div>
-      </div>
-      <div class="card-category-tag" style="color:${cat.color || 'var(--brown)'}">${cat.icon || '✦'} ${oil.category} · ${oil.keyword}</div>
-      <div class="card-energy-line">${cat.energy || ''}</div>
-      <div class="card-divider"></div>
-      <div class="card-reading">
-        <div class="card-loading">
-          <div class="loading-dot"></div>
-          <div class="loading-dot"></div>
-          <div class="loading-dot"></div>
-        </div>
-      </div>
-    `;
+    card.innerHTML = '<div class="card-header">'
+      + '<div class="card-number">' + (index + 1) + '</div>'
+      + '<div>'
+      + '<div class="card-oil-name">' + getOilName(oil) + '</div>'
+      + '<div class="card-oil-latin">' + oil.latin + '</div>'
+      + '</div></div>'
+      + '<div class="card-category-tag" style="color:' + (cat.color || 'var(--brown)') + '">' + (cat.icon || '✦') + ' ' + catText.label + ' · ' + getOilKeyword(oil) + '</div>'
+      + '<div class="card-energy-line">' + catText.energy + '</div>'
+      + '<div class="card-divider"></div>'
+      + '<div class="card-reading">'
+      + '<div class="card-loading">'
+      + '<div class="loading-dot"></div>'
+      + '<div class="loading-dot"></div>'
+      + '<div class="loading-dot"></div>'
+      + '</div></div>';
     container.appendChild(card);
 
-    setTimeout(() => card.classList.add('visible'), 50);
+    setTimeout(function() { card.classList.add('visible'); }, 50);
 
-    const reading = await getOilReading(oil, index + 1, userQuestion, selectedBottles);
+    var reading = await getOilReading(oil, index + 1, userQuestion, selectedBottles);
     card.querySelector('.card-reading').innerHTML = reading;
     resolve();
   });
 }
 
 async function renderSummary(container) {
-  const card = document.createElement('div');
+  var card = document.createElement('div');
   card.className = 'summary-card';
-  card.innerHTML = `
-    <div class="summary-label">✦ 整體訊息</div>
-    <div class="summary-text">
-      <div class="card-loading">
-        <div class="loading-dot" style="background:var(--taupe)"></div>
-        <div class="loading-dot" style="background:var(--taupe)"></div>
-        <div class="loading-dot" style="background:var(--taupe)"></div>
-      </div>
-    </div>
-  `;
+  card.innerHTML = '<div class="summary-label">' + getText('summaryLabel') + '</div>'
+    + '<div class="summary-text">'
+    + '<div class="card-loading">'
+    + '<div class="loading-dot" style="background:var(--taupe)"></div>'
+    + '<div class="loading-dot" style="background:var(--taupe)"></div>'
+    + '<div class="loading-dot" style="background:var(--taupe)"></div>'
+    + '</div></div>';
   container.appendChild(card);
-  setTimeout(() => card.classList.add('visible'), 100);
+  setTimeout(function() { card.classList.add('visible'); }, 100);
 
-  const summary = await getSummaryReading(selectedBottles, userQuestion);
+  var summary = await getSummaryReading(selectedBottles, userQuestion);
   card.querySelector('.summary-text').innerHTML = summary;
 }
 
@@ -1511,14 +1526,15 @@ async function renderSummary(container) {
 
 
 async function getOilReading(oil, position, question, allOils) {
-  var oilList = allOils.map(function(o, i) { return (i+1) + '. ' + o.name + '(' + o.latin + ')'; }).join('\n');
-  var qText = question ? '用戶的問題是：「' + question + '」' : '用戶沒有特定問題，想了解當下的身心狀態。';
-  var spiritsText = oil.spirits ? '\n這支精油的靈性意義包含：' + oil.spirits.join('、') : '';
+  var oilList = allOils.map(function(o, i) { return (i+1) + '. ' + getOilName(o) + '(' + o.latin + ')'; }).join('\n');
+  var qText = question ? getText('aiQuestion').replace('{q}', question) : getText('aiNoQuestion');
+  var spirits = getOilSpirits(oil);
+  var spiritsText = spirits.length ? '\n' + getText('aiSpirits') + spirits.join('、') : '';
   var langInstruct = i18n[currentLang] ? i18n[currentLang].aiLang : '請用繁體中文回答。';
   var prompt = langInstruct + '\n你是一位溫柔且有洞察力的精油占卜師，使用香氛占卜為人解讀。\n\n'
     + '用戶選了以下五支精油（按選擇順序）：\n' + oilList + '\n\n'
     + qText + '\n\n'
-    + '現在請解讀第 ' + position + ' 支：' + oil.name + '（' + oil.latin + '）' + spiritsText + '\n\n'
+    + '現在請解讀第 ' + position + ' 支：' + getOilName(oil) + '（' + oil.latin + '）' + spiritsText + '\n\n'
     + '請融合以上靈性意義，用溫柔、有深度的語氣解讀它反映了用戶當下的什麼狀態或訊息。'
     + '約100-130字，不要用條列，用流動的散文語氣。不要提到「這支精油」，直接說內容。不要加標題。';
 
@@ -1538,16 +1554,17 @@ async function getOilReading(oil, position, question, allOils) {
     if (!text) throw new Error('no content');
     return text.replace(/\n/g, '<br>');
   } catch(e) {
-    return demoReadings[oil.name] || '這支香氣帶著溫柔的訊息，靜靜地映照出你此刻的內在狀態。';
+    var fallback = i18n[currentLang].demoReadings || i18n.zh.demoReadings;
+    return fallback[oil.id] || getText('fallbackReading');
   }
 }
 
 async function getSummaryReading(oils, question) {
   var categories = [];
   oils.forEach(function(o) { if (categories.indexOf(o.category) === -1) categories.push(o.category); });
-  var catEnergies = categories.map(function(c) { return categoryMap[c] ? categoryMap[c].energy : ''; }).filter(Boolean).join('；');
-  var oilList = oils.map(function(o, i) { return (i+1) + '. ' + o.name + '(' + o.category + ')'; }).join('\n');
-  var qText = question ? '用戶的問題是：「' + question + '」' : '用戶想了解當下的身心狀態。';
+  var catEnergies = categories.map(function(c) { return getCategoryText(c).energy; }).filter(Boolean).join('；');
+  var oilList = oils.map(function(o, i) { return (i+1) + '. ' + getOilName(o) + '(' + getCategoryText(o.category).label + ')'; }).join('\n');
+  var qText = question ? getText('aiQuestion').replace('{q}', question) : getText('aiNoQuestion');
   var langInstruct = i18n[currentLang] ? i18n[currentLang].aiLang : '請用繁體中文回答。';
   var prompt = langInstruct + '\n你是一位溫柔且有洞察力的精油占卜師。\n\n'
     + '用戶選了以下五支精油：\n' + oilList + '\n\n'
@@ -1573,7 +1590,7 @@ async function getSummaryReading(oils, question) {
     if (!text) throw new Error('no content');
     return text.replace(/\n/g, '<br>');
   } catch(e) {
-    return demoSummary;
+    return i18n[currentLang].demoSummary || i18n.zh.demoSummary;
   }
 }
 
@@ -1588,25 +1605,27 @@ function shareResult() {
   });
   var cardsHTML = document.getElementById('readingCards').innerHTML;
 
-  var html = '<!DOCTYPE html><html lang="zh-TW"><head>'
+  var html = '<!DOCTYPE html><html lang="' + getHtmlLang() + '"><head>'
     + '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">'
-    + '<title>我的香氣訊息</title>'
+    + '<title>' + getText('shareBlockTitle') + '</title>'
+    + '<link rel="preconnect" href="https://fonts.googleapis.com">'
+    + '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
     + '<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">'
     + '<style>'
-    + ':root{--cream:#F7F5FA;--warm-white:#FDFCFE;--sand:#E8E2F0;--taupe:#B8A8CC;--brown:#8B6FAA;--deep-brown:#5B3F7A;--text:#3A2D4A;--text-light:#7A6590;}'
+    + ':root{--font-body:"Noto Serif TC",serif;--font-display:"Cormorant Garamond",serif;--cream:#F7F5FA;--warm-white:#FDFCFE;--sand:#E8E2F0;--taupe:#B8A8CC;--brown:#8B6FAA;--deep-brown:#5B3F7A;--text:#3A2D4A;--text-light:#7A6590;}'
     + '*{margin:0;padding:0;box-sizing:border-box;}'
-    + 'body{background:var(--cream);font-family:"Noto Serif TC",serif;padding:40px 24px;color:var(--text);}'
+    + 'body{background:var(--cream);font-family:var(--font-body);padding:40px 24px;color:var(--text);}'
     + '.wrap{max-width:420px;margin:0 auto;}'
     + '.top{text-align:center;margin-bottom:32px;}'
-    + '.logo{font-family:"Cormorant Garamond",serif;font-size:13px;letter-spacing:0.3em;color:var(--taupe);margin-bottom:8px;}'
-    + '.title{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:300;color:var(--deep-brown);margin-bottom:6px;}'
+    + '.logo{font-family:var(--font-display);font-size:13px;letter-spacing:0.3em;color:var(--taupe);margin-bottom:8px;}'
+    + '.title{font-family:var(--font-display);font-size:26px;font-weight:300;color:var(--deep-brown);margin-bottom:6px;}'
     + '.q{font-size:15px;color:var(--taupe);font-style:italic;}'
     + '.hint{text-align:center;font-size:14px;color:var(--taupe);margin-bottom:20px;letter-spacing:0.1em;padding:12px;border:1px solid var(--sand);}'
     + '.reading-card{background:var(--warm-white);border:1px solid var(--sand);padding:20px 18px;margin-bottom:12px;opacity:1!important;transform:none!important;transition:none!important;}'
     + '.card-header{display:flex;align-items:center;gap:12px;margin-bottom:10px;}'
-    + '.card-number{font-family:"Cormorant Garamond",serif;font-size:28px;color:var(--sand);line-height:1;min-width:20px;}'
+    + '.card-number{font-family:var(--font-display);font-size:28px;color:var(--sand);line-height:1;min-width:20px;}'
     + '.card-oil-name{font-size:17px;color:var(--deep-brown);}'
-    + '.card-oil-latin{font-family:"Cormorant Garamond",serif;font-size:13px;color:var(--taupe);font-style:italic;}'
+    + '.card-oil-latin{font-family:var(--font-display);font-size:13px;color:var(--taupe);font-style:italic;}'
     + '.card-category-tag{display:inline-flex;align-items:center;gap:4px;font-size:13px;letter-spacing:0.12em;color:var(--brown);background:var(--sand);padding:4px 12px;border-radius:20px;margin-bottom:8px;}'
     + '.card-energy-line{font-size:14px;color:var(--text-light);line-height:1.8;margin-bottom:12px;font-style:italic;}'
     + '.card-divider{width:100%;height:1px;background:var(--sand);margin-bottom:12px;}'
@@ -1615,13 +1634,13 @@ function shareResult() {
     + '.summary-label{font-size:12px;letter-spacing:0.3em;color:var(--brown);margin-bottom:12px;}'
     + '.summary-text{font-size:15px;line-height:2.2;color:var(--text-light);}'
     + '.card-loading{display:none;}'
-    + '.footer{text-align:center;padding:24px 0 8px;font-size:13px;letter-spacing:0.1em;color:var(--taupe);font-family:"Cormorant Garamond",serif;font-style:italic;}'
+    + '.footer{text-align:center;padding:24px 0 8px;font-size:13px;letter-spacing:0.1em;color:var(--taupe);font-family:var(--font-display);font-style:italic;}'
     + '</style></head><body>'
     + '<div class="wrap">'
-    + '<p class="hint">長按圖片可儲存 · 或截圖畫面</p>'
+    + '<p class="hint">' + getText('sharePageHint') + '</p>'
     + '<div class="top">'
-    + '<div class="logo">🌿 香氣抓周</div>'
-    + '<div class="title">我的香氣訊息</div>'
+    + '<div class="logo">' + getText('shareLogo') + '</div>'
+    + '<div class="title">' + getText('shareBlockTitle') + '</div>'
     + (question ? '<div class="q">' + question + '</div>' : '')
     + '</div>'
     + cardsHTML
@@ -1737,9 +1756,251 @@ var i18n = {
   }
 };
 
+Object.assign(i18n.zh, {
+  navBack: '← 返回',
+  breathText: '呼吸',
+  aboutLabel: 'ABOUT',
+  creatorLabel: 'CREATOR',
+  shareLogo: '🌿 香氣抓周 · Aromatherapy Oracle',
+  sharePageHint: '長按圖片可儲存 · 或截圖畫面',
+  fallbackReading: '這支香氣帶著溫柔的訊息，靜靜地映照出你此刻的內在狀態。',
+  aiQuestion: '用戶的問題是：「{q}」',
+  aiNoQuestion: '用戶沒有特定問題，想了解當下的身心狀態。',
+  aiSpirits: '這支精油的靈性意義包含：',
+  creatorText: '我做這個工具，其實也是在療癒自己。<br><br>最近生命的課題兜兜轉轉，最後還是回到了那個我一直在迴避的地方——真實的自己。我心裡住著一個脆弱不安的孩子，他到現在還在悲傷。我不知道該怎麼擁抱他，怎麼跟他說「我在，我會陪著你」。因為過去十幾年，我好像從來沒有真正好好愛過自己。<br><br>香氣抓周對我來說，是一個溫柔的開始。一個讓自己停下來、往內看的儀式。<br><br>我希望這個工具也能幫到你——在某個你需要喘息的時刻，給你一點安靜的空間。但如果你感覺快撐不住了，請一定要尋求專業的人幫忙。你不需要一個人扛。',
+  aboutP2: '✦ &nbsp;選一個不會被打擾的時刻，遠離吵雜<br><br>✦ &nbsp;深呼吸三次，讓思緒慢下來<br><br>✦ &nbsp;在心中清楚地把問題默想一遍<br><br>✦ &nbsp;帶著開放的心，讓直覺帶路',
+  aboutP3: '✦ &nbsp;一次聚焦一個問題，避免一次想知道太多<br><br>✦ &nbsp;開放式問題比是非題更有層次<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;與其問「我該不該離職？」<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不如問「如果我留下來，接下來會如何發展？」<br><br>✦ &nbsp;把問題寫得具體：時間範圍、相關的人、情境細節<br><br>✦ &nbsp;同一個問題請隔一段時間再抽，短時間內反覆只會徒增雜訊',
+  aboutP4: '✦ &nbsp;解讀反映的是你此刻的內在狀態，不是絕對的預言<br><br>✦ &nbsp;沒有絕對的「壞結果」，每個訊息都要看脈絡<br><br>✦ &nbsp;帶著開放的心接收訊息，讓它成為你與自己對話的起點<br><br>✦ &nbsp;最後的決定權，永遠在你自己手上',
+  aboutP5: '✦ &nbsp;本站僅供占卜參考與內在反思，不取代醫療、法律、心理諮商等專業建議<br><br>✦ &nbsp;解讀結果為一種觀察視角，請自行評估後再做決定<br><br>✦ &nbsp;若你正面臨身心困擾，請一定要尋求專業人士的協助',
+  categories: {
+    '花香類': { label: '花香類', energy: '象徵情感需求與愛，你渴望被接納、被溫柔對待' },
+    '柑橘類': { label: '柑橘類', energy: '象徵喜悅與流動，生活需要一點光，讓童心回來' },
+    '木質類': { label: '木質類', energy: '象徵穩定與根基，你需要接地氣，在混亂中找到重心' },
+    '草本類': { label: '草本類', energy: '象徵清明與行動，是時候整理思緒，勇敢表達自我' },
+    '樹脂類': { label: '樹脂類', energy: '象徵修復與深沉，你需要耐心扎根，療癒過去的傷' },
+  },
+  oils: {
+    1:{name:'肉桂',keyword:'歸屬感',spirits:['帶來溫暖與安全感','喚醒內在歸屬渴望','療癒根源創傷','強化自我認同']},
+    2:{name:'沒藥',keyword:'重生',spirits:['促進能量轉化','淨化舊能量','協助放下執著','連結內在智慧','啟動重生能量']},
+    3:{name:'德國洋甘菊',keyword:'愛的議題',spirits:['療癒情感創傷','放下情緒限制','連結溫柔力量','突破舊有模式']},
+    4:{name:'百里香',keyword:'意志力',spirits:['強化意志力','相信直覺','突破恐懼限制','啟動行動能量']},
+    5:{name:'乳香',keyword:'靈性連結',spirits:['淨化靈性通道','提升意識層次','增強防護能量','深化冥想體驗','連結宇宙意識','啟動靈性智慧']},
+    6:{name:'玫瑰',keyword:'心輪療癒',spirits:['打開心輪能量','連結無條件的愛','療癒情感創傷','啟動神聖女性能量','提升愛的頻率','深層情感淨化']},
+    7:{name:'薰衣草',keyword:'內心平靜',spirits:['平衡情緒能量','深度放鬆神經','療癒焦慮恐懼','促進內在和諧']},
+    8:{name:'依蘭',keyword:'感官智慧',spirits:['平衡陰陽能量','釋放情感壓抑','喚醒靈性渴望','深化冥想體驗','連結感官智慧','啟動基底能量']},
+    9:{name:'佛手柑',keyword:'心靈光明',spirits:['轉化負面情緒','增強心靈光明','提升靈性頻率','促進能量釋放','協助情緒療癒','增強直覺感知']},
+    10:{name:'廣藿香',keyword:'根植大地',spirits:['深度接地能量','連結物質世界','穩定根部能量','增強感官意識']},
+    11:{name:'茉莉',keyword:'月亮能量',spirits:['激活性能量','釋放深層恐懼','連結月亮能量','強化直覺力量','啟動創造力','平衡陰陽能量']},
+    12:{name:'雪松',keyword:'根部力量',spirits:['強化根部能量','提供保護能量','增強意志力量','連結地氣能量','穩定情緒波動','加強決策能力']},
+    13:{name:'天竺葵',keyword:'情緒平衡',spirits:['調和情緒波動','平衡荷爾蒙','連結地球能量','強化個人邊界','淨化負面情緒','促進能量循環']},
+    14:{name:'橙花',keyword:'轉化與新生',spirits:['療癒深層創傷','轉化焦慮恐懼','開啟新生能量','連結高頻振動']},
+    15:{name:'岩蘭草',keyword:'深層療癒',spirits:['深度接地療癒','連結大地母親','穩定根部能量','療癒古老創傷']},
+    16:{name:'檀香',keyword:'高我意識',spirits:['提升靈性意識','深化冥想狀態','連結古老智慧','啟動頂輪能量','增強定心能力','連結高我意識']},
+    17:{name:'甜橙',keyword:'喜悅能量',spirits:['啟動創造力','增強正向能量','連結內在喜悅','提升生命能量','強化表達能力','促進能量流動']},
+    18:{name:'檸檬',keyword:'智慧清明',spirits:['淨化思維模式','增強心智清晰','提升意識能量','強化決策能力','促進能量淨化','啟動智慧之光']},
+  },
+  tips: {
+    '花香類': { tip: '今天試著對自己說一句溫柔的話。不需要完美，只是讓自己知道你在這裡、你值得被好好對待。', action: '💌 今日小行動：寫下三件你喜歡自己的事' },
+    '柑橘類': { tip: '讓身體動起來，哪怕只是走到窗邊曬五分鐘太陽。喜悅的能量需要流動，而流動從一個小小的移動開始。', action: '☀️ 今日小行動：做一件單純讓你開心的事' },
+    '木質類': { tip: '雙腳踩地，感受地板的存在。深呼吸，讓空氣一路到達肚子。你現在是安全的，你可以慢下來。', action: '🌲 今日小行動：花五分鐘坐在安靜的地方，什麼都不做' },
+    '草本類': { tip: '把腦袋裡盤旋的那件事寫下來。不需要解決它，只是讓它從心裡移到紙上，給自己一點清明的空間。', action: '📝 今日小行動：用筆寫下此刻最想說的一句話' },
+    '樹脂類': { tip: '給自己一個不被打擾的角落，哪怕只有十分鐘。修復需要安靜，而安靜是你給自己最好的禮物之一。', action: '🕯️ 今日小行動：點一支蠟燭或泡一杯茶，靜靜坐著' },
+  },
+  demoReadings: Object.fromEntries(oils.map(function(o) { return [o.id, demoReadings[o.name]]; })),
+  demoSummary: demoSummary,
+});
+
+Object.assign(i18n.en, {
+  navBack: '← Back',
+  breathText: 'Breathe',
+  aboutLabel: 'ABOUT',
+  creatorLabel: 'CREATOR',
+  shareLogo: '🌿 Aroma Oracle · Aromatherapy Oracle',
+  sharePageHint: 'Long press to save · or take a screenshot',
+  fallbackReading: 'This aroma carries a gentle message, quietly reflecting the inner state you are meeting right now.',
+  aiQuestion: 'The user’s question is: “{q}”',
+  aiNoQuestion: 'The user has no specific question and wants to understand their current body-mind state.',
+  aiSpirits: 'The spiritual meanings of this oil include: ',
+  aboutP2: '✦ &nbsp;Choose a quiet moment when you will not be disturbed<br><br>✦ &nbsp;Take three deep breaths and let your thoughts slow down<br><br>✦ &nbsp;Hold your question clearly in your mind<br><br>✦ &nbsp;Keep your heart open and let intuition lead',
+  aboutP3: '✦ &nbsp;Focus on one question at a time instead of trying to know everything at once<br><br>✦ &nbsp;Open-ended questions create richer reflections<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instead of “Should I quit my job?”<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try “If I stay, how might things unfold next?”<br><br>✦ &nbsp;Make the question specific: time frame, people involved, and context<br><br>✦ &nbsp;Give the same question some time before drawing again; repeating it quickly only adds noise',
+  aboutP4: '✦ &nbsp;A reading reflects your inner state in this moment, not an absolute prediction<br><br>✦ &nbsp;There is no fixed “bad result”; every message needs context<br><br>✦ &nbsp;Receive the message with openness and let it become the beginning of a conversation with yourself<br><br>✦ &nbsp;The final choice is always in your hands',
+  aboutP5: '✦ &nbsp;This site is for oracle reference and inner reflection only. It does not replace medical, legal, psychological, or counseling advice<br><br>✦ &nbsp;The result offers one perspective. Please make your own assessment before making decisions<br><br>✦ &nbsp;If you are facing physical or emotional distress, please seek support from a qualified professional',
+  creatorText: 'I made this tool as part of healing myself, too.<br><br>Lately, life has kept circling back to the place I had been avoiding: my real self. There is a fragile, uneasy child inside me, and that child is still sad. I am still learning how to hold them, how to say, “I am here. I will stay with you.” For many years, I do not think I truly knew how to love myself well.<br><br>Aroma Oracle is, for me, a gentle beginning. A small ritual that lets me pause and look inward.<br><br>I hope this tool can also help you. In a moment when you need space to breathe, may it offer a quiet corner. And if you feel you are close to breaking, please reach out to a professional. You do not have to carry everything alone.',
+  categories: {
+    '花香類': { label: 'Floral', energy: 'Represents emotional needs and love. You may long to be accepted and treated with tenderness.' },
+    '柑橘類': { label: 'Citrus', energy: 'Represents joy and movement. Life needs a little light so your playful heart can return.' },
+    '木質類': { label: 'Woody', energy: 'Represents stability and roots. You need grounding and a center within the noise.' },
+    '草本類': { label: 'Herbal', energy: 'Represents clarity and action. It is time to organize your thoughts and speak with courage.' },
+    '樹脂類': { label: 'Resin', energy: 'Represents restoration and depth. You need patience, rooting, and healing for old wounds.' },
+  },
+  oils: {
+    1:{name:'Cinnamon',keyword:'Belonging',spirits:['warmth and safety','the longing to belong','root healing','self-recognition']},
+    2:{name:'Myrrh',keyword:'Rebirth',spirits:['energy transformation','clearing old energy','releasing attachment','inner wisdom','rebirth']},
+    3:{name:'German Chamomile',keyword:'Matters of Love',spirits:['emotional healing','releasing emotional limits','gentle strength','breaking old patterns']},
+    4:{name:'Thyme',keyword:'Willpower',spirits:['willpower','trusting intuition','moving through fear','action energy']},
+    5:{name:'Frankincense',keyword:'Spiritual Connection',spirits:['clearing spiritual channels','expanded awareness','protective energy','meditation depth','cosmic connection','spiritual wisdom']},
+    6:{name:'Rose',keyword:'Heart Healing',spirits:['opening the heart','unconditional love','emotional healing','sacred feminine energy','the frequency of love','deep emotional cleansing']},
+    7:{name:'Lavender',keyword:'Inner Peace',spirits:['emotional balance','nervous system relaxation','soothing anxiety and fear','inner harmony']},
+    8:{name:'Ylang Ylang',keyword:'Sensory Wisdom',spirits:['balancing yin and yang','releasing emotional suppression','spiritual longing','meditative depth','sensory wisdom','root energy']},
+    9:{name:'Bergamot',keyword:'Inner Light',spirits:['transforming negativity','brightening the spirit','raising spiritual frequency','energy release','emotional healing','intuitive perception']},
+    10:{name:'Patchouli',keyword:'Rooted Earth',spirits:['deep grounding','connection to the material world','root stability','sensory awareness']},
+    11:{name:'Jasmine',keyword:'Moon Energy',spirits:['sensual energy','releasing deep fear','moon connection','intuition','creativity','yin-yang balance']},
+    12:{name:'Cedarwood',keyword:'Root Strength',spirits:['root energy','protection','will strength','earth connection','emotional steadiness','decision-making']},
+    13:{name:'Geranium',keyword:'Emotional Balance',spirits:['emotional harmony','hormonal balance','earth connection','personal boundaries','clearing negative emotion','energy circulation']},
+    14:{name:'Neroli',keyword:'Transformation and New Life',spirits:['deep wound healing','transforming anxiety and fear','new beginnings','high-frequency vibration']},
+    15:{name:'Vetiver',keyword:'Deep Healing',spirits:['deep grounding','connection with mother earth','root stability','ancient wound healing']},
+    16:{name:'Sandalwood',keyword:'Higher Self',spirits:['spiritual awareness','meditative depth','ancient wisdom','crown energy','centeredness','higher-self connection']},
+    17:{name:'Sweet Orange',keyword:'Joy Energy',spirits:['creativity','positive energy','inner joy','life force','expression','energy flow']},
+    18:{name:'Lemon',keyword:'Clear Wisdom',spirits:['clearing thought patterns','mental clarity','awareness','decision-making','energy purification','wisdom light']},
+  },
+  tips: {
+    '花香類': { tip: 'Try saying one kind sentence to yourself today. It does not need to be perfect. Let yourself know you are here, and you deserve care.', action: '💌 Small action: write down three things you like about yourself' },
+    '柑橘類': { tip: 'Let your body move, even if it is only walking to the window for five minutes of sunlight. Joy needs movement, and movement begins small.', action: '☀️ Small action: do one simple thing just because it makes you happy' },
+    '木質類': { tip: 'Place both feet on the ground and feel the floor holding you. Breathe into your belly. You are safe enough to slow down.', action: '🌲 Small action: sit quietly for five minutes and do nothing' },
+    '草本類': { tip: 'Write down the thought that keeps circling in your mind. You do not need to solve it yet. Move it from your heart onto paper.', action: '📝 Small action: write the one sentence you most want to say right now' },
+    '樹脂類': { tip: 'Give yourself an undisturbed corner, even for ten minutes. Repair needs quiet, and quiet is one of the kindest gifts you can offer yourself.', action: '🕯️ Small action: light a candle or make tea, then sit quietly' },
+  },
+  demoReadings: {
+    1:'Cinnamon brings a deep warmth and the feeling of being held. Its presence reflects a longing for belonging, for a place where your whole self can finally rest. Some past experience may have taught you to protect yourself by closing in, but this aroma reminds you that safety can be rebuilt gently, one honest breath at a time.',
+    2:'Myrrh carries the wisdom of transformation. Something old in you is ready to loosen: a habit, an attachment, or a story that has taken more energy than it gives. This is not a loss. It is space being made for what can live more truthfully now.',
+    3:'German chamomile points to tenderness around love. You may want connection, yet fear the uncertainty that comes with being open. Its message is soft but clear: the old ways that kept your heart small can begin to relax. Let love have more air.',
+    4:'Thyme calls your will back into your body. Your intuition may be clearer than you think, but you have been covering it with analysis. Pause before the next important step and listen to the first quiet signal. It may already know the way.',
+    5:'Frankincense opens a clean inner channel. Dreams, subtle feelings, or sudden knowing may be asking for your attention. You are not imagining everything. Give your spirit a little more silence, and the guidance beneath the noise will become easier to hear.',
+    6:'Rose meets the tender center of the heart. What you need most may be permission to be loved, including by yourself. The parts that felt not enough are not failures; they are places waiting to be met with devotion and gentleness.',
+    7:'Lavender reflects a deep need for rest. Your nervous system may have been carrying more than your mind admits. Slowing down is not weakness. It is the ground that lets your strength return without forcing itself.',
+    8:'Ylang ylang invites suppressed feeling to move again. Sensuality, pleasure, spiritual longing, and embodied wisdom all want a place in your life. Let yourself feel without needing to explain everything. Your body knows more than you have allowed it to say.',
+    9:'Bergamot brings light into heavy emotional weather. Harsh self-judgment and dim inner stories can soften in this brightness. Your intuition is becoming more sensitive; let this energy remind you that hope is not naive. It is a direction.',
+    10:'Patchouli brings you back to the earth. Your thoughts may drift far ahead while your body waits for you to return. Grounding is not giving up on dreams. It is giving them a place to stand.',
+    11:'Jasmine carries moonlit intuition. Messages from dreams, emotions, and the body are not random; they are part of a deeper language. Let creativity flow and let your receptive side be seen. There is a rich inner world asking to breathe.',
+    12:'Cedarwood offers quiet strength. Even if the outside feels unstable, there is a steadier will inside you than you may realize. Let this grounded energy remind you that you can protect yourself, choose clearly, and stand without becoming rigid.',
+    13:'Geranium reflects emotional balance and boundaries. Recent waves of feeling may be showing you where your energy needs clearer edges. Boundaries do not close the heart; they help your heart know what belongs to you and what does not.',
+    14:'Neroli speaks of transformation and new life. Anxiety and old fear may be changing shape into something more spacious. The process may not always feel comfortable, but the direction is alive. A new version of you is already forming.',
+    15:'Vetiver reaches into deep roots and old wounds. Something long-carried may be ready to be witnessed with steadiness, not force. Let the earth-like quality of this aroma hold you while healing happens at the pace your body can trust.',
+    16:'Sandalwood opens a quieter, higher awareness. Your desire for meditation, stillness, or spiritual searching is real. The answer may not arrive loudly. It may come as a calm inner knowing that becomes clearer each time you listen.',
+    17:'Sweet orange asks when you last allowed joy for no reason. Creativity and expression are waiting for permission to move again. Let delight be simple. A small bright moment can restore more life force than you expect.',
+    18:'Lemon clears the mind like fresh light. Some repeating thoughts or beliefs may need to be rinsed and reconsidered. Clarity does not require pressure; it arrives when the fog is allowed to lift. Your direction may be closer than it seems.',
+  },
+  demoSummary: 'The five aromas you chose form a sincere picture of your inner landscape. They show both a longing for tenderness and a need for steadiness, as if your heart and your roots are speaking at the same time.<br><br>This is not a contradiction. It is the truth of where you are. Old patterns are loosening, and new possibilities are beginning to appear. Let these aromas remind you: you are more whole than you think, and you are allowed to move gently toward yourself.',
+});
+
+Object.assign(i18n.ja, {
+  navBack: '← 戻る',
+  breathText: '呼吸',
+  aboutLabel: 'ABOUT',
+  creatorLabel: 'CREATOR',
+  shareLogo: '🌿 香りのお告げ · Aromatherapy Oracle',
+  sharePageHint: '長押しで保存 · またはスクリーンショット',
+  fallbackReading: 'この香りはやさしいメッセージを運び、今のあなたの内側を静かに映し出しています。',
+  aiQuestion: 'ユーザーの質問は「{q}」です。',
+  aiNoQuestion: 'ユーザーは特定の質問を持たず、今の心身の状態を知りたいと思っています。',
+  aiSpirits: 'この精油のスピリチュアルな意味には、次のものがあります：',
+  aboutP2: '✦ &nbsp;静かで邪魔されない時間を選んでください<br><br>✦ &nbsp;三回深呼吸して、思考をゆっくり落ち着かせます<br><br>✦ &nbsp;心の中で問いをはっきりと思い浮かべます<br><br>✦ &nbsp;心を開き、直感に導かれてください',
+  aboutP3: '✦ &nbsp;一度に一つの問いに集中し、多くを知ろうとしすぎないこと<br><br>✦ &nbsp;はい・いいえの質問より、開かれた質問の方が深い気づきをくれます<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;「仕事を辞めるべき？」よりも<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;「このまま続けたら、次にどんな展開がありそう？」と尋ねてみてください<br><br>✦ &nbsp;時期、関係する人、状況などを具体的にすると読み取りやすくなります<br><br>✦ &nbsp;同じ質問は少し時間を置いてから。短時間に繰り返すと、心の雑音が増えやすくなります',
+  aboutP4: '✦ &nbsp;リーディングは今この瞬間の内側の状態を映すもので、絶対的な予言ではありません<br><br>✦ &nbsp;完全な「悪い結果」はありません。すべてのメッセージは文脈とともに受け取るものです<br><br>✦ &nbsp;開かれた心で受け取り、自分自身との対話の始まりにしてください<br><br>✦ &nbsp;最後に選ぶ力は、いつもあなた自身の手の中にあります',
+  aboutP5: '✦ &nbsp;このサイトは占いの参考と内省のためのもので、医療、法律、心理相談など専門的な助言に代わるものではありません<br><br>✦ &nbsp;結果は一つの視点です。判断や決定はご自身で確認しながら行ってください<br><br>✦ &nbsp;心身のつらさを抱えている場合は、必ず専門家に相談してください',
+  creatorText: 'このツールを作ったことは、私自身を癒すことでもありました。<br><br>最近の人生の課題は、何度も回り道をしながら、結局ずっと避けてきた場所へ戻ってきました。それは、本当の自分です。私の心の中には、弱くて不安な子どもがいて、その子は今もまだ悲しんでいます。どう抱きしめればいいのか、どう「ここにいるよ、そばにいるよ」と伝えればいいのか、私はまだ学んでいる途中です。長い間、私は自分を本当に大切にする方法を知らなかったのだと思います。<br><br>香りのお告げは、私にとってやさしい始まりです。立ち止まり、内側を見つめるための小さな儀式です。<br><br>このツールがあなたの助けにもなりますように。息をつく場所が必要なとき、少し静かな空間を届けられたらうれしいです。そして、もしもう限界に近いと感じるなら、どうか専門家に助けを求めてください。一人で抱えなくて大丈夫です。',
+  categories: {
+    '花香類': { label: 'フローラル', energy: '感情の欲求と愛を象徴します。受け入れられ、やさしく扱われたい気持ちが表れています。' },
+    '柑橘類': { label: 'シトラス', energy: '喜びと流れを象徴します。暮らしに少しの光を入れ、無邪気な心を取り戻す時です。' },
+    '木質類': { label: 'ウッディ', energy: '安定と根を象徴します。混乱の中で地に足をつけ、自分の中心を見つける必要があります。' },
+    '草本類': { label: 'ハーバル', energy: '明晰さと行動を象徴します。思考を整理し、自分を勇気をもって表現する時です。' },
+    '樹脂類': { label: 'レジン', energy: '修復と深さを象徴します。過去の傷を癒すために、忍耐強く根を張ることが求められています。' },
+  },
+  oils: {
+    1:{name:'シナモン',keyword:'帰属感',spirits:['温かさと安心感','帰属への願い','根源的な傷の癒し','自己認識']},
+    2:{name:'ミルラ',keyword:'再生',spirits:['エネルギーの変容','古いエネルギーの浄化','執着を手放すこと','内なる智慧','再生の力']},
+    3:{name:'ジャーマンカモミール',keyword:'愛のテーマ',spirits:['感情の傷の癒し','感情的な制限の解放','やさしい力','古いパターンの突破']},
+    4:{name:'タイム',keyword:'意志力',spirits:['意志力','直感への信頼','恐れの突破','行動のエネルギー']},
+    5:{name:'フランキンセンス',keyword:'スピリチュアルなつながり',spirits:['霊的な通路の浄化','意識の拡大','保護のエネルギー','瞑想の深まり','宇宙意識とのつながり','霊的智慧']},
+    6:{name:'ローズ',keyword:'ハートの癒し',spirits:['ハートを開く','無条件の愛','感情の癒し','神聖な女性性','愛の周波数','深い感情の浄化']},
+    7:{name:'ラベンダー',keyword:'内なる平穏',spirits:['感情のバランス','神経の深いリラックス','不安と恐れの癒し','内なる調和']},
+    8:{name:'イランイラン',keyword:'感覚の智慧',spirits:['陰陽のバランス','抑えた感情の解放','霊的な憧れ','瞑想の深まり','感覚の智慧','根のエネルギー']},
+    9:{name:'ベルガモット',keyword:'心の光',spirits:['否定的な感情の変容','心の明るさ','霊的周波数の向上','エネルギー解放','感情の癒し','直感的知覚']},
+    10:{name:'パチュリ',keyword:'大地に根ざす',spirits:['深いグラウンディング','物質世界とのつながり','根の安定','感覚意識']},
+    11:{name:'ジャスミン',keyword:'月のエネルギー',spirits:['官能のエネルギー','深い恐れの解放','月とのつながり','直感力','創造性','陰陽の調和']},
+    12:{name:'シダーウッド',keyword:'根の力',spirits:['根のエネルギー','保護','意志の強さ','大地とのつながり','感情の安定','決断力']},
+    13:{name:'ゼラニウム',keyword:'感情のバランス',spirits:['感情の調和','ホルモンバランス','地球とのつながり','個人の境界線','否定的感情の浄化','エネルギー循環']},
+    14:{name:'ネロリ',keyword:'変容と新生',spirits:['深い傷の癒し','不安と恐れの変容','新しい始まり','高い波動']},
+    15:{name:'ベチバー',keyword:'深い癒し',spirits:['深いグラウンディング','母なる大地とのつながり','根の安定','古い傷の癒し']},
+    16:{name:'サンダルウッド',keyword:'高次の自己',spirits:['霊的意識','瞑想の深まり','古い智慧','クラウンのエネルギー','中心を保つ力','高次の自己とのつながり']},
+    17:{name:'スイートオレンジ',keyword:'喜びのエネルギー',spirits:['創造性','前向きなエネルギー','内なる喜び','生命力','表現力','エネルギーの流れ']},
+    18:{name:'レモン',keyword:'明晰な智慧',spirits:['思考パターンの浄化','精神の明晰さ','意識の高まり','決断力','エネルギー浄化','智慧の光']},
+  },
+  tips: {
+    '花香類': { tip: '今日は自分にやさしい言葉を一つかけてみてください。完璧でなくて大丈夫。あなたはここにいて、大切にされる価値があります。', action: '💌 小さな行動：自分の好きなところを三つ書く' },
+    '柑橘類': { tip: '身体を少し動かしましょう。窓辺まで歩いて五分だけ光を浴びるだけでも十分です。喜びのエネルギーは、小さな動きから流れ始めます。', action: '☀️ 小さな行動：ただ楽しいからという理由で一つ何かをする' },
+    '木質類': { tip: '両足を床につけて、支えられている感覚を味わってください。お腹まで息を届けましょう。今のあなたは、ゆっくりしても大丈夫です。', action: '🌲 小さな行動：五分間、静かな場所で何もしない' },
+    '草本類': { tip: '頭の中を回り続けていることを書き出してみてください。解決しなくても大丈夫。心の中から紙の上へ移すだけで、少し明晰さが戻ります。', action: '📝 小さな行動：今いちばん言いたい一文を書く' },
+    '樹脂類': { tip: 'たとえ十分だけでも、邪魔されない場所を自分に用意してください。修復には静けさが必要です。静けさは、自分に贈れるやさしい贈り物です。', action: '🕯️ 小さな行動：キャンドルを灯すかお茶を淹れて、静かに座る' },
+  },
+  demoReadings: {
+    1:'シナモンの温かさは、深い安心感を連れてきます。今のあなたの中には、心から受け止められたい、居場所を感じたいという願いがあるのかもしれません。過去の経験があなたを守りに入らせたとしても、安全は少しずつ取り戻せます。',
+    2:'ミルラは変容の智慧を運びます。古い執着や、もう力を与えてくれないパターンが、静かにほどける時です。これは失うことではなく、新しい可能性のために場所を空けることです。',
+    3:'ジャーマンカモミールは、愛にまつわる繊細な場所を映します。つながりを求めながら、不確かさへの恐れもあるのかもしれません。心を小さくしてきた古い習慣は、少しずつゆるめて大丈夫です。',
+    4:'タイムは意志の力を呼び戻します。あなたの直感は、思っているよりも正確かもしれません。ただ理性で覆いすぎているだけです。次の大切な瞬間には、まず身体の最初の感覚を聞いてみてください。',
+    5:'フランキンセンスは、内なる通路を清めます。夢、直感、言葉にならない感覚が、あなたに何かを伝えています。静けさを少し増やすほど、奥にある導きは聞こえやすくなります。',
+    6:'ローズはハートの中心に触れます。今必要なのは、愛されることを許すことかもしれません。それは自分自身からの愛も含みます。足りないと感じてきた部分は、やさしさで迎えられるのを待っています。',
+    7:'ラベンダーは休息の必要を映しています。あなたの神経は、思っている以上に多くを抱えていたのかもしれません。ゆっくりすることは弱さではありません。力が自然に戻るための土台です。',
+    8:'イランイランは、抑えてきた感情を動かすよう促します。喜び、感覚、霊的な憧れ、身体の智慧が、あなたの人生に居場所を求めています。説明しきれなくても、感じることを許してみてください。',
+    9:'ベルガモットは重たい感情の中に光を差し込みます。厳しい自己評価や暗い思い込みは、この明るさの中で少しずつやわらぎます。希望は甘さではなく、あなたが向かえる方向です。',
+    10:'パチュリはあなたを大地へ戻します。思考が遠くへ行きすぎる時、身体はあなたの帰りを待っています。地に足をつけることは夢を諦めることではなく、夢に立つ場所を与えることです。',
+    11:'ジャスミンは月のような直感を運びます。夢、感情、身体からのサインは偶然ではなく、深い言語の一部です。創造性を流し、受け取る側の自分も見せてあげてください。',
+    12:'シダーウッドは静かな強さを与えます。外側が揺れていても、あなたの内側には思っている以上の支えがあります。自分を守り、選び、しなやかに立つ力を思い出してください。',
+    13:'ゼラニウムは感情のバランスと境界線を映します。最近の揺れは、エネルギーの境目を整える必要を知らせているのかもしれません。境界線は心を閉ざすものではなく、心を守る形です。',
+    14:'ネロリは変容と新生を告げます。不安や古い恐れが、新しいエネルギーへ形を変え始めています。いつも心地よい過程ではなくても、あなたは確かに生きた方向へ進んでいます。',
+    15:'ベチバーは深い根と古い傷に触れます。長く抱えてきたものが、無理にではなく、安定の中で見つめられる時です。大地のような支えに身を預け、身体が信頼できる速さで癒しを進めてください。',
+    16:'サンダルウッドは静かな高次の意識を開きます。瞑想、静けさ、霊的な探求への願いは本物です。答えは大きな音ではなく、落ち着いた内なる確信として現れるかもしれません。',
+    17:'スイートオレンジは、理由のない喜びを許しているかを問いかけます。創造性と表現は、もう一度流れる許可を待っています。小さな明るい瞬間が、思う以上に生命力を戻してくれます。',
+    18:'レモンは新鮮な光のように思考を澄ませます。繰り返している考えや信念を、見直す時かもしれません。明晰さは無理に押し出すものではなく、霧が晴れるように自然に現れます。',
+  },
+  demoSummary: 'あなたが選んだ五つの香りは、今の内側の風景を誠実に描いています。やさしさを求める心と、安定を求める根の部分が、同時に語りかけているようです。<br><br>それは矛盾ではなく、今のあなたの真実です。古いパターンはほどけ始め、新しい可能性が静かに現れています。これらの香りが思い出させてくれるのは、あなたは思っているよりもずっと完全で、自分自身へやさしく戻っていけるということです。',
+});
+
+function getHtmlLang() {
+  return currentLang === 'ja' ? 'ja' : currentLang === 'en' ? 'en' : 'zh-TW';
+}
+
+function getText(key) {
+  return (i18n[currentLang] && i18n[currentLang][key]) || i18n.zh[key] || '';
+}
+
+function getOilData(oil) {
+  var langOils = (i18n[currentLang] && i18n[currentLang].oils) || i18n.zh.oils;
+  return langOils[oil.id] || {};
+}
+
+function getOilName(oil) {
+  return getOilData(oil).name || oil.name;
+}
+
+function getOilKeyword(oil) {
+  return getOilData(oil).keyword || oil.keyword;
+}
+
+function getOilSpirits(oil) {
+  return getOilData(oil).spirits || oil.spirits || [];
+}
+
+function getCategoryText(category) {
+  var categories = (i18n[currentLang] && i18n[currentLang].categories) || i18n.zh.categories;
+  return categories[category] || { label: category, energy: (categoryMap[category] && categoryMap[category].energy) || '' };
+}
+
+function formatHistoryOils(list) {
+  if (!Array.isArray(list)) return [];
+  return list.map(function(item) {
+    if (typeof item === 'object' && item && item.id) {
+      return getOilName({ id: item.id, name: item.name || '' });
+    }
+    var found = oils.find(function(o) { return o.name === item; });
+    return found ? getOilName(found) : item;
+  });
+}
+
 function setLang(lang) {
   currentLang = lang;
   var t = i18n[lang];
+  document.documentElement.lang = getHtmlLang();
 
   document.querySelectorAll('.side-lang-btn').forEach(function(b) { b.classList.remove('active'); });
   document.getElementById('lang-' + lang).classList.add('active');
@@ -1749,6 +2010,7 @@ function setLang(lang) {
   document.getElementById('nav-home').textContent = t.navHome;
   document.getElementById('nav-history').textContent = t.navHistory;
   document.getElementById('nav-about').textContent = t.navAbout;
+  document.getElementById('navBack').textContent = t.navBack;
 
   // 首頁
   document.getElementById('intro-title-text').textContent = t.introTitle;
@@ -1763,6 +2025,7 @@ function setLang(lang) {
   var r1desc  = document.getElementById('ritual1-desc');  if(r1desc)  r1desc.textContent  = t.ritual1Desc;
   var r1sub   = document.getElementById('ritual1-sub');   if(r1sub)   r1sub.textContent   = t.ritual1Sub;
   var r1btn   = document.getElementById('ritual1-btn');   if(r1btn)   r1btn.textContent   = t.ritual1Btn;
+  var breath  = document.getElementById('breathText');    if(breath)  breath.textContent  = t.breathText;
   var r2title = document.getElementById('ritual2-title'); if(r2title) r2title.textContent = t.ritual2Title;
   var r2desc  = document.getElementById('ritual2-desc');  if(r2desc)  r2desc.textContent  = t.ritual2Desc;
   var r2label = document.getElementById('ritual2-label'); if(r2label) r2label.textContent = t.ritual2Label;
@@ -1779,9 +2042,12 @@ function setLang(lang) {
   // 解讀頁
   var rtitle = document.getElementById('reading-title-text'); if(rtitle) rtitle.textContent = t.readingTitle;
   var shareblocktitle = document.getElementById('shareBlockTitle'); if(shareblocktitle) shareblocktitle.textContent = t.shareBlockTitle;
+  var sharelogo = document.getElementById('shareBlockLogo'); if(sharelogo) sharelogo.textContent = t.shareLogo;
   var sharehint = document.getElementById('shareHintText'); if(sharehint) sharehint.textContent = t.shareHint;
   var softtext = document.getElementById('softLinkText'); if(softtext) softtext.textContent = t.softLinkText;
   var softlink = document.getElementById('softLinkLabel'); if(softlink) softlink.textContent = t.softLinkLabel;
+  var sharebtn = document.getElementById('btn-share-text'); if(sharebtn) sharebtn.textContent = t.btnShare;
+  var restartbtn = document.getElementById('btn-restart-text'); if(restartbtn) restartbtn.textContent = t.btnRestart;
 
   // 歷史紀錄
   document.getElementById('history-page-title').textContent = t.historyTitle;
@@ -1789,39 +2055,19 @@ function setLang(lang) {
   document.getElementById('btn-clear-history').textContent = t.btnClearHistory;
 
   // 關於我
+  document.getElementById('about-label').textContent = t.aboutLabel;
   document.getElementById('about-main-title').textContent = t.aboutMainTitle;
-  document.getElementById('about-p1').textContent = t.aboutP1;
+  document.getElementById('about-p1').innerHTML = t.aboutP1;
   document.getElementById('about-s2').textContent = t.aboutS2;
-  document.getElementById('about-p2').textContent = t.aboutP2;
+  document.getElementById('about-p2').innerHTML = t.aboutP2;
   document.getElementById('about-s3').textContent = t.aboutS3;
-  document.getElementById('about-p3').textContent = t.aboutP3;
+  document.getElementById('about-p3').innerHTML = t.aboutP3;
   document.getElementById('about-s4').textContent = t.aboutS4;
-  document.getElementById('about-p4').textContent = t.aboutP4;
+  document.getElementById('about-p4').innerHTML = t.aboutP4;
   document.getElementById('about-s5').textContent = t.aboutS5;
-  document.getElementById('about-p5').textContent = t.aboutP5;
-
-  renderHistoryList();
-}
-  document.getElementById('nav-about').textContent = t.navAbout;
-  document.getElementById('intro-title-text').textContent = t.introTitle;
-  document.getElementById('intro-subtitle-text').textContent = t.introSubtitle;
-  document.getElementById('intro-desc-text').innerHTML = t.introDesc;
-  document.getElementById('intro-note-title').innerHTML = t.introNoteTitle;
-  document.getElementById('intro-note-body').innerHTML = t.introNoteBody;
-  document.getElementById('btn-start-text').textContent = t.btnStart;
-  document.getElementById('history-page-title').textContent = t.historyTitle;
-  document.getElementById('history-page-note').textContent = t.historyNote;
-  document.getElementById('btn-clear-history').textContent = t.btnClearHistory;
-  document.getElementById('about-main-title').textContent = t.aboutMainTitle;
-  document.getElementById('about-p1').textContent = t.aboutP1;
-  document.getElementById('about-s2').textContent = t.aboutS2;
-  document.getElementById('about-p2').textContent = t.aboutP2;
-  document.getElementById('about-s3').textContent = t.aboutS3;
-  document.getElementById('about-p3').textContent = t.aboutP3;
-  document.getElementById('about-s4').textContent = t.aboutS4;
-  document.getElementById('about-p4').textContent = t.aboutP4;
-  document.getElementById('about-s5').textContent = t.aboutS5;
-  document.getElementById('about-p5').textContent = t.aboutP5;
+  document.getElementById('about-p5').innerHTML = t.aboutP5;
+  document.getElementById('creator-label').textContent = t.creatorLabel;
+  document.getElementById('creator-text').innerHTML = t.creatorText;
 
   renderHistoryList();
 }
@@ -1836,10 +2082,11 @@ function autoDetectLang() {
 // ===== 歷史紀錄 =====
 function saveHistory(question, oils) {
   var records = JSON.parse(localStorage.getItem('aromaHistory') || '[]');
+  var localeMap = { zh: 'zh-TW', en: 'en-US', ja: 'ja-JP' };
   records.unshift({
-    date: new Date().toLocaleDateString('zh-TW', {year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'}),
+    date: new Date().toLocaleDateString(localeMap[currentLang] || 'zh-TW', {year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit'}),
     question: question || '',
-    oils: oils.map(function(o) { return o.name; })
+    oils: oils.map(function(o) { return { id: o.id, name: o.name }; })
   });
   if (records.length > 30) records = records.slice(0, 30);
   localStorage.setItem('aromaHistory', JSON.stringify(records));
@@ -1858,7 +2105,7 @@ function renderHistoryList() {
     return '<div class="history-item">'
       + '<div class="history-item-date">' + r.date + '</div>'
       + '<div class="history-item-question">' + (r.question || (currentLang === 'ja' ? '質問なし' : currentLang === 'en' ? 'No question' : '未填寫問題')) + '</div>'
-      + '<div class="history-item-oils">' + r.oils.join(' · ') + '</div>'
+      + '<div class="history-item-oils">' + formatHistoryOils(r.oils).join(' · ') + '</div>'
       + '</div>';
   }).join('');
 }
