@@ -1522,10 +1522,100 @@ async function renderSummary(container) {
 
 // ===== Claude API =====
 
+var useRemoteAiReading = false;
+
+function getDominantCategoryInfo(oils) {
+  var counts = {};
+  oils.forEach(function(o) {
+    counts[o.category] = (counts[o.category] || 0) + 1;
+  });
+
+  var sorted = Object.keys(counts).sort(function(a, b) {
+    return counts[b] - counts[a];
+  });
+
+  return {
+    primary: sorted[0] || '花香類',
+    secondary: sorted[1] || '',
+    primaryCount: counts[sorted[0]] || 0,
+    counts: counts
+  };
+}
+
+function buildLocalSummary(oils, question) {
+  var info = getDominantCategoryInfo(oils);
+  var firstOil = oils[0];
+  var lastOil = oils[oils.length - 1];
+  var firstName = getOilName(firstOil);
+  var lastName = getOilName(lastOil);
+  var firstKeyword = getOilKeyword(firstOil);
+  var lastKeyword = getOilKeyword(lastOil);
+  var primary = getCategoryText(info.primary).label;
+  var secondary = info.secondary ? getCategoryText(info.secondary).label : '';
+  var focusLevel = info.primaryCount >= 3 ? 'focused' : 'mixed';
+
+  var zhThemes = {
+    '花香類': '情感、關係與被溫柔接住的需求',
+    '柑橘類': '喜悅、流動與重新找回生活中的光',
+    '木質類': '穩定、根基與讓自己回到安全感',
+    '草本類': '清明、行動與把心裡的話整理出來',
+    '樹脂類': '修復、沉澱與慢慢釋放舊有重量'
+  };
+  var enThemes = {
+    '花香類': 'emotional care, relationships, and the need to be met gently',
+    '柑橘類': 'joy, movement, and the return of lightness',
+    '木質類': 'grounding, stability, and a safer inner base',
+    '草本類': 'clarity, action, and giving shape to what wants to be expressed',
+    '樹脂類': 'repair, depth, and the slow release of old weight'
+  };
+  var jaThemes = {
+    '花香類': '感情、関係性、そしてやさしく受け止められたい思い',
+    '柑橘類': '喜び、流れ、暮らしに光を取り戻すこと',
+    '木質類': '安定、根づき、内側の安心感へ戻ること',
+    '草本類': '明晰さ、行動、心の中の言葉を整えること',
+    '樹脂類': '修復、沈静、古い重さをゆっくり手放すこと'
+  };
+
+  if (currentLang === 'en') {
+    var enBlend = secondary ? primary + ' and ' + secondary : primary;
+    var enPattern = focusLevel === 'focused'
+      ? 'Because several of your choices gather around ' + primary + ', the message feels especially concentrated.'
+      : 'Because your five choices are spread across ' + enBlend + ', the message feels layered rather than one-note.';
+    return 'The five aromas you chose point toward ' + enThemes[info.primary] + '. ' + enPattern + '<br><br>'
+      + firstName + ' opens the reading with the theme of ' + firstKeyword + ', showing the place where your attention first wants to land. '
+      + lastName + ' closes it with ' + lastKeyword + ', offering a gentle direction for returning to balance.<br><br>'
+      + 'For now, let these aromas be a mirror of your present state: notice what feels heavy, what feels alive, and what small act of care would help you come back to yourself today.';
+  }
+
+  if (currentLang === 'ja') {
+    var jaBlend = secondary ? primary + 'と' + secondary : primary;
+    var jaPattern = focusLevel === 'focused'
+      ? primary + 'の香りが多く集まっているため、今回のメッセージは一つのテーマを強く示しています。'
+      : '五つの香りは' + jaBlend + 'をまたいでいて、今の状態が一つではなく複数の層で動いていることを示しています。';
+    return 'あなたが選んだ五つの香りは、' + jaThemes[info.primary] + 'に意識を向けるよう促しています。' + jaPattern + '<br><br>'
+      + '最初に現れた' + firstName + 'は「' + firstKeyword + '」を通して、今いちばん見つめたい入口を示しています。'
+      + '最後の' + lastName + 'は「' + lastKeyword + '」として、バランスへ戻るためのやさしい方向を添えています。<br><br>'
+      + '今は、重く感じるもの、まだ生きている感覚、そして今日の自分にできる小さなケアを静かに見つけてみてください。';
+  }
+
+  var zhBlend = secondary ? primary + '與' + secondary : primary;
+  var zhPattern = focusLevel === 'focused'
+    ? '因為這次有多支香氣集中在「' + primary + '」，整體訊息會比較聚焦，像是在提醒你同一個主題已經被身心反覆提起。'
+    : '因為這次五支香氣橫跨「' + zhBlend + '」，整體訊息不是單一答案，而是幾個內在狀態同時在浮現。';
+  return '你選擇的五支香氣，主要指向「' + (zhThemes[info.primary] || '當下身心狀態的整理') + '」。' + zhPattern + '<br><br>'
+    + '第一支「' + firstName + '」帶著「' + firstKeyword + '」的訊息，像是這次覺察的入口，指出你最先需要看見的內在感受。'
+    + '最後一支「' + lastName + '」則以「' + lastKeyword + '」作為收束，提醒你可以從哪個方向慢慢回到平衡。<br><br>'
+    + '此刻不需要急著得到結論，先觀察什麼讓你感到沉重，什麼又讓你還有一點力量。讓這五支香氣成為一面鏡子，陪你把今天的自己照顧回來。';
+}
 
 
 
 async function getOilReading(oil, position, question, allOils) {
+  if (!useRemoteAiReading) {
+    var localReadings = i18n[currentLang].demoReadings || i18n.zh.demoReadings;
+    return localReadings[oil.id] || getText('fallbackReading');
+  }
+
   var oilList = allOils.map(function(o, i) { return (i+1) + '. ' + getOilName(o) + '(' + o.latin + ')'; }).join('\n');
   var qText = question ? getText('aiQuestion').replace('{q}', question) : getText('aiNoQuestion');
   var spirits = getOilSpirits(oil);
@@ -1560,6 +1650,10 @@ async function getOilReading(oil, position, question, allOils) {
 }
 
 async function getSummaryReading(oils, question) {
+  if (!useRemoteAiReading) {
+    return buildLocalSummary(oils, question);
+  }
+
   var categories = [];
   oils.forEach(function(o) { if (categories.indexOf(o.category) === -1) categories.push(o.category); });
   var catEnergies = categories.map(function(c) { return getCategoryText(c).energy; }).filter(Boolean).join('；');
@@ -1590,7 +1684,7 @@ async function getSummaryReading(oils, question) {
     if (!text) throw new Error('no content');
     return text.replace(/\n/g, '<br>');
   } catch(e) {
-    return i18n[currentLang].demoSummary || i18n.zh.demoSummary;
+    return buildLocalSummary(oils, question);
   }
 }
 
